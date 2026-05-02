@@ -1327,9 +1327,35 @@
     .hero-stat-num { font-size: clamp(18px, 4vw, 26px); letter-spacing: -0.5px; }
     .hero-stat { padding: 16px 12px; }
 
-    /* -- Nav mobile: hide Log In ghost on small screens -- */
+    /* -- Nav mobile: hide all auth buttons, only hamburger remains -- */
     @media (max-width: 719px) {
-      .btn-nav-ghost { display: none; }
+      #nav-auth-out { display: none !important; }
+      #nav-auth-in .btn-nav-ghost { display: none !important; }
+    }
+
+    /* -- Hero mobile: inline buttons (override original stacked layout) -- */
+    @media (max-width: 600px) {
+      .hero-actions {
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        align-items: flex-start !important;
+      }
+      .hero-actions .btn {
+        width: auto !important;
+        flex: 1 1 auto !important;
+        justify-content: center !important;
+        font-size: 13px !important;
+        padding: 10px 16px !important;
+      }
+      .hero-waitlist-form {
+        flex-direction: row !important;
+      }
+      .hero-waitlist-form .btn {
+        width: auto !important;
+        white-space: nowrap !important;
+        font-size: 13px !important;
+        padding: 10px 16px !important;
+      }
     }
 
     /* -- Feature cells: tighter -- */
@@ -1400,13 +1426,14 @@
 <!-- ══ NAV ══ -->
 <nav>
   <div class="nav-logo" onclick="goHome()">
-    <div class="nav-logo-mark">
-      <svg viewBox="0 0 16 16" fill="none">
-        <rect x="1" y="5" width="6" height="6" rx="3" stroke="#000" stroke-width="1.6"/>
-        <rect x="9" y="5" width="6" height="6" rx="3" stroke="#000" stroke-width="1.6"/>
-        <path d="M7 8h2" stroke="#000" stroke-width="1.6" stroke-linecap="round"/>
-      </svg>
-    </div>
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="1" y="5.5" width="9" height="9" rx="4.5" stroke="white" stroke-width="1.8"/>
+      <rect x="13" y="5.5" width="9" height="9" rx="4.5" stroke="white" stroke-width="1.8"/>
+      <path d="M10 10h3" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+      <rect x="1" y="17.5" width="9" height="9" rx="4.5" stroke="rgba(255,255,255,0.25)" stroke-width="1.4"/>
+      <rect x="13" y="17.5" width="9" height="9" rx="4.5" stroke="rgba(255,255,255,0.25)" stroke-width="1.4"/>
+      <path d="M10 22h3" stroke="rgba(255,255,255,0.25)" stroke-width="1.4" stroke-linecap="round"/>
+    </svg>
     <span class="nav-logo-name">OnchainCreator</span>
   </div>
 
@@ -1463,6 +1490,12 @@
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-menu-link" onclick="openModal('join');toggleMenu()" style="color:var(--white);font-weight:700;border-bottom:1px solid var(--border);">
+    <span class="en-only">Get Started →</span><span class="jp-only">始める →</span>
+  </button>
+  <button class="mobile-menu-link" onclick="openModal('login');toggleMenu()">
+    <span class="en-only">Log In</span><span class="jp-only">ログイン</span>
+  </button>
   <button class="mobile-menu-link" onclick="showPage('how');toggleMenu()">
     <span class="en-only">How it Works</span><span class="jp-only">使い方</span>
   </button>
