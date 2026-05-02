@@ -1327,11 +1327,48 @@
     .hero-stat-num { font-size: clamp(18px, 4vw, 26px); letter-spacing: -0.5px; }
     .hero-stat { padding: 16px 12px; }
 
-    /* -- Nav mobile: hide all auth buttons, only hamburger remains -- */
+    /* -- Nav mobile: hide auth buttons and lang toggle, only logo + hamburger -- */
     @media (max-width: 719px) {
       #nav-auth-out { display: none !important; }
       #nav-auth-in .btn-nav-ghost { display: none !important; }
+      .nav-right .lang-toggle { display: none !important; }
     }
+
+    /* -- Mobile menu lang toggle at bottom -- */
+    .mobile-menu-lang {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0 4px;
+      margin-top: 8px;
+      border-top: 1px solid var(--border);
+    }
+    .mobile-menu-lang-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--gray-600);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    .mobile-lang-toggle {
+      display: flex;
+      background: var(--gray-800);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .mobile-lang-btn {
+      padding: 6px 14px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--gray-500);
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      transition: all 0.15s;
+    }
+    .mobile-lang-btn.active { background: var(--white); color: var(--black); }
 
     /* -- Hero mobile: inline buttons (override original stacked layout) -- */
     @media (max-width: 600px) {
@@ -1529,6 +1566,14 @@
   <button class="mobile-menu-link" onclick="showPage('contact');toggleMenu()">
     <span class="en-only">Contact</span><span class="jp-only">お問い合わせ</span>
   </button>
+  <div class="mobile-menu-lang">
+    <span class="mobile-menu-lang-label en-only">Language</span>
+    <span class="mobile-menu-lang-label jp-only">言語</span>
+    <div class="mobile-lang-toggle">
+      <button class="mobile-lang-btn active" id="mobile-btn-en" onclick="setLang('en')">EN</button>
+      <button class="mobile-lang-btn" id="mobile-btn-jp" onclick="setLang('jp')">JP</button>
+    </div>
+  </div>
 </div>
 
 <main>
@@ -3546,6 +3591,8 @@
     document.body.classList.toggle('jp', lang === 'jp');
     document.getElementById('btn-en').classList.toggle('active', lang === 'en');
     document.getElementById('btn-jp').classList.toggle('active', lang === 'jp');
+    document.getElementById('mobile-btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('mobile-btn-jp').classList.toggle('active', lang === 'jp');
     localStorage.setItem('oc_lang', lang);
   }
   // restore lang
