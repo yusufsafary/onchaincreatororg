@@ -1266,6 +1266,133 @@
       font-size:13px; color:var(--gray-600); font-family:var(--font-mono);
     }
 
+    /* ════════════════════════════════════════
+       MINIMALIST DESIGN OVERRIDES
+    ════════════════════════════════════════ */
+
+    /* -- Typography: more refined scale -- */
+    h1.display {
+      font-size: clamp(34px, 6.5vw, 64px);
+      letter-spacing: -2px;
+      line-height: 1.02;
+    }
+    h2.section-h {
+      font-size: clamp(24px, 4vw, 40px);
+      letter-spacing: -1px;
+      line-height: 1.1;
+    }
+
+    /* -- Section spacing: tighter -- */
+    section { padding: 72px 0; }
+    @media (min-width: 720px) { section { padding: 96px 0; } }
+
+    /* -- Hero: proportional -- */
+    .hero { padding: 48px 0; }
+    .hero-eyebrow { margin-bottom: 24px; }
+    .eyebrow-text { font-size: 10px; letter-spacing: 1px; }
+    .hero-title { margin-bottom: 20px; }
+    .hero-body { margin-bottom: 28px; }
+    .hero-actions { margin-bottom: 20px; gap: 10px; }
+    .hero-waitlist { margin-bottom: 36px; }
+    .hero-waitlist-form { max-width: 420px; }
+
+    /* -- Hero mobile: keep buttons inline, not stacked -- */
+    @media (max-width: 600px) {
+      .hero { padding: 32px 0; }
+      .hero-actions {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+      }
+      .hero-actions .btn {
+        width: auto;
+        flex: 1 1 auto;
+        justify-content: center;
+        min-width: 0;
+        font-size: 13px;
+        padding: 10px 16px;
+      }
+      .hero-waitlist-form {
+        flex-direction: row;
+      }
+      .hero-waitlist-form .btn {
+        width: auto;
+        white-space: nowrap;
+        font-size: 13px;
+        padding: 10px 16px;
+      }
+    }
+
+    /* -- Stat numbers: tighter -- */
+    .hero-stat-num { font-size: clamp(18px, 4vw, 26px); letter-spacing: -0.5px; }
+    .hero-stat { padding: 16px 12px; }
+
+    /* -- Nav mobile: hide Log In ghost on small screens -- */
+    @media (max-width: 719px) {
+      .btn-nav-ghost { display: none; }
+    }
+
+    /* -- Feature cells: tighter -- */
+    .feature-cell { padding: 22px 20px; }
+    .feature-icon { font-size: 18px; margin-bottom: 10px; }
+    .feature-name { font-size: 13px; }
+    .feature-desc { font-size: 12px; }
+
+    /* -- Role cards: tighter -- */
+    .role-card { padding: 24px 22px; }
+    .role-title { font-size: 19px; }
+    .role-desc { font-size: 12px; }
+    .role-item { font-size: 12px; }
+
+    /* -- Niche tags: more compact -- */
+    .niche-tag { padding: 6px 13px; font-size: 12px; }
+    .niche-wrap { gap: 6px; margin-top: 28px; }
+
+    /* -- CTA box: less padded -- */
+    .cta-box { padding: 48px 24px; border-radius: 14px; }
+
+    /* -- Blog/careers cards: tighter -- */
+    .blog-card { padding: 22px; }
+    .blog-card-title { font-size: 15px; }
+
+    /* -- Howto steps: tighter -- */
+    .howto-step { padding: 32px 0; }
+    .step-title { font-size: 16px; }
+    .step-body { font-size: 13px; }
+
+    /* -- Camp cards: tighter -- */
+    .camp-card { padding: 18px; gap: 10px; }
+    .camp-title { font-size: 14px; }
+    .camp-desc { font-size: 12px; }
+
+    /* -- Cookie banner: minimal -- */
+    .cookie-banner {
+      padding: 12px 16px;
+      border-radius: 10px;
+      gap: 12px;
+    }
+    .cookie-text { font-size: 12px; line-height: 1.5; }
+    .cookie-accept { padding: 6px 14px; font-size: 11px; }
+    .cookie-decline { padding: 6px 12px; font-size: 11px; }
+
+    /* -- Footer: tighter -- */
+    footer { padding: 40px 0 24px; }
+    .footer-grid { margin-bottom: 28px; }
+
+    /* -- Modal: slightly tighter -- */
+    .modal-box { padding: 28px; }
+    .modal-title { font-size: 18px; }
+
+    /* -- Sub text: consistent -- */
+    .sub { font-size: 14px; line-height: 1.65; }
+
+    /* -- Label: tighter bottom margin -- */
+    .label { margin-bottom: 14px; font-size: 10px; }
+
+    /* -- Ticker: slightly smaller -- */
+    .ticker-wrap { padding: 9px 0; }
+    .ticker-item { font-size: 9px; }
+
   </style>
 </head>
 <body>
