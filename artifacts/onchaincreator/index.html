@@ -1607,6 +1607,119 @@
       }
       .btn-buy-ocr:hover { opacity: 0.82; }
   
+
+      /* ════ VISUAL POLISH ════ */
+
+      /* Hero ambient glow */
+      .hero { position: relative; overflow: hidden; }
+      .hero::before {
+        content: '';
+        position: absolute;
+        width: 900px; height: 900px;
+        top: -350px; left: -250px;
+        background: radial-gradient(circle, rgba(153,69,255,0.1) 0%, transparent 65%);
+        pointer-events: none; z-index: 0;
+      }
+      .hero > .container { position: relative; z-index: 1; }
+
+      /* Hero stat numbers gradient */
+      .hero-stat-num {
+        background: linear-gradient(140deg,#fff 55%,rgba(153,69,255,0.75) 100%);
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* Blog tag colors by data-tag */
+      .blog-tag { border: 1px solid transparent; transition: all 0.15s; }
+      .blog-tag[data-tag="Guide"]     { background:rgba(59,130,246,0.12); color:#60a5fa; border-color:rgba(59,130,246,0.3); }
+      .blog-tag[data-tag="Ecosystem"] { background:rgba(34,197,94,0.1);  color:#4ade80; border-color:rgba(34,197,94,0.25); }
+      .blog-tag[data-tag="Platform"]  { background:rgba(153,69,255,0.12); color:rgba(153,69,255,1); border-color:rgba(153,69,255,0.3); }
+      .blog-tag[data-tag="Creators"]  { background:rgba(251,146,60,0.1);  color:#fb923c; border-color:rgba(251,146,60,0.25); }
+
+      /* Blog card hover polish */
+      .blog-card { transition: border-color 0.2s, transform 0.2s, background 0.2s; cursor: pointer; }
+      .blog-card:hover { border-color: rgba(255,255,255,0.2) !important; background: rgba(255,255,255,0.03) !important; transform: translateY(-2px); }
+
+      /* Career card hover */
+      .careers-card { transition: border-color 0.2s, transform 0.2s; cursor: pointer; }
+      .careers-card:hover { border-color: rgba(255,255,255,0.18) !important; transform: translateY(-1px); }
+
+      /* Btn white glow */
+      .btn-white:hover { box-shadow: 0 0 28px rgba(255,255,255,0.14); }
+
+      /* Hero waitlist input focus */
+      .hero-waitlist-input:focus { outline:none; border-color:rgba(255,255,255,0.35); box-shadow:0 0 0 3px rgba(255,255,255,0.06); }
+
+      /* Waitlist count accent */
+      .waitlist-count { color:rgba(153,69,255,0.9); font-weight:700; }
+
+      /* ════ ARTICLE OVERLAY ════ */
+      .article-overlay {
+        position:fixed; inset:0; z-index:600;
+        background:rgba(0,0,0,0.9); backdrop-filter:blur(14px);
+        display:none; align-items:flex-start; justify-content:center;
+        padding:24px 16px; overflow-y:auto;
+      }
+      .article-overlay.open { display:flex; }
+      .article-box {
+        background:#0d0d0d; border:1px solid rgba(255,255,255,0.13);
+        border-radius:16px; max-width:760px; width:100%;
+        padding:52px 56px 52px; position:relative; margin:auto;
+      }
+      @media(max-width:640px){ .article-box{ padding:36px 24px; } }
+      .article-close {
+        position:absolute; top:18px; right:18px;
+        background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1);
+        color:var(--gray-400); font-size:19px; cursor:pointer;
+        width:36px; height:36px; border-radius:8px;
+        display:flex; align-items:center; justify-content:center; transition:all 0.15s;
+      }
+      .article-close:hover{ background:rgba(255,255,255,0.13); color:#fff; }
+      .art-tag-row { display:flex; align-items:center; gap:12px; margin-bottom:18px; flex-wrap:wrap; }
+      .art-tag { display:inline-block; padding:3px 10px; border-radius:5px; font-size:10px; font-family:var(--font-mono); font-weight:700; letter-spacing:0.6px; border:1px solid transparent; }
+      .art-meta { font-family:var(--font-mono); font-size:11px; color:var(--gray-500); }
+      .art-h { font-size:clamp(22px,4vw,32px); font-weight:800; letter-spacing:-0.8px; line-height:1.18; margin-bottom:26px; }
+      .art-divider { height:1px; background:var(--border); margin:24px 0; }
+      .art-body p { font-size:15px; color:var(--gray-200); line-height:1.88; margin-bottom:18px; }
+      .art-body h3 { font-size:17px; font-weight:700; letter-spacing:-0.3px; margin:30px 0 10px; color:#fff; }
+      .art-body ul { padding-left:20px; margin-bottom:18px; }
+      .art-body li { font-size:14.5px; color:var(--gray-200); line-height:1.8; margin-bottom:5px; }
+      .art-body strong { color:#fff; }
+      .art-cta { margin-top:36px; padding-top:22px; border-top:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px; }
+      .art-cta-text { font-size:13px; color:var(--gray-400); }
+
+      /* ════ CAREER OVERLAY ════ */
+      .career-overlay {
+        position:fixed; inset:0; z-index:600;
+        background:rgba(0,0,0,0.9); backdrop-filter:blur(14px);
+        display:none; align-items:flex-start; justify-content:center;
+        padding:24px 16px; overflow-y:auto;
+      }
+      .career-overlay.open { display:flex; }
+      .career-box {
+        background:#0d0d0d; border:1px solid rgba(255,255,255,0.13);
+        border-radius:16px; max-width:680px; width:100%;
+        padding:52px; position:relative; margin:auto;
+      }
+      @media(max-width:640px){ .career-box{ padding:36px 24px; } }
+      .career-close {
+        position:absolute; top:18px; right:18px;
+        background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1);
+        color:var(--gray-400); font-size:19px; cursor:pointer;
+        width:36px; height:36px; border-radius:8px;
+        display:flex; align-items:center; justify-content:center; transition:all 0.15s;
+      }
+      .career-close:hover{ background:rgba(255,255,255,0.13); color:#fff; }
+      .career-dept-badge { display:inline-flex; align-items:center; gap:6px; padding:4px 11px; border-radius:6px; font-size:11px; font-family:var(--font-mono); font-weight:600; letter-spacing:0.5px; margin-bottom:16px; }
+      .career-h { font-size:clamp(22px,3.5vw,29px); font-weight:800; letter-spacing:-0.7px; line-height:1.2; margin-bottom:14px; }
+      .career-detail-meta { display:flex; gap:14px; flex-wrap:wrap; margin-bottom:26px; }
+      .career-detail-meta span { font-family:var(--font-mono); font-size:12px; color:var(--gray-400); }
+      .career-sec-title { font-size:11px; font-family:var(--font-mono); color:var(--gray-500); text-transform:uppercase; letter-spacing:1.3px; margin:22px 0 9px; }
+      .career-body p { font-size:14.5px; color:var(--gray-300); line-height:1.82; margin-bottom:12px; }
+      .career-body ul { padding-left:18px; margin-bottom:10px; }
+      .career-body li { font-size:14px; color:var(--gray-300); line-height:1.78; margin-bottom:5px; }
+      .career-apply-row { margin-top:32px; padding-top:22px; border-top:1px solid var(--border); display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+  
 </style>
 </head>
 <body>
@@ -1799,7 +1912,7 @@
           <span class="en-only">You're on the list — we'll be in touch soon.</span>
           <span class="jp-only">登録完了！近日中にご連絡します。</span>
         </div>
-        <p class="hero-waitlist-note en-only">Free to join · 1,200+ creators already signed up</p>
+        <p class="hero-waitlist-note en-only" id="waitlist-note-en">Free to join · <span id="waitlist-count-en" class="waitlist-count">1,200+</span> creators already signed up</p>
         <p class="hero-waitlist-note jp-only">無料 · 1,200人以上が登録済み</p>
       </div>
 
@@ -2721,43 +2834,43 @@
       <p class="sub jp-only" style="margin-bottom:48px; font-family:var(--font-jp);">OnchainCreatorチームからのニュース、ガイド、考察。</p>
 
       <div class="blog-grid reveal">
-        <div class="blog-card" style="cursor:pointer;" onclick="openModal('join')">
-          <div class="blog-tag">Guide</div>
-          <div class="blog-card-title">How to Land Your First Web3 Creator Deal</div>
-          <div class="blog-card-sub">A step-by-step playbook for new creators joining the platform — from profile setup to getting your first paid campaign.</div>
-          <div class="blog-card-meta">Jan 15, 2025 · 8 min read</div>
+          <div class="blog-card" onclick="openArticle(0)">
+            <div class="blog-tag" data-tag="Guide">Guide</div>
+            <div class="blog-card-title">How to Land Your First Web3 Creator Deal</div>
+            <div class="blog-card-sub">A step-by-step playbook for new creators joining the platform — from profile setup to getting your first paid campaign.</div>
+            <div class="blog-card-meta">Jan 15, 2025 · 8 min read</div>
+          </div>
+          <div class="blog-card" onclick="openArticle(1)">
+            <div class="blog-tag" data-tag="Ecosystem">Ecosystem</div>
+            <div class="blog-card-title">Why Onchain Projects Need Creator Marketing in 2025</div>
+            <div class="blog-card-sub">Community-driven content outperforms traditional advertising for Web3 projects. Here's the data behind the trend.</div>
+            <div class="blog-card-meta">Jan 8, 2025 · 6 min read</div>
+          </div>
+          <div class="blog-card" onclick="openArticle(2)">
+            <div class="blog-tag" data-tag="Platform">Platform</div>
+            <div class="blog-card-title">Introducing Verified Creator Profiles</div>
+            <div class="blog-card-sub">We're rolling out verified follower counts and social proof scores — here's how it works and why it matters for trust.</div>
+            <div class="blog-card-meta">Dec 20, 2024 · 4 min read</div>
+          </div>
+          <div class="blog-card" onclick="openArticle(3)">
+            <div class="blog-tag" data-tag="Creators">Creators</div>
+            <div class="blog-card-title">Setting Your Rate as a Web3 Creator</div>
+            <div class="blog-card-sub">Pricing your work is one of the hardest parts of being a creator. We break down what campaigns pay and how to position yourself.</div>
+            <div class="blog-card-meta">Dec 10, 2024 · 7 min read</div>
+          </div>
+          <div class="blog-card" onclick="openArticle(4)">
+            <div class="blog-tag" data-tag="Ecosystem">Ecosystem</div>
+            <div class="blog-card-title">The State of Web3 Content in 2024</div>
+            <div class="blog-card-sub">How content creation evolved across DeFi, NFTs, and L2s last year — and what trends will shape 2025.</div>
+            <div class="blog-card-meta">Dec 1, 2024 · 10 min read</div>
+          </div>
+          <div class="blog-card" onclick="openArticle(5)">
+            <div class="blog-tag" data-tag="Platform">Platform</div>
+            <div class="blog-card-title">OnchainCreator Open Beta: What's Live Now</div>
+            <div class="blog-card-sub">A full walkthrough of everything available in the beta — campaign board, deals, messaging, and reviews.</div>
+            <div class="blog-card-meta">Nov 20, 2024 · 5 min read</div>
+          </div>
         </div>
-        <div class="blog-card">
-          <div class="blog-tag">Ecosystem</div>
-          <div class="blog-card-title">Why Onchain Projects Need Creator Marketing in 2025</div>
-          <div class="blog-card-sub">Community-driven content outperforms traditional advertising for Web3 projects. Here's the data behind the trend.</div>
-          <div class="blog-card-meta">Jan 8, 2025 · 6 min read</div>
-        </div>
-        <div class="blog-card">
-          <div class="blog-tag">Platform</div>
-          <div class="blog-card-title">Introducing Verified Creator Profiles</div>
-          <div class="blog-card-sub">We're rolling out verified follower counts and social proof scores — here's how it works and why it matters for trust.</div>
-          <div class="blog-card-meta">Dec 20, 2024 · 4 min read</div>
-        </div>
-        <div class="blog-card">
-          <div class="blog-tag">Creators</div>
-          <div class="blog-card-title">Setting Your Rate as a Web3 Creator</div>
-          <div class="blog-card-sub">Pricing your work is one of the hardest parts of being a creator. We break down what campaigns pay and how to position yourself.</div>
-          <div class="blog-card-meta">Dec 10, 2024 · 7 min read</div>
-        </div>
-        <div class="blog-card">
-          <div class="blog-tag">Ecosystem</div>
-          <div class="blog-card-title">The State of Web3 Content in 2024</div>
-          <div class="blog-card-sub">How content creation evolved across DeFi, NFTs, and L2s last year — and what trends will shape 2025.</div>
-          <div class="blog-card-meta">Dec 1, 2024 · 10 min read</div>
-        </div>
-        <div class="blog-card">
-          <div class="blog-tag">Platform</div>
-          <div class="blog-card-title">OnchainCreator Open Beta: What's Live Now</div>
-          <div class="blog-card-sub">A full walkthrough of everything available in the beta — campaign board, deals, messaging, and reviews.</div>
-          <div class="blog-card-meta">Nov 20, 2024 · 5 min read</div>
-        </div>
-      </div>
 
       <div style="text-align:center; margin-top:32px;">
         <p style="font-family:var(--font-mono); font-size:12px; color:var(--gray-600); margin-bottom:14px;">
@@ -2790,62 +2903,42 @@
       <p class="sub jp-only" style="margin-bottom:48px; font-family:var(--font-jp);">Web3のクリエイターエコノミーを構築するリモートファーストの小さなチームです。</p>
 
       <div class="careers-grid reveal">
-        <div class="careers-card" onclick="openModal('join')">
-          <div class="careers-info">
-            <div class="careers-role">Senior Full-Stack Engineer</div>
-            <div class="careers-meta">
-              <span>⚙️ Engineering</span>
-              <span>🌍 Remote</span>
-              <span>💼 Full-time</span>
+          <div class="careers-card" onclick="openCareer(0)">
+            <div class="careers-info">
+              <div class="careers-role">Senior Full-Stack Engineer</div>
+              <div class="careers-meta"><span>⚙️ Engineering</span><span>🌍 Remote</span><span>💼 Full-time</span></div>
             </div>
+            <button class="btn btn-outline" style="font-size:12px;padding:8px 16px;flex-shrink:0;" onclick="event.stopPropagation();openCareer(0)">View &amp; Apply</button>
           </div>
-          <button class="btn btn-outline" style="font-size:12px; padding:8px 16px; flex-shrink:0;">Apply</button>
-        </div>
-        <div class="careers-card" onclick="openModal('join')">
-          <div class="careers-info">
-            <div class="careers-role">Head of Creator Partnerships</div>
-            <div class="careers-meta">
-              <span>🤝 Growth</span>
-              <span>🌍 Remote</span>
-              <span>💼 Full-time</span>
+          <div class="careers-card" onclick="openCareer(1)">
+            <div class="careers-info">
+              <div class="careers-role">Head of Creator Partnerships</div>
+              <div class="careers-meta"><span>🤝 Growth</span><span>🌍 Remote</span><span>💼 Full-time</span></div>
             </div>
+            <button class="btn btn-outline" style="font-size:12px;padding:8px 16px;flex-shrink:0;" onclick="event.stopPropagation();openCareer(1)">View &amp; Apply</button>
           </div>
-          <button class="btn btn-outline" style="font-size:12px; padding:8px 16px; flex-shrink:0;">Apply</button>
-        </div>
-        <div class="careers-card" onclick="openModal('join')">
-          <div class="careers-info">
-            <div class="careers-role">Product Designer</div>
-            <div class="careers-meta">
-              <span>🎨 Design</span>
-              <span>🌍 Remote</span>
-              <span>💼 Full-time</span>
+          <div class="careers-card" onclick="openCareer(2)">
+            <div class="careers-info">
+              <div class="careers-role">Product Designer</div>
+              <div class="careers-meta"><span>🎨 Design</span><span>🌍 Remote</span><span>💼 Full-time</span></div>
             </div>
+            <button class="btn btn-outline" style="font-size:12px;padding:8px 16px;flex-shrink:0;" onclick="event.stopPropagation();openCareer(2)">View &amp; Apply</button>
           </div>
-          <button class="btn btn-outline" style="font-size:12px; padding:8px 16px; flex-shrink:0;">Apply</button>
-        </div>
-        <div class="careers-card" onclick="openModal('join')">
-          <div class="careers-info">
-            <div class="careers-role">Web3 Content Strategist</div>
-            <div class="careers-meta">
-              <span>✍️ Marketing</span>
-              <span>🌍 Remote</span>
-              <span>🕐 Part-time / Contract</span>
+          <div class="careers-card" onclick="openCareer(3)">
+            <div class="careers-info">
+              <div class="careers-role">Web3 Content Strategist</div>
+              <div class="careers-meta"><span>✍️ Marketing</span><span>🌍 Remote</span><span>🕐 Part-time / Contract</span></div>
             </div>
+            <button class="btn btn-outline" style="font-size:12px;padding:8px 16px;flex-shrink:0;" onclick="event.stopPropagation();openCareer(3)">View &amp; Apply</button>
           </div>
-          <button class="btn btn-outline" style="font-size:12px; padding:8px 16px; flex-shrink:0;">Apply</button>
-        </div>
-        <div class="careers-card" onclick="openModal('join')">
-          <div class="careers-info">
-            <div class="careers-role">Community Manager</div>
-            <div class="careers-meta">
-              <span>💬 Community</span>
-              <span>🌍 Remote</span>
-              <span>💼 Full-time</span>
+          <div class="careers-card" onclick="openCareer(4)">
+            <div class="careers-info">
+              <div class="careers-role">Community Manager</div>
+              <div class="careers-meta"><span>💬 Community</span><span>🌍 Remote</span><span>💼 Full-time</span></div>
             </div>
+            <button class="btn btn-outline" style="font-size:12px;padding:8px 16px;flex-shrink:0;" onclick="event.stopPropagation();openCareer(4)">View &amp; Apply</button>
           </div>
-          <button class="btn btn-outline" style="font-size:12px; padding:8px 16px; flex-shrink:0;">Apply</button>
         </div>
-      </div>
 
       <div style="padding:28px; border:1px solid var(--border); border-radius:var(--r); background:var(--gray-900); text-align:center; max-width:560px; margin:0 auto;">
         <div class="label" style="justify-content:center; display:flex; margin-bottom:12px;">
@@ -3838,7 +3931,11 @@
 
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
-      if (document.getElementById('swap-overlay').classList.contains('open')) { closeSwapModal(); }
+      var ao = document.getElementById('article-overlay');
+      var co = document.getElementById('career-overlay');
+      if (ao && ao.classList.contains('open')) { closeArticle(); }
+      else if (co && co.classList.contains('open')) { closeCareer(); }
+      else if (document.getElementById('swap-overlay').classList.contains('open')) { closeSwapModal(); }
       else { closeModalDirect(); }
     }
   });
@@ -3889,6 +3986,7 @@
       var res; try { res = await fetch('/api/waitlist', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name, email, twitter, chain, role: currentRole }) }); } catch(e) { res = null; }
       var data = res ? (await res.json().catch(()=>({}))) : {};
       if (!res || res.ok) {
+        saveWaitlistEmail(email); updateWaitlistCount();
         document.querySelector('.modal-form').style.display = 'none';
         var success = document.getElementById('modal-success');
         if (!success) {
@@ -3934,6 +4032,7 @@
     try {
       var res; try { res = await fetch('/api/waitlist', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, role: 'creator' }) }); } catch(e) { res = null; }
       if (!res || res.ok) {
+        saveWaitlistEmail(email); updateWaitlistCount();
         document.getElementById('hero-waitlist-form').style.display = 'none';
         document.getElementById('hero-waitlist-success').style.display = 'flex';
       } else {
@@ -4156,6 +4255,105 @@
     t.classList.add('show');
     setTimeout(function() { t.classList.remove('show'); }, 3500);
   }
+
+    // ── ARTICLE DATA ──
+    var ARTICLES = [
+      { tag:'Guide', tc:'#60a5fa', bg:'rgba(59,130,246,0.12)', bc:'rgba(59,130,246,0.3)',
+        title:'How to Land Your First Web3 Creator Deal', date:'Jan 15, 2025', read:'8 min read',
+        body:'<h3>Build a Profile That Projects Trust</h3><p>Your OnchainCreator profile is your pitch deck. Connect your Twitter/X and YouTube accounts so your follower counts are verified — projects filter for creators who have already proven their reach. Add a short bio that communicates your niche clearly: DeFi, NFTs, gaming, infrastructure, or Solana ecosystem.</p><h3>Browse Campaigns by Fit, Not Just Budget</h3><p>The Campaign Board lets you filter by chain, budget range, and content type. Resist the temptation to apply to every listing. A DeFi protocol looking for a yield-farming explainer is a bad fit for a gaming creator. Apply to three well-matched campaigns rather than thirty random ones.</p><h3>Write a Pitch That References the Project</h3><p>The biggest mistake new creators make is sending a generic application. Mention the project’s most recent announcement. Explain specifically what angle you would take — will you compare their AMM to Uniswap? A specific pitch converts 4–6× better than a template.</p><h3>Setting Your First Rate</h3><p>For creators with 1K–10K engaged followers, a starting range of $30–$80 per deliverable is realistic. Payment is settled in USDC or SOL directly to your wallet — no invoices, no 45-day payment terms.</p>'
+      },
+      { tag:'Ecosystem', tc:'#4ade80', bg:'rgba(34,197,94,0.1)', bc:'rgba(34,197,94,0.25)',
+        title:'Why Onchain Projects Need Creator Marketing in 2025', date:'Jan 8, 2025', read:'6 min read',
+        body:'<h3>The Trust Gap in Web3 Advertising</h3><p>Banner ads and Twitter promoted posts achieve click-through rates below 0.1% in the crypto space. Web3 users are trained to be skeptical — they’ve seen too many rugpulls and overpromised products. What they trust is community members who actually hold the token and talk about it with genuine conviction.</p><h3>Community-First Content Outperforms Every Alternative</h3><p>A 2024 analysis of 340 DeFi protocol campaigns found that creator-driven content generated 3.8× higher wallet connection rates compared to banner advertising, and 6× higher retention of users onboarded through creator referrals versus paid search. The reason is simple: a creator who explains a protocol from their own account is vouching for it with their reputation.</p><h3>Verified Metrics Change the Calculus</h3><p>The challenge has always been fake followers and inflated engagement. OnchainCreator addresses this directly by verifying follower counts via OAuth, tracking on-chain creator wallet activity, and building a review system where projects rate creators after every campaign. A creator with 8,000 verified followers and a 4.9-star rating is more valuable than an unverified account claiming 50,000.</p>'
+      },
+      { tag:'Platform', tc:'rgba(153,69,255,1)', bg:'rgba(153,69,255,0.12)', bc:'rgba(153,69,255,0.3)',
+        title:'Introducing Verified Creator Profiles', date:'Dec 20, 2024', read:'4 min read',
+        body:'<h3>What Gets Verified — and How</h3><p>Verified Creator Profiles are built around three pillars: social reach, onchain activity, and campaign history. Social reach is verified by connecting your Twitter/X and YouTube accounts via official OAuth. We pull your real follower counts directly from the API — no self-reporting, no estimates.</p><h3>The Social Proof Score</h3><p>Beyond raw follower counts, every creator earns a Social Proof Score calculated from engagement rate (averaged over 30 days), the number of completed campaigns on the platform, and the star rating from project reviews. A creator with 5,000 followers, a 6% engagement rate, and four 5-star reviews will appear higher in project search results than an unverified creator with 50,000 followers.</p><h3>Why This Matters for Trust in Web3</h3><p>Fake influence is endemic in crypto. Projects have lost six-figure budgets to creators who rented bot followers. Our verification layer makes it significantly harder to game the system. Each verification is timestamped and linked to a public wallet address — auditable by any project before signing a deal.</p>'
+      },
+      { tag:'Creators', tc:'#fb923c', bg:'rgba(251,146,60,0.1)', bc:'rgba(251,146,60,0.25)',
+        title:'Setting Your Rate as a Web3 Creator', date:'Dec 10, 2024', read:'7 min read',
+        body:'<h3>Rate Tiers by Audience Size</h3><p>As a rough guide: nano creators (1K–10K followers) typically earn $30–$120 per deliverable; micro creators (10K–50K) earn $120–$500; mid-tier (50K–200K) earn $500–$2,500; and top-tier above 200K can command $2,500–$15,000 for a single deliverable. These numbers vary significantly based on niche and engagement rate.</p><h3>Niche Premium and Engagement Rate</h3><p>DeFi and infrastructure content commands a premium over general "crypto" content because the audience is more decision-ready. A 5,000-follower account that exclusively covers Solana DeFi, with a 9% engagement rate, is more valuable to a Solana protocol than a 30,000-follower general crypto account with 1.2% engagement.</p><h3>Negotiate the Structure, Not Just the Number</h3><p>Consider asking for a combination of USDC base pay plus a token allocation with a 3–6 month vesting cliff. This aligns you with the project’s success and often increases total compensation. All payment terms on OnchainCreator are enforced via on-chain escrow, so you receive funds when you deliver — not 45 days later.</p>'
+      },
+      { tag:'Ecosystem', tc:'#4ade80', bg:'rgba(34,197,94,0.1)', bc:'rgba(34,197,94,0.25)',
+        title:'The State of Web3 Content in 2024', date:'Dec 1, 2024', read:'10 min read',
+        body:'<h3>DeFi Content: From Ape to Analyze</h3><p>2024 saw a marked shift in DeFi content from "how do I maximize yield right now" toward "how do these protocols actually work." The collapse of several high-yield farming schemes in 2023 created an audience that now actively rewards creators who explain mechanisms, audit summaries, and risk frameworks. Creators who built educational DeFi content in 2024 saw 40% higher engagement than those running yield-maximizing playbooks from 2022.</p><h3>NFTs: Smaller Audience, Higher Quality</h3><p>Overall NFT content volume declined by roughly 60% compared to the 2021 peak, but the remaining audience is significantly more sophisticated. Creators who pivoted to art curation and collector education outperformed those still chasing PFP speculation narratives.</p><h3>L2 Ecosystem Explosion — and Solana’s Return</h3><p>Base, Arbitrum, and Optimism collectively drove the most creator campaign volume in 2024. Meanwhile, Solana’s resurgence — driven by meme coin activity, DePIN projects, and consumer apps — brought a new wave of creator demand specifically for Solana-native content. We expect this trend to accelerate through 2025.</p>'
+      },
+      { tag:'Platform', tc:'rgba(153,69,255,1)', bg:'rgba(153,69,255,0.12)', bc:'rgba(153,69,255,0.3)',
+        title:'OnchainCreator Open Beta: What’s Live Now', date:'Nov 20, 2024', read:'5 min read',
+        body:'<h3>Campaign Board</h3><p>The Campaign Board is live with filter options by chain (Ethereum, Base, Solana, Arbitrum), budget range, and content type. Projects list campaigns with clear deliverable requirements, timelines, and payment terms. Creators apply with a pitch and a portfolio link.</p><h3>Deal Flow &amp; On-Chain Payments</h3><p>Once a project selects a creator, the deal moves to the Deal Flow stage. Payment is locked into an on-chain escrow smart contract. When the creator submits their deliverable and the project approves it, payment releases instantly to the creator’s wallet. No invoices, no payment delays.</p><h3>Coming Soon in v0.2</h3><p>The next release will add in-platform messaging, a two-way review system where both creators and projects rate each other, and AI-powered campaign matching. Waitlist members will get early access to each feature as it ships.</p>'
+      }
+    ];
+
+    // ── CAREER DATA ──
+    var CAREER_DATA = [
+      { title:'Senior Full-Stack Engineer', dept:'Engineering', dc:'#3b82f6', db:'rgba(59,130,246,0.1)', type:'Full-time', loc:'Remote',
+        desc:"You’ll build the core platform: campaign board, deal management flows, on-chain payment integration, and creator/project dashboards. You’ll work across a TypeScript/Node.js backend, React frontend, and Solana + EVM integrations.",
+        resp:['Design and build RESTful APIs for campaign management and user flows','Integrate Solana web3.js and ethers.js for on-chain escrow and payment rails','Build real-time features using WebSockets','Own database schema design with PostgreSQL and Supabase','Conduct code reviews and set engineering standards for a growing team'],
+        req:['4+ years of full-stack experience (Node.js, TypeScript, React)','Experience with on-chain development (Solana or EVM)','Solid understanding of authentication flows (OAuth, JWT, Supabase Auth)','Comfort shipping fast in an early-stage environment','Genuine interest in the Web3 creator economy']
+      },
+      { title:'Head of Creator Partnerships', dept:'Growth', dc:'#22c55e', db:'rgba(34,197,94,0.1)', type:'Full-time', loc:'Remote',
+        desc:"You’ll build and own the creator supply side of the marketplace — recruiting top Web3 creators, managing relationships, and developing the programs that keep creators active and earning on the platform.",
+        resp:['Identify and recruit mid-tier and top-tier Web3 creators across Twitter/X, YouTube, and TikTok','Develop creator onboarding programs, rate guides, and educational materials','Build long-term relationships with creators and serve as their primary platform contact','Work with projects to structure campaigns that maximize creator fit and ROI'],
+        req:['3+ years in creator partnerships, influencer marketing, or talent management','Deep familiarity with Crypto Twitter — you know who the key voices are','Strong relationship-building skills; creators trust you','Existing network of Web3 creators is a major plus']
+      },
+      { title:'Product Designer', dept:'Design', dc:'#a855f7', db:'rgba(168,85,247,0.1)', type:'Full-time', loc:'Remote',
+        desc:"You’ll design the end-to-end product experience for both creators and projects — from onboarding flows to campaign dashboards to deal management UIs. You’ll own the design system and work directly with engineering to ship.",
+        resp:['Design creator and project user flows from discovery through deal completion','Build and maintain a consistent design system in Figma','Run user research sessions with creators and project teams','Design mobile-responsive interfaces that work across devices'],
+        req:['3+ years of product design experience, preferably in B2B or marketplace products','Expert Figma skills and a strong portfolio of shipped products','Understanding of Web3 UX patterns (wallets, transactions, signing)','Ability to design fast in ambiguous, early-stage environments']
+      },
+      { title:'Web3 Content Strategist', dept:'Marketing', dc:'#f97316', db:'rgba(249,115,22,0.1)', type:'Part-time / Contract', loc:'Remote',
+        desc:"You’ll create the content that educates creators and projects about the platform, grows our organic reach, and establishes OnchainCreator as a thought leader in the Web3 creator economy.",
+        resp:['Write blog posts, guides, and tutorials for creators and Web3 projects','Develop Twitter/X content strategy and manage the company’s social presence','Create campaign case studies that showcase creator ROI for projects','Write platform documentation and onboarding email sequences'],
+        req:['Strong writer who can make complex DeFi concepts accessible','Crypto-native: you follow the ecosystem and know key protocols and culture','Experience with content marketing or journalism in crypto/fintech','Portfolio of published Web3 content required']
+      },
+      { title:'Community Manager', dept:'Community', dc:'#06b6d4', db:'rgba(6,182,212,0.1)', type:'Full-time', loc:'Remote',
+        desc:"You’ll be the voice and energy of OnchainCreator across Discord, Twitter/X, and Telegram — building a community of creators and projects who are genuinely excited about the platform.",
+        resp:['Manage and grow the OnchainCreator Discord server','Run community events: AMAs, creator spotlights, campaign launch announcements','Monitor and respond to community questions, feedback, and issues','Surface community insights and feature requests to the product team'],
+        req:['2+ years of community management experience in a crypto or Web3 project','Active presence in Crypto Twitter and Discord communities','Excellent written communication in English (Japanese a strong plus)','Passion for creator economies and building communities from the ground up']
+      }
+    ];
+
+    // ── ARTICLE OVERLAY ──
+    function openArticle(idx) {
+      var a = ARTICLES[idx]; if (!a) return;
+      var el = document.getElementById('article-inner');
+      el.innerHTML = '<div class="art-tag-row"><span class="art-tag" style="background:'+a.bg+';color:'+a.tc+';border-color:'+a.bc+'">'+a.tag+'</span><span class="art-meta">'+a.date+' &nbsp;&middot;&nbsp; '+a.read+'</span></div><h2 class="art-h">'+a.title+'</h2><div class="art-divider"></div><div class="art-body">'+a.body+'</div><div class="art-cta"><span class="art-cta-text">Enjoyed this article? Join the waitlist for early access.</span><button class="btn btn-white" style="font-size:13px;padding:9px 20px;" onclick="closeArticle();openModal(&apos;join&apos;)">Join Waitlist</button></div>';
+      document.getElementById('article-overlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeArticle() {
+      document.getElementById('article-overlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function closeArticleOnBg(e) { if (e.target === e.currentTarget) closeArticle(); }
+
+    // ── CAREER OVERLAY ──
+    function openCareer(idx) {
+      var c = CAREER_DATA[idx]; if (!c) return;
+      var respHtml = c.resp.map(function(r){return '<li>'+r+'</li>';}).join('');
+      var reqHtml = c.req.map(function(r){return '<li>'+r+'</li>';}).join('');
+      var el = document.getElementById('career-inner');
+      el.innerHTML = '<div class="career-dept-badge" style="background:'+c.db+';color:'+c.dc+'">'+c.dept+'</div><h2 class="career-h">'+c.title+'</h2><div class="career-detail-meta"><span>🌍 '+c.loc+'</span><span>💼 '+c.type+'</span></div><div class="career-body"><p>'+c.desc+'</p><div class="career-sec-title">Responsibilities</div><ul>'+respHtml+'</ul><div class="career-sec-title">Requirements</div><ul>'+reqHtml+'</ul></div><div class="career-apply-row"><a href="mailto:careers@onchaincreator.org?subject=Application%3A%20'+encodeURIComponent(c.title)+'" class="btn btn-white" style="font-size:13px;padding:10px 22px;text-decoration:none;">Apply via Email</a><a href="https://x.com/ArturoMickey" target="_blank" rel="noopener" class="btn btn-outline" style="font-size:13px;padding:10px 22px;text-decoration:none;">DM on X</a></div>';
+      document.getElementById('career-overlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeCareer() {
+      document.getElementById('career-overlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function closeCareerOnBg(e) { if (e.target === e.currentTarget) closeCareer(); }
+
+    // ── WAITLIST LOCALSTORAGE ──
+    function getWaitlistEmails() { try { return JSON.parse(localStorage.getItem('oc_waitlist') || '[]'); } catch(e) { return []; } }
+    function saveWaitlistEmail(email) { try { var arr = getWaitlistEmails(); if (!arr.find(function(x){return x.email===email;})) { arr.push({email:email, ts:Date.now()}); localStorage.setItem('oc_waitlist', JSON.stringify(arr)); } } catch(e) {} }
+    function updateWaitlistCount() {
+      var base = 1200, extra = getWaitlistEmails().length;
+      var total = base + extra;
+      var display = total >= 1000 ? (total >= 1500 ? Math.round(total/100)*100+'+' : total+'+') : total+'+';
+      var el = document.getElementById('waitlist-count-en'); if (el) el.textContent = display;
+    }
+    updateWaitlistCount();
+  
 </script>
 
 <!-- ══ SWAP / BUY MODAL ══ -->
@@ -4259,6 +4457,23 @@
   </div>
 </div>
 
+
+  <!-- ══ ARTICLE OVERLAY ══ -->
+  <div class="article-overlay" id="article-overlay" onclick="closeArticleOnBg(event)">
+    <div class="article-box">
+      <button class="article-close" onclick="closeArticle()">✕</button>
+      <div id="article-inner"></div>
+    </div>
+  </div>
+
+  <!-- ══ CAREER OVERLAY ══ -->
+  <div class="career-overlay" id="career-overlay" onclick="closeCareerOnBg(event)">
+    <div class="career-box">
+      <button class="career-close" onclick="closeCareer()">✕</button>
+      <div id="career-inner"></div>
+    </div>
+  </div>
+  
 <!-- ══ TOAST ══ -->
 <div class="toast" id="toast"></div>
 
