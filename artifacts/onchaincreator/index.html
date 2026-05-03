@@ -834,7 +834,7 @@
     .cookie-banner {
       position: fixed;
       bottom: 20px; left: 16px; right: 16px;
-      z-index: 300;
+      z-index: 400;
       background: var(--gray-900);
       border: 1px solid var(--border-strong);
       border-radius: var(--r);
@@ -861,7 +861,7 @@
       background: var(--white); color: var(--black);
       border: none; border-radius: var(--r-sm);
       font-family: var(--font); font-weight: 600; font-size: 12px;
-      cursor: pointer; white-space: nowrap;
+      cursor: pointer; white-space: nowrap; pointer-events: auto; position: relative; z-index: 401;
     }
     .cookie-decline {
       padding: 7px 14px;
@@ -1014,9 +1014,10 @@
     .modal-overlay {
       position: fixed; inset: 0; z-index: 500;
       background: rgba(0,0,0,0.8); backdrop-filter: blur(8px);
-      display: none; align-items: center; justify-content: center; padding: 24px;
+      display: none; pointer-events: none;
+      align-items: center; justify-content: center; padding: 24px;
     }
-    .modal-overlay.open { display: flex; }
+    .modal-overlay.open { display: flex; pointer-events: auto; }
     .modal-box {
       background: var(--gray-900); border: 1px solid var(--border-strong);
       border-radius: var(--r); padding: 36px; width: 100%; max-width: 460px;
@@ -1535,10 +1536,12 @@
         backdrop-filter: blur(10px);
         z-index: 500;
         display: none;
+        pointer-events: none;
         align-items: center;
         justify-content: center;
         padding: 16px;
       }
+      .swap-overlay.open { pointer-events: auto; }
       .swap-overlay.open { display: flex; }
       .swap-box {
         background: #0f0919;
@@ -3880,12 +3883,16 @@
 
   // ── COOKIE ──
   function dismissCookie(choice) {
-    document.getElementById('cookie-banner').style.display = 'none';
-    localStorage.setItem('oc_cookie', choice || 'accept');
+    var banner = document.getElementById('cookie-banner');
+    if (banner) banner.style.display = 'none';
+    try { localStorage.setItem('oc_cookie', choice || 'accept'); } catch(e) {}
   }
-  if (localStorage.getItem('oc_cookie')) {
-    document.getElementById('cookie-banner').style.display = 'none';
-  }
+  try {
+    if (localStorage.getItem('oc_cookie')) {
+      var _cb = document.getElementById('cookie-banner');
+      if (_cb) _cb.style.display = 'none';
+    }
+  } catch(e) {}
 
   // ── REVEAL ──
   function initReveal() {
