@@ -17,6 +17,7 @@
   <meta name="twitter:image" content="https://onchaincreator.org/og-image.png" />
   <title>OnchainCreator — Web3 Creator Marketplace</title>
   <script async src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js" id="supabase-cdn"></script>
+  <script src="https://terminal.jup.ag/main-v3.js" data-preload defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;900&family=Noto+Sans+JP:wght@300;400;500;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -48,6 +49,7 @@
       --font: 'Geist', 'Noto Sans JP', sans-serif;
       --font-jp: 'Noto Sans JP', sans-serif;
       --font-mono: 'Geist Mono', monospace;
+      --ca-bar-h: 38px;
       --nav-h: 60px;
       --max-w: 1080px;
       --r: 12px;
@@ -68,7 +70,7 @@
     /* ── NAV ── */
     nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: var(--ca-bar-h); left: 0; right: 0;
       height: var(--nav-h);
       z-index: 200;
       display: flex;
@@ -185,7 +187,7 @@
     /* ── MOBILE MENU ── */
     .mobile-menu {
       position: fixed;
-      top: var(--nav-h);
+      top: calc(var(--ca-bar-h) + var(--nav-h));
       left: 0; right: 0;
       background: var(--gray-900);
       border-bottom: 1px solid var(--border);
@@ -216,7 +218,7 @@
     /* ── PAGES ── */
     .page { display: none; }
     .page.active { display: block; }
-    main { padding-top: var(--nav-h); }
+    main { padding-top: calc(var(--ca-bar-h) + var(--nav-h)); }
 
     /* ── LAYOUT ── */
     .container {
@@ -1456,11 +1458,224 @@
     .ticker-wrap { padding: 9px 0; }
     .ticker-item { font-size: 9px; }
 
-  </style>
+  
+      /* ── CA TOKEN BAR ── */
+      .ca-bar {
+        position: fixed;
+        top: 0; left: 0; right: 0;
+        height: var(--ca-bar-h);
+        z-index: 300;
+        background: linear-gradient(90deg, #0d0d1a 0%, #1a0533 50%, #0d0d1a 100%);
+        border-bottom: 1px solid rgba(153,69,255,0.35);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 0 16px;
+        font-family: var(--font-mono);
+        font-size: 11px;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+      .ca-bar-label {
+        color: rgba(153,69,255,1);
+        font-weight: 700;
+        font-size: 10px;
+        letter-spacing: 0.8px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .ca-bar-addr {
+        color: rgba(220,180,255,0.85);
+        font-size: 10.5px;
+        letter-spacing: 0.3px;
+        flex-shrink: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      @media (max-width: 560px) { .ca-bar-addr { max-width: 120px; font-size: 9px; } }
+      .ca-bar-copy {
+        background: rgba(153,69,255,0.15);
+        border: 1px solid rgba(153,69,255,0.45);
+        color: rgba(153,69,255,1);
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-size: 9.5px;
+        font-family: var(--font-mono);
+        cursor: pointer;
+        transition: all 0.15s;
+        flex-shrink: 0;
+      }
+      .ca-bar-copy:hover { background: rgba(153,69,255,0.3); }
+      .ca-bar-divider { color: rgba(153,69,255,0.2); flex-shrink: 0; font-size: 12px; }
+      .ca-bar-buy {
+        background: linear-gradient(90deg, #9945ff, #6428c8);
+        color: #fff;
+        border: none;
+        padding: 3px 11px;
+        border-radius: 5px;
+        font-size: 9.5px;
+        font-weight: 700;
+        font-family: var(--font-mono);
+        cursor: pointer;
+        transition: opacity 0.15s;
+        flex-shrink: 0;
+        letter-spacing: 0.5px;
+      }
+      .ca-bar-buy:hover { opacity: 0.82; }
+
+      /* ── SWAP MODAL ── */
+      .swap-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.78);
+        backdrop-filter: blur(10px);
+        z-index: 500;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+      }
+      .swap-overlay.open { display: flex; }
+      .swap-box {
+        background: #0f0919;
+        border: 1px solid rgba(153,69,255,0.3);
+        border-radius: 20px;
+        width: 100%;
+        max-width: 440px;
+        overflow: hidden;
+        box-shadow: 0 24px 80px rgba(153,69,255,0.2);
+      }
+      .swap-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 18px;
+        border-bottom: 1px solid rgba(153,69,255,0.15);
+      }
+      .swap-title {
+        font-size: 14px;
+        font-weight: 700;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+      }
+      .swap-close {
+        background: rgba(153,69,255,0.1);
+        border: 1px solid rgba(153,69,255,0.25);
+        color: rgba(153,69,255,0.9);
+        width: 28px; height: 28px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 13px;
+        display: flex; align-items: center; justify-content: center;
+      }
+      .swap-tabs {
+        display: flex;
+        border-bottom: 1px solid rgba(153,69,255,0.12);
+      }
+      .swap-tab {
+        flex: 1;
+        padding: 9px;
+        font-size: 11px;
+        font-weight: 600;
+        font-family: var(--font-mono);
+        background: none;
+        border: none;
+        color: rgba(153,69,255,0.45);
+        cursor: pointer;
+        transition: all 0.15s;
+        border-bottom: 2px solid transparent;
+      }
+      .swap-tab.active { color: rgba(153,69,255,1); border-bottom-color: rgba(153,69,255,0.8); }
+      .swap-iframe-wrap { width: 100%; height: 460px; background: #0f0919; }
+      .swap-iframe-wrap iframe { width: 100%; height: 100%; border: none; }
+      #integrated-terminal { width: 100%; height: 460px; }
+      .swap-links {
+        display: flex;
+        gap: 8px;
+        padding: 16px 18px;
+        flex-wrap: wrap;
+      }
+      .swap-link-btn {
+        flex: 1;
+        min-width: 110px;
+        padding: 10px 12px;
+        border-radius: 10px;
+        font-size: 11px;
+        font-weight: 600;
+        font-family: var(--font-mono);
+        text-decoration: none;
+        text-align: center;
+        border: 1px solid rgba(153,69,255,0.25);
+        color: rgba(200,150,255,0.9);
+        background: rgba(153,69,255,0.07);
+        transition: all 0.15s;
+        display: block;
+      }
+      .swap-link-btn:hover { background: rgba(153,69,255,0.2); border-color: rgba(153,69,255,0.5); }
+      .swap-ca-box {
+        margin: 0 18px 16px;
+        background: rgba(153,69,255,0.06);
+        border: 1px solid rgba(153,69,255,0.18);
+        border-radius: 10px;
+        padding: 10px 14px;
+        font-family: var(--font-mono);
+        font-size: 9.5px;
+        color: rgba(220,180,255,0.75);
+        word-break: break-all;
+        line-height: 1.6;
+      }
+      .swap-ca-box span { color: rgba(153,69,255,0.65); font-size: 8.5px; letter-spacing: 0.8px; display: block; margin-bottom: 4px; }
+      .swap-ca-copy-row { display:flex; align-items:center; justify-content:space-between; margin-top:6px; }
+      .swap-ca-copy-btn {
+        background: rgba(153,69,255,0.12);
+        border: 1px solid rgba(153,69,255,0.3);
+        color: rgba(153,69,255,0.9);
+        padding: 3px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 9px;
+        font-family: var(--font-mono);
+      }
+
+      /* ── BUY NAV BUTTON ── */
+      .btn-buy-ocr {
+        background: linear-gradient(90deg, #9945ff, #6428c8);
+        color: #fff;
+        border: none;
+        padding: 6px 13px;
+        border-radius: 7px;
+        font-size: 12px;
+        font-weight: 700;
+        font-family: var(--font-mono);
+        cursor: pointer;
+        transition: opacity 0.15s;
+        letter-spacing: 0.3px;
+      }
+      .btn-buy-ocr:hover { opacity: 0.82; }
+  
+</style>
 </head>
 <body>
 
-<!-- ══ NAV ══ -->
+<!-- ══ CA TOKEN BAR ══ -->
+  <div class="ca-bar" id="ca-bar">
+    <span class="ca-bar-label">
+      <svg width="12" height="12" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 90h88l-20 18H0l20-18zm0-35h88l-20 18H0l20-18zm88-35L88 38H0l20-18h88z" fill="rgba(153,69,255,1)"/></svg>
+      $OCR
+    </span>
+    <span class="ca-bar-divider">|</span>
+    <span class="ca-bar-addr">BiWs9RLnhLqV5MsL5NUjzKsRWz36sy3VFLLkzqdvpuA6</span>
+    <button class="ca-bar-copy" onclick="copyCa()" id="ca-copy-btn">COPY CA</button>
+    <span class="ca-bar-divider">|</span>
+    <button class="ca-bar-buy" onclick="openSwapModal()">BUY $OCR ↗</button>
+  </div>
+
+  <!-- ══ NAV ══ -->
 <nav>
   <div class="nav-logo" onclick="goHome()">
     <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1519,6 +1734,7 @@
         <span id="nav-avatar-initials">?</span>
       </div>
     </div>
+    <button class="btn-buy-ocr" onclick="openSwapModal()">Buy $OCR</button>
     <button class="hamburger" id="hamburger" onclick="toggleMenu()">
       <span></span><span></span><span></span>
     </button>
@@ -3938,6 +4154,52 @@
     });
   }
 
+
+    // ── OCR CA & SWAP ──
+    const OCR_CA = 'BiWs9RLnhLqV5MsL5NUjzKsRWz36sy3VFLLkzqdvpuA6';
+    function copyCa() {
+      navigator.clipboard.writeText(OCR_CA).then(function() {
+        var btn = document.getElementById('ca-copy-btn');
+        if (btn) { btn.textContent = 'COPIED!'; btn.style.background = 'rgba(153,69,255,0.4)'; setTimeout(function(){ btn.textContent = 'COPY CA'; btn.style.background = ''; }, 1800); }
+        showToast('CA address copied!');
+      }).catch(function() { showToast('CA: ' + OCR_CA); });
+    }
+    var jupLoaded = false;
+    function openSwapModal() {
+      document.getElementById('swap-overlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      if (!jupLoaded) {
+        jupLoaded = true;
+        setTimeout(function() {
+          try {
+            if (window.Jupiter && window.Jupiter.init) {
+              Jupiter.init({
+                displayMode: 'integrated',
+                integratedTargetId: 'integrated-terminal',
+                endpoint: 'https://mainnet.helius-rpc.com/?api-key=1d8740dc-e5f4-421c-b823-e1bad1889eff',
+                strictTokenList: false,
+                defaultExplorer: 'SolanaFM',
+                formProps: { initialOutputMint: 'BiWs9RLnhLqV5MsL5NUjzKsRWz36sy3VFLLkzqdvpuA6', fixedOutputMint: false },
+              });
+            } else { setSwapTab('links'); }
+          } catch(e) { setSwapTab('links'); }
+        }, 300);
+      }
+    }
+    function closeSwapModal() {
+      document.getElementById('swap-overlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function closeSwapOnBg(e) {
+      if (e.target === document.getElementById('swap-overlay')) closeSwapModal();
+    }
+    function setSwapTab(tab) {
+      document.getElementById('stab-jup').classList.toggle('active', tab === 'jup');
+      document.getElementById('stab-links').classList.toggle('active', tab === 'links');
+      document.getElementById('swap-pane-jup').style.display = tab === 'jup' ? '' : 'none';
+      document.getElementById('swap-pane-links').style.display = tab === 'links' ? '' : 'none';
+    }
+  
   // Init Supabase — defer until CDN script is ready (it loads async)
   if (window.supabase) {
     initSupabase();
@@ -3963,7 +4225,45 @@
   }
 </script>
 
-<!-- ══ WAITLIST / JOIN MODAL ══ -->
+<!-- ══ SWAP / BUY MODAL ══ -->
+  <div class="swap-overlay" id="swap-overlay" onclick="closeSwapOnBg(event)">
+    <div class="swap-box" id="swap-box">
+      <div class="swap-header">
+        <div class="swap-title">
+          <svg width="15" height="15" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 90h88l-20 18H0l20-18zm0-35h88l-20 18H0l20-18zm88-35L88 38H0l20-18h88z" fill="rgba(153,69,255,1)"/></svg>
+          Buy &amp; Swap $OCR
+        </div>
+        <button class="swap-close" onclick="closeSwapModal()">✕</button>
+      </div>
+      <div class="swap-tabs">
+        <button class="swap-tab active" id="stab-jup" onclick="setSwapTab('jup')">⚡ Jupiter Swap</button>
+        <button class="swap-tab" id="stab-links" onclick="setSwapTab('links')">🔗 Buy Links</button>
+      </div>
+      <!-- Jupiter Terminal -->
+      <div id="swap-pane-jup" class="swap-iframe-wrap">
+        <div id="integrated-terminal"></div>
+      </div>
+      <!-- Direct Buy Links -->
+      <div id="swap-pane-links" style="display:none;">
+        <div class="swap-links">
+          <a class="swap-link-btn" href="https://jup.ag/swap/SOL-BiWs9RLnhLqV5MsL5NUjzKsRWz36sy3VFLLkzqdvpuA6" target="_blank" rel="noopener">⚡ Jupiter</a>
+          <a class="swap-link-btn" href="https://raydium.io/swap/?inputCurrency=sol&outputCurrency=BiWs9RLnhLqV5MsL5NUjzKsRWz36sy3VFLLkzqdvpuA6" target="_blank" rel="noopener">🌊 Raydium</a>
+          <a class="swap-link-btn" href="https://dexscreener.com/solana/BiWs9RLnhLqV5MsL5NUjzKsRWz36sy3VFLLkzqdvpuA6" target="_blank" rel="noopener">📊 Dexscreener</a>
+          <a class="swap-link-btn" href="https://birdeye.so/token/BiWs9RLnhLqV5MsL5NUjzKsRWz36sy3VFLLkzqdvpuA6?chain=solana" target="_blank" rel="noopener">🦅 Birdeye</a>
+        </div>
+        <div class="swap-ca-box">
+          <span>CONTRACT ADDRESS (SOLANA)</span>
+          BiWs9RLnhLqV5MsL5NUjzKsRWz36sy3VFLLkzqdvpuA6
+          <div class="swap-ca-copy-row">
+            <span style="color:rgba(153,69,255,0.5);font-size:8.5px;">Verified $OCR token on Solana</span>
+            <button class="swap-ca-copy-btn" onclick="copyCa()">COPY CA</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ WAITLIST / JOIN MODAL ══ -->
 <div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
   <div class="modal-box" id="modal-box">
     <button type="button" class="modal-close" onclick="closeModalDirect()">✕</button>
