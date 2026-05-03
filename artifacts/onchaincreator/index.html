@@ -1495,7 +1495,8 @@
         overflow: hidden;
         text-overflow: ellipsis;
       }
-      @media (max-width: 560px) { .ca-bar-addr { max-width: 120px; font-size: 9px; } }
+      @media (max-width: 560px) { .ca-bar-addr { max-width: 100px; font-size: 8.5px; } }
+    @media (max-width: 400px) { .ca-bar-addr { display: none; } .ca-bar-divider:first-of-type { display: none; } }
       .ca-bar-copy {
         background: rgba(153,69,255,0.15);
         border: 1px solid rgba(153,69,255,0.45);
@@ -1757,6 +1758,9 @@
   </button>
   <button class="mobile-menu-link" onclick="showPage('solana-campaigns');toggleMenu()" style="color:rgba(153,69,255,0.85);">
     ◎ <span class="en-only">Solana Campaigns</span><span class="jp-only">Solanaキャンペーン</span>
+  </button>
+  <button class="mobile-menu-link" onclick="openSwapModal();toggleMenu();" style="color:rgba(153,69,255,1);font-weight:700;background:rgba(153,69,255,0.07);border-radius:6px;padding:10px 12px;border-bottom:1px solid rgba(153,69,255,0.2);">
+    ⚡ Buy &amp; Swap $OCR
   </button>
   <button class="mobile-menu-link" id="mobile-dashboard-link" onclick="showPage('dashboard');toggleMenu()" style="display:none;">
     <span class="en-only">Dashboard</span><span class="jp-only">ダッシュボード</span>
@@ -3868,7 +3872,7 @@
     document.getElementById('mobile-menu').classList.toggle('open', menuOpen);
   }
   document.addEventListener('click', (e) => {
-    if (menuOpen && !e.target.closest('nav') && !e.target.closest('.mobile-menu')) {
+    if (menuOpen && !e.target.closest('nav') && !e.target.closest('.mobile-menu') && !e.target.closest('.ca-bar')) {
       menuOpen = false;
       document.getElementById('mobile-menu').classList.remove('open');
     }
@@ -3903,11 +3907,17 @@
 
   function closeModalDirect() {
     document.getElementById('modal-overlay').classList.remove('open');
-    document.body.style.overflow = '';
+    // Only restore scroll if swap modal is also closed
+    if (!document.getElementById('swap-overlay').classList.contains('open')) {
+      document.body.style.overflow = '';
+    }
   }
 
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeModalDirect();
+    if (e.key === 'Escape') {
+      if (document.getElementById('swap-overlay').classList.contains('open')) { closeSwapModal(); }
+      else { closeModalDirect(); }
+    }
   });
 
   function setModalTab(role) {
@@ -4166,6 +4176,8 @@
     }
     var jupLoaded = false;
     function openSwapModal() {
+      // Close waitlist modal if open
+      document.getElementById('modal-overlay').classList.remove('open');
       document.getElementById('swap-overlay').classList.add('open');
       document.body.style.overflow = 'hidden';
       if (!jupLoaded) {
@@ -4188,7 +4200,12 @@
     }
     function closeSwapModal() {
       document.getElementById('swap-overlay').classList.remove('open');
-      document.body.style.overflow = '';
+      // Only restore scroll if waitlist modal is also closed
+      if (!document.getElementById('modal-overlay').classList.contains('open')) {
+        document.body.style.overflow = '';
+      }
+      // If Jupiter failed (showing links tab), allow retry on next open
+      if (!window.Jupiter || !window.Jupiter.init) { jupLoaded = false; }
     }
     function closeSwapOnBg(e) {
       if (e.target === document.getElementById('swap-overlay')) closeSwapModal();
