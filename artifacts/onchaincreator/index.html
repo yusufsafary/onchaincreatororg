@@ -1720,33 +1720,385 @@
       .career-body li { font-size:14px; color:var(--gray-300); line-height:1.78; margin-bottom:5px; }
       .career-apply-row { margin-top:32px; padding-top:22px; border-top:1px solid var(--border); display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
   
+/* ══════════════════════════════════════════
+   WHITE / MINIMAL THEME OVERRIDES
+   All dark-mode defaults overridden here.
+════════════════════════════════════════════ */
+:root {
+  --bg: #ffffff;
+  --surface: #f8f8f8;
+  --surface2: #f0f0f0;
+  --border: rgba(0,0,0,0.09);
+  --border-strong: rgba(0,0,0,0.18);
+  --text: #000000;
+  --text2: #444444;
+  --text3: #666666;
+  --accent: #000000;
+  --ca-bar-h: 0px;
+}
+body { background:#fff; color:#000; }
+
+/* NAV */
+nav {
+  top:0;
+  background:rgba(255,255,255,0.95);
+  border-bottom:1px solid rgba(0,0,0,0.09);
+}
+.nav-logo-name { color:#000; }
+.nav-link { color:#555; }
+.nav-link:hover { color:#000; background:#f2f2f2; }
+.nav-link.active { color:#000; }
+.hamburger span { background:#000; }
+.mobile-menu { background:#fff; border-bottom-color:rgba(0,0,0,0.09); }
+.mobile-menu-link { color:#444; border-bottom-color:rgba(0,0,0,0.07); }
+.mobile-menu-link:hover { color:#000; }
+.mobile-lang-toggle { background:#f0f0f0; border-color:rgba(0,0,0,0.1); }
+.mobile-lang-btn.active { background:#000; color:#fff; }
+.mobile-menu-lang { border-top-color:rgba(0,0,0,0.09); }
+
+/* NAV BUTTONS */
+.btn-nav { background:#000; color:#fff; }
+.btn-nav:hover { opacity:0.8; }
+.btn-nav-ghost { color:#555; border-color:rgba(0,0,0,0.18); }
+.btn-nav-ghost:hover { border-color:#000; color:#000; background:#f4f4f4; }
+.nav-avatar { background:#e8e8e8; border-color:rgba(0,0,0,0.18); color:#000; }
+
+/* LANG TOGGLE */
+.lang-toggle { background:#f0f0f0; border-color:rgba(0,0,0,0.1); }
+.lang-btn { color:#666; }
+.lang-btn.active { background:#000; color:#fff; }
+
+/* HEADINGS */
+h1.display, h2.section-h { color:#000; }
+.hero-title-line.dim { color:#999; }
+.section-h { color:#000; }
+
+/* BUTTONS */
+.btn-white { background:#000; color:#fff; }
+.btn-white:hover { background:#222; }
+.btn-outline { color:#000; border-color:rgba(0,0,0,0.22); }
+.btn-outline:hover { background:#f4f4f4; border-color:rgba(0,0,0,0.35); }
+
+/* HERO */
+.eyebrow-dot { background:#000; }
+.eyebrow-text { color:#888; }
+.hero-waitlist-input {
+  background:rgba(0,0,0,0.04);
+  border-color:rgba(0,0,0,0.15);
+  color:#000;
+}
+.hero-waitlist-input::placeholder { color:#999; }
+.hero-waitlist-input:focus { border-color:rgba(0,0,0,0.4); box-shadow:none; }
+.hero-stat-num { color:#000; }
+.hero-stats { border-color:rgba(0,0,0,0.09); }
+.hero-stat { border-right-color:rgba(0,0,0,0.09); }
+.hero-waitlist-note { color:#999; }
+.sub { color:#555; }
+.sub-jp { color:#666; }
+.label { color:#888; }
+.waitlist-count { color:#000; font-weight:700; }
+
+/* TICKER */
+.ticker-wrap { background:#f7f7f7; border-color:rgba(0,0,0,0.09); }
+.ticker-item { color:#999; }
+.ticker-sep { background:#ccc; }
+
+/* FEATURES */
+.features-grid { background:rgba(0,0,0,0.08); border-color:rgba(0,0,0,0.09); }
+.feature-cell { background:#fff; }
+.feature-cell:hover { background:#f8f8f8; }
+.feature-num { color:#bbb; }
+.feature-name { color:#000; }
+.feature-name-jp { color:#aaa; }
+.feature-desc { color:#555; }
+.feature-desc-jp { color:#777; }
+
+/* ROLES */
+.role-card { background:#fff; border-color:rgba(0,0,0,0.09); }
+.role-card:hover { border-color:rgba(0,0,0,0.22); }
+.role-tag { color:#888; border-color:rgba(0,0,0,0.12); }
+.role-title { color:#000; }
+.role-title-jp { color:#888; }
+.role-desc { color:#555; }
+.role-desc-jp { color:#777; }
+.role-item { color:#444; }
+.role-item-check { border-color:rgba(0,0,0,0.18); color:#999; }
+.role-item-jp { color:#aaa; }
+
+/* NICHE TAGS */
+.niche-tag { color:#666; border-color:rgba(0,0,0,0.1); }
+.niche-tag:hover { color:#000; border-color:rgba(0,0,0,0.3); }
+
+/* CTA */
+.cta-box { background:#f8f8f8; border-color:rgba(0,0,0,0.09); }
+.cta-box::before { background:linear-gradient(90deg,transparent,#ccc,transparent); }
+
+/* HOWTO STEPS */
+.howto-step { border-bottom-color:rgba(0,0,0,0.09); }
+.step-num-badge { border-color:rgba(0,0,0,0.2); color:#777; }
+.step-connector { background:rgba(0,0,0,0.09); }
+.step-title { color:#000; }
+.step-title-jp { color:#aaa; }
+.step-body { color:#555; }
+.step-body-jp { color:#777; }
+.step-detail { background:#f4f4f4; border-color:rgba(0,0,0,0.1); }
+.step-detail-title { color:#888; }
+.step-detail li { color:#444; }
+.step-detail li::before { color:#bbb; }
+
+/* CAMPAIGN CARDS (sample page) */
+.campaign-card { background:#fff; border-color:rgba(0,0,0,0.09); }
+.campaign-card:hover { border-color:rgba(0,0,0,0.22); }
+.campaign-title { color:#000; }
+.campaign-avatar { background:#f0f0f0; }
+.campaign-proj-chain { color:#888; }
+.campaign-desc { color:#555; }
+.campaign-pill { border-color:rgba(0,0,0,0.12); color:#888; }
+.campaign-badge { border-color:rgba(0,0,0,0.15); color:#888; }
+.campaign-badge.open { border-color:rgba(0,0,0,0.2); color:#000; }
+.campaign-budget { color:#000; }
+.campaign-card-bottom { border-top-color:rgba(0,0,0,0.09); }
+
+/* CAMP CARDS (campaigns page) */
+.camp-card { background:#fff; border-color:rgba(0,0,0,0.09); }
+.camp-card:hover { border-color:rgba(0,0,0,0.22); }
+.camp-title { color:#000; }
+.camp-budget { color:#000; }
+.camp-desc { color:#555; }
+.camp-pill { border-color:rgba(0,0,0,0.12); color:#888; }
+.camp-badge { border-color:rgba(0,0,0,0.15); color:#888; }
+.camp-badge.open { border-color:rgba(0,0,0,0.2); color:#000; }
+.camp-apply { background:#000; color:#fff; border:none; }
+.camp-apply:hover { opacity:0.8; }
+.camp-footer { border-top-color:rgba(0,0,0,0.09); }
+
+/* FILTER CHIPS */
+.filter-chip { border-color:rgba(0,0,0,0.1); color:#666; }
+.filter-chip:hover,.filter-chip.active { border-color:#000; color:#000; background:#f0f0f0; }
+
+/* TEAM */
+.team-grid { background:rgba(0,0,0,0.08); border-color:rgba(0,0,0,0.09); }
+.team-card { background:#fff; }
+.team-card:hover { background:#f8f8f8; }
+.team-name { color:#000; }
+.team-role { color:#888; }
+.team-role-jp { color:#bbb; }
+.team-handle { color:#aaa; }
+.team-avatar { background:#f0f0f0; border-color:rgba(0,0,0,0.1); }
+.team-grid .team-card:first-child .team-avatar { border-color:rgba(0,0,0,0.25); }
+
+/* BLOG */
+.blog-card { background:#fff; border-color:rgba(0,0,0,0.09); }
+.blog-card:hover { border-color:rgba(0,0,0,0.22) !important; background:#f8f8f8 !important; }
+.blog-tag { background:#f0f0f0; color:#888; }
+.blog-card-title { color:#000; }
+.blog-card-sub { color:#555; }
+.blog-card-meta { color:#aaa; }
+.blog-card::after { color:#aaa; }
+.blog-card:hover::after { color:#000; }
+
+/* CAREERS */
+.careers-card { background:#fff; border-color:rgba(0,0,0,0.09); }
+.careers-card:hover { border-color:rgba(0,0,0,0.22); }
+.careers-role { color:#000; }
+.careers-meta { color:#888; }
+
+/* CONTACT */
+.contact-card { background:#fff; border-color:rgba(0,0,0,0.09); }
+.contact-card-sub { color:#555; }
+.contact-card-link { color:#000; border-bottom-color:rgba(0,0,0,0.18); }
+.contact-card-link:hover { border-bottom-color:#000; }
+
+/* LEGAL */
+.legal-content h2 { color:#000; }
+.legal-content p { color:#555; }
+.legal-content ul li { color:#555; }
+.legal-content ul li::before { color:#bbb; }
+
+/* SIMPLE PAGE HERO */
+.simple-page-hero { border-bottom-color:rgba(0,0,0,0.09); }
+
+/* MODAL */
+.modal-overlay { background:rgba(0,0,0,0.45); }
+.modal-box { background:#fff; border-color:rgba(0,0,0,0.15); }
+.modal-close { background:#f0f0f0; color:#666; border:none; }
+.modal-close:hover { background:#e0e0e0; color:#000; }
+.modal-title { color:#000; }
+.modal-sub { color:#555; }
+.modal-tabs { gap:8px; }
+.modal-tab { background:#f0f0f0; border-color:rgba(0,0,0,0.1); color:#777; }
+.modal-tab.active { background:#000; color:#fff; border-color:#000; }
+.modal-divider { color:#aaa; }
+.modal-divider::before,.modal-divider::after { background:rgba(0,0,0,0.09); }
+.modal-input { background:#f4f4f4; border-color:rgba(0,0,0,0.15); color:#000; }
+.modal-input:focus { border-color:rgba(0,0,0,0.4); }
+.modal-input::placeholder { color:#aaa; }
+.modal-select { background:#f4f4f4; border-color:rgba(0,0,0,0.15); color:#000; }
+.modal-select option { background:#fff; color:#000; }
+.modal-btn { background:#000; color:#fff; }
+.modal-btn:hover { opacity:0.85; }
+.modal-note { color:#aaa; }
+
+/* GOOGLE BTN (now acts as X btn too) */
+.google-btn { background:#f4f4f4; border-color:rgba(0,0,0,0.12); color:#000; margin-bottom:16px; }
+.google-btn:hover { background:#e8e8e8; border-color:rgba(0,0,0,0.22); }
+
+/* X SIGN IN BTN */
+.x-signin-btn {
+  display:flex; align-items:center; justify-content:center; gap:10px;
+  width:100%; padding:11px;
+  border:1px solid rgba(0,0,0,0.12);
+  border-radius:var(--r-sm);
+  background:#000; color:#fff;
+  font-size:14px; font-weight:600;
+  cursor:pointer; transition:all 0.15s; margin-bottom:12px;
+  font-family:var(--font);
+}
+.x-signin-btn:hover { background:#222; }
+.x-signin-btn svg { width:16px; height:16px; flex-shrink:0; }
+
+/* HERO X PROMO */
+.hero-x-promo {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:9px 16px;
+  border:1px solid rgba(0,0,0,0.15);
+  border-radius:100px;
+  font-size:13px; font-weight:500; color:#000;
+  text-decoration:none; background:#fff;
+  transition:all 0.15s; margin-bottom:24px;
+}
+.hero-x-promo:hover { background:#f4f4f4; border-color:rgba(0,0,0,0.3); }
+.hero-x-promo-icon { font-size:15px; }
+
+/* MOCK CREATORS SECTION */
+.creators-section { padding:72px 0; border-top:1px solid rgba(0,0,0,0.09); }
+.creators-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+  gap:16px;
+  margin-top:40px;
+}
+.creator-card {
+  border:1px solid rgba(0,0,0,0.09);
+  border-radius:var(--r);
+  padding:24px;
+  background:#fff;
+  transition:border-color 0.15s, transform 0.15s;
+}
+.creator-card:hover { border-color:rgba(0,0,0,0.22); transform:translateY(-2px); }
+.creator-card-top { display:flex; align-items:center; gap:14px; margin-bottom:14px; }
+.creator-avatar {
+  width:48px; height:48px; border-radius:50%;
+  background:#f0f0f0; border:1px solid rgba(0,0,0,0.1);
+  display:flex; align-items:center; justify-content:center;
+  font-size:20px; flex-shrink:0;
+}
+.creator-info {}
+.creator-name { font-size:14px; font-weight:700; color:#000; margin-bottom:2px; }
+.creator-handle {
+  font-family:var(--font-mono); font-size:11px; color:#888;
+}
+.creator-verified {
+  display:inline-flex; align-items:center; gap:4px;
+  font-family:var(--font-mono); font-size:10px;
+  color:#000; background:#f0f0f0;
+  padding:2px 8px; border-radius:100px;
+  margin-top:6px; font-weight:600; letter-spacing:0.3px;
+}
+.creator-niche { font-size:12px; color:#555; margin-bottom:14px; line-height:1.5; }
+.creator-stats { display:flex; gap:16px; }
+.creator-stat {}
+.creator-stat-num {
+  font-family:var(--font-mono); font-size:14px; font-weight:600; color:#000;
+  display:block;
+}
+.creator-stat-label { font-size:11px; color:#aaa; }
+
+/* DASHBOARD */
+.dash-card { background:#fff; border-color:rgba(0,0,0,0.09); }
+#page-dashboard .dash-loading { color:#aaa; }
+
+/* NAV AUTH USER */
+.nav-user.visible { display:flex; }
+
+/* ARTICLE / CAREER OVERLAYS */
+.article-overlay { background:rgba(0,0,0,0.5); }
+.article-box {
+  background:#fff !important;
+  border:1px solid rgba(0,0,0,0.12) !important;
+}
+.article-close {
+  background:rgba(0,0,0,0.06) !important;
+  border:1px solid rgba(0,0,0,0.1) !important;
+  color:#666 !important;
+}
+.article-close:hover { background:rgba(0,0,0,0.12) !important; color:#000 !important; }
+.career-overlay { background:rgba(0,0,0,0.5); }
+.career-box {
+  background:#fff !important;
+  border:1px solid rgba(0,0,0,0.12) !important;
+}
+.career-close {
+  background:rgba(0,0,0,0.06) !important;
+  border:1px solid rgba(0,0,0,0.1) !important;
+  color:#666 !important;
+}
+.career-close:hover { background:rgba(0,0,0,0.12) !important; color:#000 !important; }
+.career-h { color:#000 !important; }
+.career-body p, .career-body li { color:#444 !important; }
+.career-apply-row { border-top-color:rgba(0,0,0,0.09) !important; }
+
+/* SWAP OVERLAY */
+.swap-overlay { background:rgba(0,0,0,0.6) !important; }
+.swap-box { background:#fff !important; border-color:rgba(0,0,0,0.12) !important; }
+.swap-close {
+  background:#f0f0f0 !important; border-color:rgba(0,0,0,0.1) !important;
+  color:#666 !important;
+}
+.swap-close:hover { background:#e0e0e0 !important; color:#000 !important; }
+
+/* FOOTER */
+footer { border-top-color:rgba(0,0,0,0.09); }
+.footer-logo-mark { background:#000; }
+.footer-logo-name { color:#000; }
+.footer-desc { color:#666; }
+.footer-desc-jp { color:#aaa; }
+.footer-col-title { color:#aaa; }
+.footer-link { color:#666; }
+.footer-link:hover { color:#000; }
+.footer-copy { color:#aaa; }
+.footer-status { color:#aaa; }
+.footer-bottom { border-top-color:rgba(0,0,0,0.09); }
+
+/* DIVIDER */
+.divider { background:rgba(0,0,0,0.09); }
+
+/* PROFILE PAGE */
+.profile-social-badge { border-color:rgba(0,0,0,0.1); color:#888; }
+
+/* CAMPAIGN PAGE INNER */
+#modal-chain-row { display:none; }
+
+/* TOAST (keep dark) */
+.toast { background:#000 !important; color:#fff !important; box-shadow:0 8px 32px rgba(0,0,0,0.2); }
+
+/* SCROLL REVEAL (ensure visible on white) */
+.reveal.visible { opacity:1; transform:none; }
+
 </style>
 </head>
 <body>
-
-<!-- ══ CA TOKEN BAR ══ -->
-  <div class="ca-bar" id="ca-bar">
-    <span class="ca-bar-label">
-      <svg width="12" height="12" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 90h88l-20 18H0l20-18zm0-35h88l-20 18H0l20-18zm88-35L88 38H0l20-18h88z" fill="rgba(153,69,255,1)"/></svg>
-      $OCR
-    </span>
-    <span class="ca-bar-divider">|</span>
-    <span class="ca-bar-addr">BiWs9RLnhLqV5MsL5NUjzKsRWz36sy3VFLLkzqdvpuA6</span>
-    <button class="ca-bar-copy" onclick="copyCa()" id="ca-copy-btn">COPY CA</button>
-    <span class="ca-bar-divider">|</span>
-    <button class="ca-bar-buy" onclick="openSwapModal()">BUY $OCR ↗</button>
-  </div>
 
   <!-- ══ NAV ══ -->
 <nav>
   <div class="nav-logo" onclick="goHome()">
     <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="1" y="5.5" width="9" height="9" rx="4.5" stroke="white" stroke-width="1.8"/>
-      <rect x="13" y="5.5" width="9" height="9" rx="4.5" stroke="white" stroke-width="1.8"/>
-      <path d="M10 10h3" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-      <rect x="1" y="17.5" width="9" height="9" rx="4.5" stroke="rgba(255,255,255,0.25)" stroke-width="1.4"/>
-      <rect x="13" y="17.5" width="9" height="9" rx="4.5" stroke="rgba(255,255,255,0.25)" stroke-width="1.4"/>
-      <path d="M10 22h3" stroke="rgba(255,255,255,0.25)" stroke-width="1.4" stroke-linecap="round"/>
+      <rect x="1" y="5.5" width="9" height="9" rx="4.5" stroke="#000" stroke-width="1.8"/>
+      <rect x="13" y="5.5" width="9" height="9" rx="4.5" stroke="#000" stroke-width="1.8"/>
+      <path d="M10 10h3" stroke="#000" stroke-width="1.8" stroke-linecap="round"/>
+      <rect x="1" y="17.5" width="9" height="9" rx="4.5" stroke="rgba(0,0,0,0.25)" stroke-width="1.4"/>
+      <rect x="13" y="17.5" width="9" height="9" rx="4.5" stroke="rgba(0,0,0,0.25)" stroke-width="1.4"/>
+      <path d="M10 22h3" stroke="rgba(0,0,0,0.25)" stroke-width="1.4" stroke-linecap="round"/>
     </svg>
     <span class="nav-logo-name">OnchainCreator</span>
   </div>
@@ -1757,12 +2109,6 @@
     </button>
     <button class="nav-link" data-page="campaigns" onclick="showPage('campaigns')">
       <span class="en-only">Campaigns</span><span class="jp-only">キャンペーン</span>
-    </button>
-    <button class="nav-link" data-page="solana-campaigns" onclick="showPage('solana-campaigns')" style="color:rgba(153,69,255,0.85);">
-      <span style="display:inline-flex;align-items:center;gap:5px;">
-        <svg width="12" height="12" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 90h88l-20 18H0l20-18zm0-35h88l-20 18H0l20-18zm88-35L88 38H0l20-18h88z" fill="rgba(153,69,255,0.9)"/></svg>
-        <span class="en-only">Solana</span><span class="jp-only">Solana</span>
-      </span>
     </button>
     <button class="nav-link" data-page="sample" onclick="showPage('sample')">
       <span class="en-only">Demo</span><span class="jp-only">デモ</span>
@@ -1796,7 +2142,6 @@
         <span id="nav-avatar-initials">?</span>
       </div>
     </div>
-    <button class="btn-buy-ocr" onclick="openSwapModal()">Buy $OCR</button>
     <button class="hamburger" id="hamburger" onclick="toggleMenu()">
       <span></span><span></span><span></span>
     </button>
@@ -1816,12 +2161,6 @@
   </button>
   <button class="mobile-menu-link" onclick="showPage('campaigns');toggleMenu()">
     <span class="en-only">Campaigns</span><span class="jp-only">キャンペーン</span>
-  </button>
-  <button class="mobile-menu-link" onclick="showPage('solana-campaigns');toggleMenu()" style="color:rgba(153,69,255,0.85);">
-    ◎ <span class="en-only">Solana Campaigns</span><span class="jp-only">Solanaキャンペーン</span>
-  </button>
-  <button class="mobile-menu-link" onclick="openSwapModal();toggleMenu();" style="color:rgba(153,69,255,1);font-weight:700;background:rgba(153,69,255,0.07);border-radius:6px;padding:10px 12px;border-bottom:1px solid rgba(153,69,255,0.2);">
-    ⚡ Buy &amp; Swap $OCR
   </button>
   <button class="mobile-menu-link" id="mobile-dashboard-link" onclick="showPage('dashboard');toggleMenu()" style="display:none;">
     <span class="en-only">Dashboard</span><span class="jp-only">ダッシュボード</span>
@@ -1885,16 +2224,38 @@
         <p class="sub jp-only">Web3コンテンツクリエイターとオンチェーンプロジェクトをつなぐマーケットプレイス。キャンペーンを見つけ、認証を受け、報酬を得る。</p>
       </div>
 
+      <!-- Prominent X follow link -->
+      <a href="https://x.com/creatoronchain" target="_blank" rel="noopener" class="hero-x-promo">
+        <span class="hero-x-promo-icon">𝕏</span>
+        <span class="en-only">Follow <strong>@creatoronchain</strong> on X</span>
+        <span class="jp-only"><strong>@creatoronchain</strong> をフォロー</span>
+        <svg width="10" height="10" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+
       <div class="hero-actions">
-        <button class="btn btn-white" onclick="showPage('sample')">
+        <button class="btn btn-white" onclick="openModal('join')">
+          <span class="en-only">Get Started Free</span>
+          <span class="jp-only">無料で始める</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="btn btn-outline" onclick="showPage('sample')">
           <span class="en-only">Browse Campaigns</span>
           <span class="jp-only">キャンペーンを見る</span>
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
-        <button class="btn btn-outline" onclick="showPage('how')">
-          <span class="en-only">How it Works</span>
-          <span class="jp-only">使い方を見る</span>
+      </div>
+
+      <!-- Login with email + X inline CTA -->
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:28px;flex-wrap:wrap;">
+        <button onclick="openModal('login')" style="display:inline-flex;align-items:center;gap:7px;padding:9px 18px;border:1px solid rgba(0,0,0,0.18);border-radius:8px;background:#fff;color:#000;font-size:13px;font-weight:500;cursor:pointer;font-family:var(--font);transition:all 0.15s;" onmouseover="this.style.background='#f4f4f4'" onmouseout="this.style.background='#fff'">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          <span class="en-only">Sign in with Email</span>
+          <span class="jp-only">メールでサインイン</span>
         </button>
+        <a href="https://x.com/creatoronchain" target="_blank" rel="noopener" onclick="openModal('login');return false;" style="display:inline-flex;align-items:center;gap:7px;padding:9px 18px;border:1px solid rgba(0,0,0,0.18);border-radius:8px;background:#000;color:#fff;font-size:13px;font-weight:500;cursor:pointer;font-family:var(--font);text-decoration:none;transition:all 0.15s;" onmouseover="this.style.background='#222'" onmouseout="this.style.background='#000'">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          <span class="en-only">Sign in with X</span>
+          <span class="jp-only">Xでサインイン</span>
+        </a>
       </div>
 
       <!-- HERO WAITLIST -->
@@ -1939,6 +2300,133 @@
     </div>
   </section>
 
+  <!-- MOCK CREATORS SHOWCASE -->
+  <section class="creators-section">
+    <div class="container">
+      <div class="label en-only">Featured Creators</div>
+      <div class="label jp-only">注目クリエイター</div>
+      <h2 class="section-h" style="margin-bottom:12px;">
+        <span class="en-only">Top creators on the platform.</span>
+        <span class="jp-only">プラットフォームのトップクリエイター</span>
+      </h2>
+      <p class="sub en-only">Verified Web3 content creators ready for your next campaign. Browse profiles, check stats, and hire directly.</p>
+      <p class="sub jp-only">次のキャンペーンに向けて認証済みWeb3クリエイターを検索できます。</p>
+      <div class="creators-grid reveal">
+
+        <div class="creator-card">
+          <div class="creator-card-top">
+            <div class="creator-avatar">🎙️</div>
+            <div class="creator-info">
+              <div class="creator-name">Maya Chen</div>
+              <div class="creator-handle">@mayaonchain</div>
+            </div>
+          </div>
+          <span class="creator-verified">✓ Verified</span>
+          <p class="creator-niche" style="margin-top:10px;">DeFi educator · YouTube + X · 4 completed campaigns</p>
+          <div class="creator-stats">
+            <div class="creator-stat">
+              <span class="creator-stat-num">82K</span>
+              <span class="creator-stat-label">Followers</span>
+            </div>
+            <div class="creator-stat">
+              <span class="creator-stat-num">5.2%</span>
+              <span class="creator-stat-label">Engagement</span>
+            </div>
+            <div class="creator-stat">
+              <span class="creator-stat-num">★ 4.9</span>
+              <span class="creator-stat-label">Rating</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="creator-card">
+          <div class="creator-card-top">
+            <div class="creator-avatar">🎬</div>
+            <div class="creator-info">
+              <div class="creator-name">Alex Vega</div>
+              <div class="creator-handle">@alexvegaweb3</div>
+            </div>
+          </div>
+          <span class="creator-verified">✓ Verified</span>
+          <p class="creator-niche" style="margin-top:10px;">NFT &amp; gaming content · Twitch + YouTube · 7 completed campaigns</p>
+          <div class="creator-stats">
+            <div class="creator-stat">
+              <span class="creator-stat-num">156K</span>
+              <span class="creator-stat-label">Followers</span>
+            </div>
+            <div class="creator-stat">
+              <span class="creator-stat-num">4.8%</span>
+              <span class="creator-stat-label">Engagement</span>
+            </div>
+            <div class="creator-stat">
+              <span class="creator-stat-num">★ 4.8</span>
+              <span class="creator-stat-label">Rating</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="creator-card">
+          <div class="creator-card-top">
+            <div class="creator-avatar">📰</div>
+            <div class="creator-info">
+              <div class="creator-name">Priya Das</div>
+              <div class="creator-handle">@priya_l2</div>
+            </div>
+          </div>
+          <span class="creator-verified">✓ Verified</span>
+          <p class="creator-niche" style="margin-top:10px;">Layer 2 &amp; infrastructure · Newsletter + X · 3 completed campaigns</p>
+          <div class="creator-stats">
+            <div class="creator-stat">
+              <span class="creator-stat-num">41K</span>
+              <span class="creator-stat-label">Followers</span>
+            </div>
+            <div class="creator-stat">
+              <span class="creator-stat-num">6.1%</span>
+              <span class="creator-stat-label">Engagement</span>
+            </div>
+            <div class="creator-stat">
+              <span class="creator-stat-num">★ 5.0</span>
+              <span class="creator-stat-label">Rating</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="creator-card">
+          <div class="creator-card-top">
+            <div class="creator-avatar">🖊️</div>
+            <div class="creator-info">
+              <div class="creator-name">Jordan Park</div>
+              <div class="creator-handle">@jordanbuilds</div>
+            </div>
+          </div>
+          <span class="creator-verified">✓ Verified</span>
+          <p class="creator-niche" style="margin-top:10px;">DAO &amp; governance · X + Substack · 5 completed campaigns</p>
+          <div class="creator-stats">
+            <div class="creator-stat">
+              <span class="creator-stat-num">29K</span>
+              <span class="creator-stat-label">Followers</span>
+            </div>
+            <div class="creator-stat">
+              <span class="creator-stat-num">7.4%</span>
+              <span class="creator-stat-label">Engagement</span>
+            </div>
+            <div class="creator-stat">
+              <span class="creator-stat-num">★ 4.7</span>
+              <span class="creator-stat-label">Rating</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div style="margin-top:32px;">
+        <button class="btn btn-outline" onclick="openModal('creator')" style="font-size:13px;">
+          <span class="en-only">Join as a Creator →</span>
+          <span class="jp-only">クリエイターとして参加 →</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
   <!-- TICKER -->
   <div class="ticker-wrap">
     <div class="ticker-track">
@@ -1952,12 +2440,6 @@
       <div class="ticker-item"><div class="ticker-sep"></div>Onchain Art</div>
       <div class="ticker-item"><div class="ticker-sep"></div>RWA Tokenization</div>
       <div class="ticker-item"><div class="ticker-sep"></div>SocialFi</div>
-      <div class="ticker-item ticker-ocr">
-        <div class="ticker-sep" style="background:rgba(153,69,255,0.7);width:5px;height:5px;"></div>
-        <span style="color:rgba(153,69,255,1);font-weight:700;letter-spacing:0.5px;">$OCR</span>
-        <span style="color:var(--gray-600);margin:0 6px;font-size:9px;">·</span>
-        <span style="color:rgba(153,69,255,0.55);font-size:9px;letter-spacing:0.2px;">CA: BiWs9RLnhLqV5MsL5NUjzKsRWz36sy3VFLLkzqdvpuA6</span>
-      </div>
       <!-- duplicate -->
       <div class="ticker-item"><div class="ticker-sep"></div>DeFi Protocol</div>
       <div class="ticker-item"><div class="ticker-sep"></div>NFT Collection</div>
@@ -1969,12 +2451,6 @@
       <div class="ticker-item"><div class="ticker-sep"></div>Onchain Art</div>
       <div class="ticker-item"><div class="ticker-sep"></div>RWA Tokenization</div>
       <div class="ticker-item"><div class="ticker-sep"></div>SocialFi</div>
-      <div class="ticker-item ticker-ocr">
-        <div class="ticker-sep" style="background:rgba(153,69,255,0.7);width:5px;height:5px;"></div>
-        <span style="color:rgba(153,69,255,1);font-weight:700;letter-spacing:0.5px;">$OCR</span>
-        <span style="color:var(--gray-600);margin:0 6px;font-size:9px;">·</span>
-        <span style="color:rgba(153,69,255,0.55);font-size:9px;letter-spacing:0.2px;">CA: BiWs9RLnhLqV5MsL5NUjzKsRWz36sy3VFLLkzqdvpuA6</span>
-      </div>
     </div>
   </div>
 
@@ -2637,7 +3113,7 @@
           <div class="team-role en-only">Founder & Builder</div>
           <div class="team-role jp-only">創業者・ビルダー</div>
           <span class="team-role-jp">創業者・ビルダー</span>
-          <a class="team-handle" href="https://x.com/ArturoMickey" target="_blank" rel="noopener" style="text-decoration:none;">@ArturoMickey</a>
+          <a class="team-handle" href="https://x.com/creatoronchain" target="_blank" rel="noopener" style="text-decoration:none;">@creatoronchain</a>
         </div>
         <div class="team-card">
           <div class="team-avatar">👩‍🎨</div>
@@ -2877,9 +3353,9 @@
           <span class="en-only">More articles coming soon.</span>
           <span class="jp-only">記事は順次追加予定。</span>
         </p>
-        <a href="https://x.com/ArturoMickey" target="_blank" rel="noopener" class="btn btn-outline" style="font-size:12px; padding:9px 18px; text-decoration:none; display:inline-flex; gap:6px;">
-          <span class="en-only">Follow @ArturoMickey for updates</span>
-          <span class="jp-only">@ArturoMickey をフォロー</span>
+        <a href="https://x.com/creatoronchain" target="_blank" rel="noopener" class="btn btn-outline" style="font-size:12px; padding:9px 18px; text-decoration:none; display:inline-flex; gap:6px;">
+          <span class="en-only">Follow @creatoronchain for updates</span>
+          <span class="jp-only">@creatoronchain をフォロー</span>
         </a>
       </div>
     </div>
@@ -2952,7 +3428,7 @@
           <span class="jp-only">自己紹介メールを送る</span>
         </a>
         <br>
-        <a href="https://x.com/ArturoMickey" target="_blank" rel="noopener" style="font-size:12px; color:var(--gray-500); font-family:var(--font-mono); text-decoration:none;">or DM @ArturoMickey on X</a>
+        <a href="https://x.com/creatoronchain" target="_blank" rel="noopener" style="font-size:12px; color:var(--gray-500); font-family:var(--font-mono); text-decoration:none;">or DM @creatoronchain on X</a>
       </div>
     </div>
   </section>
@@ -3011,8 +3487,8 @@
 
       <div style="text-align:center; padding: 40px 0;">
         <p style="font-size:13px; color:var(--gray-500); font-family:var(--font-mono); margin-bottom:16px;">FOLLOW THE BUILDER ON X</p>
-        <a href="https://x.com/ArturoMickey" target="_blank" rel="noopener" class="btn btn-outline" style="font-size:13px; padding:10px 20px; text-decoration:none; display:inline-flex;">
-          @ArturoMickey
+        <a href="https://x.com/creatoronchain" target="_blank" rel="noopener" class="btn btn-outline" style="font-size:13px; padding:10px 20px; text-decoration:none; display:inline-flex;">
+          @creatoronchain
         </a>
       </div>
     </div>
@@ -3753,8 +4229,8 @@
         <div class="footer-logo" onclick="goHome()">
           <div class="footer-logo-mark">
             <svg viewBox="0 0 16 16" fill="none">
-              <path d="M8 1L14 5V11L8 15L2 11V5L8 1Z" fill="#000" stroke="#000"/>
-              <path d="M8 4L11.5 6.5V11L8 13L4.5 11V6.5L8 4Z" fill="#fff"/>
+              <path d="M8 1L14 5V11L8 15L2 11V5L8 1Z" fill="#fff" stroke="#fff"/>
+              <path d="M8 4L11.5 6.5V11L8 13L4.5 11V6.5L8 4Z" fill="#000"/>
             </svg>
           </div>
           <span class="footer-logo-name">OnchainCreator</span>
@@ -3817,7 +4293,7 @@
     </div>
 
     <div class="footer-bottom">
-      <span class="footer-copy">© 2025 OnchainCreator.org · Built by <a href="https://x.com/ArturoMickey" target="_blank" rel="noopener" style="color:var(--gray-400);text-decoration:none;border-bottom:1px solid var(--border);">@ArturoMickey</a></span>
+      <span class="footer-copy">© 2025 OnchainCreator.org · <a href="https://x.com/creatoronchain" target="_blank" rel="noopener" style="color:#aaa;text-decoration:none;border-bottom:1px solid rgba(0,0,0,0.12);">@creatoronchain</a> on X</span>
       <div class="footer-status">
         <div class="status-dot"></div>
         <span class="en-only">All systems operational</span>
@@ -3896,7 +4372,7 @@
     document.getElementById('mobile-menu').classList.toggle('open', menuOpen);
   }
   document.addEventListener('click', (e) => {
-    if (menuOpen && !e.target.closest('nav') && !e.target.closest('.mobile-menu') && !e.target.closest('.ca-bar')) {
+    if (menuOpen && !e.target.closest('nav') && !e.target.closest('.mobile-menu')) {
       menuOpen = false;
       document.getElementById('mobile-menu').classList.remove('open');
     }
@@ -3923,10 +4399,7 @@
 
   function closeModalDirect() {
     document.getElementById('modal-overlay').classList.remove('open');
-    // Only restore scroll if swap modal is also closed
-    if (!document.getElementById('swap-overlay').classList.contains('open')) {
-      document.body.style.overflow = '';
-    }
+    document.body.style.overflow = '';
   }
 
   document.addEventListener('keydown', function(e) {
@@ -3935,7 +4408,6 @@
       var co = document.getElementById('career-overlay');
       if (ao && ao.classList.contains('open')) { closeArticle(); }
       else if (co && co.classList.contains('open')) { closeCareer(); }
-      else if (document.getElementById('swap-overlay').classList.contains('open')) { closeSwapModal(); }
       else { closeModalDirect(); }
     }
   });
@@ -4117,6 +4589,18 @@
     }
   }
 
+  async function signInWithX() {
+    if (!supabase) {
+      showToast(currentLang === 'jp' ? 'Xログインは準備中です。ウェイトリストからどうぞ！' : 'X login coming soon — join the waitlist below!', 'error');
+      return;
+    }
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: 'twitter',
+      options: { redirectTo: window.location.href.split('#')[0] + '#dashboard' }
+    });
+    if (error) showToast(error.message, 'error');
+  }
+
   async function signInWithGoogle() {
     if (!supabase) {
       showToast(currentLang === 'jp' ? 'Googleログインは準備中です。ウェイトリストからどうぞ！' : 'Google login coming soon — join the waitlist below!', 'error');
@@ -4180,57 +4664,12 @@
   }
 
 
-    // ── OCR CA & SWAP ──
-    const OCR_CA = 'BiWs9RLnhLqV5MsL5NUjzKsRWz36sy3VFLLkzqdvpuA6';
-    function copyCa() {
-      navigator.clipboard.writeText(OCR_CA).then(function() {
-        var btn = document.getElementById('ca-copy-btn');
-        if (btn) { btn.textContent = 'COPIED!'; btn.style.background = 'rgba(153,69,255,0.4)'; setTimeout(function(){ btn.textContent = 'COPY CA'; btn.style.background = ''; }, 1800); }
-        showToast('CA address copied!');
-      }).catch(function() { showToast('CA: ' + OCR_CA); });
-    }
-    var jupLoaded = false;
-    function openSwapModal() {
-      // Close waitlist modal if open
-      document.getElementById('modal-overlay').classList.remove('open');
-      document.getElementById('swap-overlay').classList.add('open');
-      document.body.style.overflow = 'hidden';
-      if (!jupLoaded) {
-        jupLoaded = true;
-        setTimeout(function() {
-          try {
-            if (window.Jupiter && window.Jupiter.init) {
-              Jupiter.init({
-                displayMode: 'integrated',
-                integratedTargetId: 'integrated-terminal',
-                endpoint: 'https://mainnet.helius-rpc.com/?api-key=1d8740dc-e5f4-421c-b823-e1bad1889eff',
-                strictTokenList: false,
-                defaultExplorer: 'SolanaFM',
-                formProps: { initialOutputMint: 'BiWs9RLnhLqV5MsL5NUjzKsRWz36sy3VFLLkzqdvpuA6', fixedOutputMint: false },
-              });
-            } else { setSwapTab('links'); }
-          } catch(e) { setSwapTab('links'); }
-        }, 300);
-      }
-    }
-    function closeSwapModal() {
-      document.getElementById('swap-overlay').classList.remove('open');
-      // Only restore scroll if waitlist modal is also closed
-      if (!document.getElementById('modal-overlay').classList.contains('open')) {
-        document.body.style.overflow = '';
-      }
-      // If Jupiter failed (showing links tab), allow retry on next open
-      if (!window.Jupiter || !window.Jupiter.init) { jupLoaded = false; }
-    }
-    function closeSwapOnBg(e) {
-      if (e.target === document.getElementById('swap-overlay')) closeSwapModal();
-    }
-    function setSwapTab(tab) {
-      document.getElementById('stab-jup').classList.toggle('active', tab === 'jup');
-      document.getElementById('stab-links').classList.toggle('active', tab === 'links');
-      document.getElementById('swap-pane-jup').style.display = tab === 'jup' ? '' : 'none';
-      document.getElementById('swap-pane-links').style.display = tab === 'links' ? '' : 'none';
-    }
+    // OCR/Swap removed — stubs to prevent JS errors
+    function copyCa() {}
+    function openSwapModal() { openModal('join'); }
+    function closeSwapModal() {}
+    function closeSwapOnBg() {}
+    function setSwapTab() {}
   
   // Init Supabase — defer until CDN script is ready (it loads async)
   if (window.supabase) {
@@ -4333,7 +4772,7 @@
       var respHtml = c.resp.map(function(r){return '<li>'+r+'</li>';}).join('');
       var reqHtml = c.req.map(function(r){return '<li>'+r+'</li>';}).join('');
       var el = document.getElementById('career-inner');
-      el.innerHTML = '<div class="career-dept-badge" style="background:'+c.db+';color:'+c.dc+'">'+c.dept+'</div><h2 class="career-h">'+c.title+'</h2><div class="career-detail-meta"><span>🌍 '+c.loc+'</span><span>💼 '+c.type+'</span></div><div class="career-body"><p>'+c.desc+'</p><div class="career-sec-title">Responsibilities</div><ul>'+respHtml+'</ul><div class="career-sec-title">Requirements</div><ul>'+reqHtml+'</ul></div><div class="career-apply-row"><a href="mailto:careers@onchaincreator.org?subject=Application%3A%20'+encodeURIComponent(c.title)+'" class="btn btn-white" style="font-size:13px;padding:10px 22px;text-decoration:none;">Apply via Email</a><a href="https://x.com/ArturoMickey" target="_blank" rel="noopener" class="btn btn-outline" style="font-size:13px;padding:10px 22px;text-decoration:none;">DM on X</a></div>';
+      el.innerHTML = '<div class="career-dept-badge" style="background:'+c.db+';color:'+c.dc+'">'+c.dept+'</div><h2 class="career-h">'+c.title+'</h2><div class="career-detail-meta"><span>🌍 '+c.loc+'</span><span>💼 '+c.type+'</span></div><div class="career-body"><p>'+c.desc+'</p><div class="career-sec-title">Responsibilities</div><ul>'+respHtml+'</ul><div class="career-sec-title">Requirements</div><ul>'+reqHtml+'</ul></div><div class="career-apply-row"><a href="mailto:careers@onchaincreator.org?subject=Application%3A%20'+encodeURIComponent(c.title)+'" class="btn btn-white" style="font-size:13px;padding:10px 22px;text-decoration:none;">Apply via Email</a><a href="https://x.com/creatoronchain" target="_blank" rel="noopener" class="btn btn-outline" style="font-size:13px;padding:10px 22px;text-decoration:none;">DM on X</a></div>';
       document.getElementById('career-overlay').classList.add('open');
       document.body.style.overflow = 'hidden';
     }
@@ -4356,43 +4795,7 @@
   
 </script>
 
-<!-- ══ SWAP / BUY MODAL ══ -->
-  <div class="swap-overlay" id="swap-overlay" onclick="closeSwapOnBg(event)">
-    <div class="swap-box" id="swap-box">
-      <div class="swap-header">
-        <div class="swap-title">
-          <svg width="15" height="15" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 90h88l-20 18H0l20-18zm0-35h88l-20 18H0l20-18zm88-35L88 38H0l20-18h88z" fill="rgba(153,69,255,1)"/></svg>
-          Buy &amp; Swap $OCR
-        </div>
-        <button class="swap-close" onclick="closeSwapModal()">✕</button>
-      </div>
-      <div class="swap-tabs">
-        <button class="swap-tab active" id="stab-jup" onclick="setSwapTab('jup')">⚡ Jupiter Swap</button>
-        <button class="swap-tab" id="stab-links" onclick="setSwapTab('links')">🔗 Buy Links</button>
-      </div>
-      <!-- Jupiter Terminal -->
-      <div id="swap-pane-jup" class="swap-iframe-wrap">
-        <div id="integrated-terminal"></div>
-      </div>
-      <!-- Direct Buy Links -->
-      <div id="swap-pane-links" style="display:none;">
-        <div class="swap-links">
-          <a class="swap-link-btn" href="https://jup.ag/swap/SOL-BiWs9RLnhLqV5MsL5NUjzKsRWz36sy3VFLLkzqdvpuA6" target="_blank" rel="noopener">⚡ Jupiter</a>
-          <a class="swap-link-btn" href="https://raydium.io/swap/?inputCurrency=sol&outputCurrency=BiWs9RLnhLqV5MsL5NUjzKsRWz36sy3VFLLkzqdvpuA6" target="_blank" rel="noopener">🌊 Raydium</a>
-          <a class="swap-link-btn" href="https://dexscreener.com/solana/BiWs9RLnhLqV5MsL5NUjzKsRWz36sy3VFLLkzqdvpuA6" target="_blank" rel="noopener">📊 Dexscreener</a>
-          <a class="swap-link-btn" href="https://birdeye.so/token/BiWs9RLnhLqV5MsL5NUjzKsRWz36sy3VFLLkzqdvpuA6?chain=solana" target="_blank" rel="noopener">🦅 Birdeye</a>
-        </div>
-        <div class="swap-ca-box">
-          <span>CONTRACT ADDRESS (SOLANA)</span>
-          BiWs9RLnhLqV5MsL5NUjzKsRWz36sy3VFLLkzqdvpuA6
-          <div class="swap-ca-copy-row">
-            <span style="color:rgba(153,69,255,0.5);font-size:8.5px;">Verified $OCR token on Solana</span>
-            <button class="swap-ca-copy-btn" onclick="copyCa()">COPY CA</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<!-- swap overlay removed -->
 
   <!-- ══ WAITLIST / JOIN MODAL ══ -->
 <div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
@@ -4414,7 +4817,13 @@
     <div class="modal-sub jp-only" id="modal-sub-creator-jp" style="font-family:var(--font-jp)">クリエイターとして参加し、Web3コンテンツで報酬を得ましょう。</div>
     <div class="modal-sub en-only" id="modal-sub-project-en" style="display:none;">List your project to find and hire verified Web3 content creators.</div>
     <div class="modal-sub jp-only" id="modal-sub-project-jp" style="display:none; font-family:var(--font-jp)">プロジェクトを登録して認証済みWeb3クリエイターを採用しましょう。</div>
-    <!-- Google OAuth button -->
+    <!-- X (Twitter) Sign In -->
+    <button type="button" class="x-signin-btn" id="x-auth-btn" onclick="signInWithX()">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      <span class="en-only">Continue with X</span>
+      <span class="jp-only">Xで続ける</span>
+    </button>
+    <!-- Email / Google OAuth button -->
     <button type="button" class="google-btn" id="google-auth-btn" onclick="signInWithGoogle()">
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
