@@ -3,40 +3,46 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-  <meta name="description" content="OnchainCreator — The marketplace connecting Web3 content creators with onchain projects." />
+  <meta name="description" content="OnchainCreator: The marketplace connecting Web3 content creators with onchain projects." />
 
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23000'/%3E%3Crect x='3' y='10' width='11' height='12' rx='5.5' stroke='%23fff' stroke-width='2.5' fill='none'/%3E%3Crect x='18' y='10' width='11' height='12' rx='5.5' stroke='%23fff' stroke-width='2.5' fill='none'/%3E%3Cpath d='M14 16h4' stroke='%23fff' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E" />
-  <meta property="og:title" content="OnchainCreator — Web3 Creator Marketplace" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A0808'/%3E%3Cpath d='M16 4L25 9.5V20.5L16 26L7 20.5V9.5Z' fill='%231B4EEA'/%3E%3Cpath d='M17.5 9L12.5 18H16L14.5 23L20 14H16.5L17.5 9Z' fill='%23FFB800'/%3E%3C/svg%3E" />
+  <meta property="og:title" content="OnchainCreator: Web3 Creator Marketplace" />
   <meta property="og:description" content="The marketplace connecting Web3 content creators with onchain projects. Find campaigns, get verified, get paid." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://onchaincreator.org" />
   <meta property="og:image" content="https://onchaincreator.org/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="OnchainCreator — Web3 Creator Marketplace" />
+  <meta name="twitter:title" content="OnchainCreator: Web3 Creator Marketplace" />
   <meta name="twitter:description" content="The marketplace connecting Web3 content creators with onchain projects. Find campaigns, get verified, get paid." />
   <meta name="twitter:image" content="https://onchaincreator.org/og-image.png" />
-  <title>OnchainCreator — Web3 Creator Marketplace</title>
+  <title>OnchainCreator: Web3 Creator Marketplace</title>
   <script async src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js" id="supabase-cdn"></script>
   <script src="https://terminal.jup.ag/main-v3.js" data-preload defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;900&family=Noto+Sans+JP:wght@300;400;500;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,800&family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      --black: #000000;
+      /* Brand palette */
+      --brand-blue:   #1B4EEA;
+      --brand-yellow: #FFB800;
+      --brand-green:  #00C853;
+      --brand-red:    #E52D0A;
+      --brand-purple: #7929F5;
+      --black: #090909;
       --white: #ffffff;
-      --gray-950: #0a0a0a;
-      --gray-900: #111111;
-      --gray-800: #1a1a1a;
-      --gray-700: #2a2a2a;
-      --gray-600: #3a3a3a;
-      --gray-500: #555555;
-      --gray-400: #888888;
-      --gray-300: #aaaaaa;
+      --gray-950: #0e0e0e;
+      --gray-900: #141414;
+      --gray-800: #1e1e1e;
+      --gray-700: #2e2e2e;
+      --gray-600: #424242;
+      --gray-500: #666666;
+      --gray-400: #8a8a8a;
+      --gray-300: #ababab;
       --gray-200: #cccccc;
-      --gray-100: #e8e8e8;
-      --gray-50: #f5f5f5;
+      --gray-100: #e6e6e6;
+      --gray-50:  #f4f4f4;
       --bg: var(--black);
       --surface: var(--gray-900);
       --surface2: var(--gray-800);
@@ -45,8 +51,9 @@
       --text: var(--white);
       --text2: var(--gray-300);
       --text3: var(--gray-500);
-      --accent: var(--white);
-      --font: 'Geist', 'Noto Sans JP', sans-serif;
+      --accent: var(--brand-blue);
+      --font-display: 'Barlow Condensed', sans-serif;
+      --font: 'Space Grotesk', 'Noto Sans JP', sans-serif;
       --font-jp: 'Noto Sans JP', sans-serif;
       --font-mono: 'Geist Mono', monospace;
       --ca-bar-h: 38px;
@@ -250,17 +257,21 @@
 
     /* ── HEADINGS ── */
     h1.display {
-      font-size: clamp(40px, 9vw, 80px);
+      font-family: var(--font-display);
+      font-size: clamp(52px, 12vw, 96px);
       font-weight: 900;
-      letter-spacing: -3px;
-      line-height: 1.0;
+      letter-spacing: -1px;
+      line-height: 0.92;
+      text-transform: uppercase;
       color: var(--white);
     }
     h2.section-h {
-      font-size: clamp(28px, 5vw, 48px);
+      font-family: var(--font-display);
+      font-size: clamp(38px, 7vw, 68px);
       font-weight: 800;
-      letter-spacing: -1.5px;
-      line-height: 1.08;
+      letter-spacing: -0.5px;
+      line-height: 0.96;
+      text-transform: uppercase;
       color: var(--white);
     }
     .sub {
@@ -322,7 +333,7 @@
     }
     .eyebrow-dot {
       width: 7px; height: 7px;
-      background: var(--white);
+      background: var(--brand-blue);
       border-radius: 50%;
       animation: blink 2.5s ease-in-out infinite;
     }
@@ -681,7 +692,7 @@
       font-size: 13px; color: var(--gray-300);
       padding-left: 16px; position: relative; line-height: 1.5;
     }
-    .step-detail li::before { content: '—'; position: absolute; left: 0; color: var(--gray-600); }
+    .step-detail li::before { content: '›'; position: absolute; left: 0; color: var(--gray-600); }
 
     /* ── SAMPLE CAMPAIGNS PAGE ── */
     .campaigns-grid {
@@ -823,7 +834,7 @@
       font-size: 14px; color: var(--gray-400);
       padding-left: 18px; position: relative; line-height: 1.7;
     }
-    .legal-content ul li::before { content: '—'; position: absolute; left: 0; color: var(--gray-600); }
+    .legal-content ul li::before { content: '›'; position: absolute; left: 0; color: var(--gray-600); }
     .legal-updated {
       font-family: var(--font-mono);
       font-size: 11px; color: var(--gray-600);
@@ -1007,11 +1018,11 @@
     }
     .modal-select option { background: var(--gray-900); }
     .modal-btn {
-      width: 100%; padding: 13px; background: var(--white); color: var(--black);
+      width: 100%; padding: 13px; background: var(--brand-blue); color: #fff;
       border: none; border-radius: var(--r-sm); font-family: var(--font);
-      font-weight: 700; font-size: 14px; cursor: pointer; transition: opacity 0.15s;
+      font-weight: 700; font-size: 14px; cursor: pointer; transition: background 0.15s;
     }
-    .modal-btn:hover { opacity: 0.88; }
+    .modal-btn:hover { background: #1540CC; opacity: 1; }
     .modal-note { font-size: 11px; color: var(--gray-600); text-align: center; font-family: var(--font-mono); margin-top: 4px; }
     .modal-tabs { display: flex; gap: 8px; margin-bottom: 20px; }
     .modal-tab {
@@ -1721,202 +1732,204 @@
       .career-apply-row { margin-top:32px; padding-top:22px; border-top:1px solid var(--border); display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
   
 /* ══════════════════════════════════════════
-   WHITE / MINIMAL THEME OVERRIDES
-   All dark-mode defaults overridden here.
+   BRAND THEME (units.gr-inspired, vibrant + bold)
 ════════════════════════════════════════════ */
 :root {
-  --bg: #ffffff;
-  --surface: #f8f8f8;
-  --surface2: #f0f0f0;
-  --border: rgba(0,0,0,0.09);
-  --border-strong: rgba(0,0,0,0.18);
-  --text: #000000;
-  --text2: #444444;
-  --text3: #666666;
-  --accent: #000000;
+  --bg: #F5F2EC;
+  --surface: #FFFFFF;
+  --surface2: #EDEBE5;
+  --border: rgba(0,0,0,0.07);
+  --border-strong: rgba(0,0,0,0.14);
+  --text: #0A0808;
+  --text2: #4A4644;
+  --text3: #7A7876;
+  --accent: var(--brand-blue);
   --ca-bar-h: 0px;
 }
-body { background:#fff; color:#000; }
+body { background:#F5F2EC; color:#0A0808; font-family:var(--font); }
 
 /* NAV */
 nav {
   top:0;
-  background:rgba(255,255,255,0.95);
-  border-bottom:1px solid rgba(0,0,0,0.09);
+  background:rgba(245,242,236,0.97);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(0,0,0,0.07);
 }
-.nav-logo-name { color:#000; }
-.nav-link { color:#555; }
-.nav-link:hover { color:#000; background:#f2f2f2; }
-.nav-link.active { color:#000; }
-.hamburger span { background:#000; }
-.mobile-menu { background:#fff; border-bottom-color:rgba(0,0,0,0.09); }
-.mobile-menu-link { color:#444; border-bottom-color:rgba(0,0,0,0.07); }
-.mobile-menu-link:hover { color:#000; }
-.mobile-lang-toggle { background:#f0f0f0; border-color:rgba(0,0,0,0.1); }
-.mobile-lang-btn.active { background:#000; color:#fff; }
-.mobile-menu-lang { border-top-color:rgba(0,0,0,0.09); }
+.nav-logo-name { color:#0A0808; font-family:var(--font); font-weight:700; letter-spacing:-0.4px; }
+.nav-link { color:#555; font-family:var(--font); font-weight:500; }
+.nav-link:hover { color:#0A0808; background:rgba(0,0,0,0.05); }
+.nav-link.active { color:#0A0808; }
+.hamburger span { background:#0A0808; }
+.mobile-menu { background:#F5F2EC; border-bottom-color:rgba(0,0,0,0.07); }
+.mobile-menu-link { color:#444; border-bottom-color:rgba(0,0,0,0.06); font-family:var(--font); }
+.mobile-menu-link:hover { color:#0A0808; }
+.mobile-lang-toggle { background:#EDEBE5; border-color:rgba(0,0,0,0.1); }
+.mobile-lang-btn.active { background:#0A0808; color:#fff; }
+.mobile-menu-lang { border-top-color:rgba(0,0,0,0.07); }
 
 /* NAV BUTTONS */
-.btn-nav { background:#000; color:#fff; }
-.btn-nav:hover { opacity:0.8; }
-.btn-nav-ghost { color:#555; border-color:rgba(0,0,0,0.18); }
-.btn-nav-ghost:hover { border-color:#000; color:#000; background:#f4f4f4; }
-.nav-avatar { background:#e8e8e8; border-color:rgba(0,0,0,0.18); color:#000; }
+.btn-nav { background:var(--brand-blue); color:#fff; font-family:var(--font); font-weight:600; }
+.btn-nav:hover { background:#1540CC; opacity:1; }
+.btn-nav-ghost { color:#555; border-color:rgba(0,0,0,0.18); font-family:var(--font); }
+.btn-nav-ghost:hover { border-color:#0A0808; color:#0A0808; background:#EDEBE5; }
+.nav-avatar { background:#EDEBE5; border-color:rgba(0,0,0,0.18); color:#0A0808; }
 
 /* LANG TOGGLE */
-.lang-toggle { background:#f0f0f0; border-color:rgba(0,0,0,0.1); }
-.lang-btn { color:#666; }
-.lang-btn.active { background:#000; color:#fff; }
+.lang-toggle { background:#EDEBE5; border-color:rgba(0,0,0,0.1); }
+.lang-btn { color:#666; font-family:var(--font); }
+.lang-btn.active { background:#0A0808; color:#fff; }
 
 /* HEADINGS */
-h1.display, h2.section-h { color:#000; }
-.hero-title-line.dim { color:#999; }
-.section-h { color:#000; }
+h1.display, h2.section-h { color:#0A0808; font-family:var(--font-display); }
+.hero-title-line.dim { color:#C0BAB2; }
+.section-h { color:#0A0808; font-family:var(--font-display); }
 
 /* BUTTONS */
-.btn-white { background:#000; color:#fff; }
-.btn-white:hover { background:#222; }
-.btn-outline { color:#000; border-color:rgba(0,0,0,0.22); }
-.btn-outline:hover { background:#f4f4f4; border-color:rgba(0,0,0,0.35); }
+.btn-white { background:var(--brand-blue); color:#fff; }
+.btn-white:hover { background:#1540CC; }
+.btn-outline { color:#0A0808; border-color:rgba(0,0,0,0.2); }
+.btn-outline:hover { background:#EDEBE5; border-color:rgba(0,0,0,0.3); }
 
 /* HERO */
-.eyebrow-dot { background:#000; }
-.eyebrow-text { color:#888; }
+.eyebrow-dot { background:var(--brand-blue); }
+.eyebrow-text { color:#7A7876; font-family:var(--font-mono); letter-spacing:1px; }
 .hero-waitlist-input {
   background:rgba(0,0,0,0.04);
-  border-color:rgba(0,0,0,0.15);
-  color:#000;
+  border-color:rgba(0,0,0,0.14);
+  color:#0A0808;
+  font-family:var(--font);
 }
 .hero-waitlist-input::placeholder { color:#999; }
-.hero-waitlist-input:focus { border-color:rgba(0,0,0,0.4); box-shadow:none; }
-.hero-stat-num { color:#000; }
-.hero-stats { border-color:rgba(0,0,0,0.09); }
-.hero-stat { border-right-color:rgba(0,0,0,0.09); }
-.hero-waitlist-note { color:#999; }
-.sub { color:#555; }
+.hero-waitlist-input:focus { border-color:var(--brand-blue); box-shadow:0 0 0 3px rgba(27,78,234,0.12); }
+.hero-stat-num { color:#0A0808; font-family:var(--font-display); font-size:clamp(28px,5vw,42px); font-weight:900; }
+.hero-stats { border-color:rgba(0,0,0,0.08); background:#fff; border-radius:12px; }
+.hero-stat { border-right-color:rgba(0,0,0,0.08); }
+.hero-waitlist-note { color:#999; font-family:var(--font-mono); }
+.sub { color:#4A4644; font-family:var(--font); line-height:1.65; }
 .sub-jp { color:#666; }
-.label { color:#888; }
-.waitlist-count { color:#000; font-weight:700; }
+.label { color:#7A7876; font-family:var(--font-mono); letter-spacing:1.2px; }
+.waitlist-count { color:var(--brand-blue); font-weight:700; font-family:var(--font-display); }
 
 /* TICKER */
-.ticker-wrap { background:#f7f7f7; border-color:rgba(0,0,0,0.09); }
-.ticker-item { color:#999; }
-.ticker-sep { background:#ccc; }
+.ticker-wrap { background:#EDEBE5; border-color:rgba(0,0,0,0.07); }
+.ticker-item { color:#7A7876; font-family:var(--font-mono); }
+.ticker-sep { background:#C0BAB2; }
 
 /* FEATURES */
-.features-grid { background:rgba(0,0,0,0.08); border-color:rgba(0,0,0,0.09); }
+.features-grid { background:rgba(0,0,0,0.07); border-color:rgba(0,0,0,0.07); }
 .feature-cell { background:#fff; }
-.feature-cell:hover { background:#f8f8f8; }
-.feature-num { color:#bbb; }
-.feature-name { color:#000; }
+.feature-cell:hover { background:#F9F7F3; }
+.feature-num { color:#C0BAB2; font-family:var(--font-mono); }
+.feature-name { color:#0A0808; font-family:var(--font); font-weight:600; }
 .feature-name-jp { color:#aaa; }
-.feature-desc { color:#555; }
+.feature-desc { color:#4A4644; font-family:var(--font); }
 .feature-desc-jp { color:#777; }
 
 /* ROLES */
-.role-card { background:#fff; border-color:rgba(0,0,0,0.09); }
-.role-card:hover { border-color:rgba(0,0,0,0.22); }
-.role-tag { color:#888; border-color:rgba(0,0,0,0.12); }
-.role-title { color:#000; }
+.role-card { background:#fff; border-color:rgba(0,0,0,0.08); }
+.role-card:hover { border-color:var(--brand-blue); }
+.role-tag { color:#888; border-color:rgba(0,0,0,0.12); font-family:var(--font-mono); }
+.role-title { color:#0A0808; font-family:var(--font); font-weight:700; }
 .role-title-jp { color:#888; }
-.role-desc { color:#555; }
+.role-desc { color:#4A4644; font-family:var(--font); }
 .role-desc-jp { color:#777; }
-.role-item { color:#444; }
-.role-item-check { border-color:rgba(0,0,0,0.18); color:#999; }
+.role-item { color:#333; font-family:var(--font); }
+.role-item-check { border-color:rgba(27,78,234,0.3); color:var(--brand-blue); }
 .role-item-jp { color:#aaa; }
 
 /* NICHE TAGS */
-.niche-tag { color:#666; border-color:rgba(0,0,0,0.1); }
-.niche-tag:hover { color:#000; border-color:rgba(0,0,0,0.3); }
+.niche-tag { color:#4A4644; border-color:rgba(0,0,0,0.1); font-family:var(--font); font-weight:500; }
+.niche-tag:hover { color:#0A0808; border-color:var(--brand-blue); background:rgba(27,78,234,0.05); }
 
 /* CTA */
-.cta-box { background:#f8f8f8; border-color:rgba(0,0,0,0.09); }
-.cta-box::before { background:linear-gradient(90deg,transparent,#ccc,transparent); }
+.cta-box { background:#fff; border-color:rgba(27,78,234,0.18); box-shadow:0 0 0 1px rgba(27,78,234,0.06); }
+.cta-box::before { background:linear-gradient(90deg,transparent,var(--brand-blue),transparent); opacity:0.25; }
 
 /* HOWTO STEPS */
-.howto-step { border-bottom-color:rgba(0,0,0,0.09); }
-.step-num-badge { border-color:rgba(0,0,0,0.2); color:#777; }
-.step-connector { background:rgba(0,0,0,0.09); }
-.step-title { color:#000; }
+.howto-step { border-bottom-color:rgba(0,0,0,0.08); }
+.step-num-badge { border-color:rgba(27,78,234,0.3); color:var(--brand-blue); font-family:var(--font-mono); font-weight:600; }
+.step-connector { background:rgba(0,0,0,0.08); }
+.step-title { color:#0A0808; font-family:var(--font); font-weight:700; }
 .step-title-jp { color:#aaa; }
-.step-body { color:#555; }
+.step-body { color:#4A4644; font-family:var(--font); }
 .step-body-jp { color:#777; }
-.step-detail { background:#f4f4f4; border-color:rgba(0,0,0,0.1); }
-.step-detail-title { color:#888; }
-.step-detail li { color:#444; }
-.step-detail li::before { color:#bbb; }
+.step-detail { background:#F5F2EC; border-color:rgba(0,0,0,0.08); }
+.step-detail-title { color:#7A7876; font-family:var(--font-mono); }
+.step-detail li { color:#333; font-family:var(--font); }
+.step-detail li::before { color:#C0BAB2; }
 
 /* CAMPAIGN CARDS (sample page) */
-.campaign-card { background:#fff; border-color:rgba(0,0,0,0.09); }
-.campaign-card:hover { border-color:rgba(0,0,0,0.22); }
-.campaign-title { color:#000; }
-.campaign-avatar { background:#f0f0f0; }
-.campaign-proj-chain { color:#888; }
-.campaign-desc { color:#555; }
-.campaign-pill { border-color:rgba(0,0,0,0.12); color:#888; }
-.campaign-badge { border-color:rgba(0,0,0,0.15); color:#888; }
-.campaign-badge.open { border-color:rgba(0,0,0,0.2); color:#000; }
-.campaign-budget { color:#000; }
-.campaign-card-bottom { border-top-color:rgba(0,0,0,0.09); }
+.campaign-card { background:#fff; border-color:rgba(0,0,0,0.08); }
+.campaign-card:hover { border-color:var(--brand-blue); transform:translateY(-3px); box-shadow:0 8px 24px rgba(27,78,234,0.1); }
+.campaign-title { color:#0A0808; font-family:var(--font); font-weight:700; }
+.campaign-avatar { background:#EDEBE5; }
+.campaign-proj-chain { color:#7A7876; font-family:var(--font-mono); }
+.campaign-desc { color:#4A4644; font-family:var(--font); }
+.campaign-pill { border-color:rgba(0,0,0,0.1); color:#7A7876; font-family:var(--font-mono); }
+.campaign-badge { border-color:rgba(0,0,0,0.12); color:#7A7876; }
+.campaign-badge.open { border-color:rgba(27,78,234,0.4); color:var(--brand-blue); background:rgba(27,78,234,0.05); }
+.campaign-budget { color:#0A0808; font-family:var(--font-mono); font-weight:700; }
+.campaign-card-bottom { border-top-color:rgba(0,0,0,0.07); }
 
 /* CAMP CARDS (campaigns page) */
-.camp-card { background:#fff; border-color:rgba(0,0,0,0.09); }
-.camp-card:hover { border-color:rgba(0,0,0,0.22); }
-.camp-title { color:#000; }
-.camp-budget { color:#000; }
-.camp-desc { color:#555; }
-.camp-pill { border-color:rgba(0,0,0,0.12); color:#888; }
-.camp-badge { border-color:rgba(0,0,0,0.15); color:#888; }
-.camp-badge.open { border-color:rgba(0,0,0,0.2); color:#000; }
-.camp-apply { background:#000; color:#fff; border:none; }
-.camp-apply:hover { opacity:0.8; }
-.camp-footer { border-top-color:rgba(0,0,0,0.09); }
+.camp-card { background:#fff; border-color:rgba(0,0,0,0.08); }
+.camp-card:hover { border-color:var(--brand-blue); box-shadow:0 6px 20px rgba(27,78,234,0.1); }
+.camp-title { color:#0A0808; font-family:var(--font); font-weight:700; }
+.camp-budget { color:var(--brand-blue); font-family:var(--font-mono); font-weight:700; }
+.camp-desc { color:#4A4644; font-family:var(--font); }
+.camp-pill { border-color:rgba(0,0,0,0.1); color:#7A7876; font-family:var(--font-mono); }
+.camp-badge { border-color:rgba(0,0,0,0.12); color:#7A7876; }
+.camp-badge.open { border-color:rgba(27,78,234,0.4); color:var(--brand-blue); }
+.camp-apply { background:var(--brand-blue); color:#fff; border:none; font-family:var(--font); font-weight:600; }
+.camp-apply:hover { background:#1540CC; opacity:1; }
+.camp-footer { border-top-color:rgba(0,0,0,0.07); }
 
 /* FILTER CHIPS */
-.filter-chip { border-color:rgba(0,0,0,0.1); color:#666; }
-.filter-chip:hover,.filter-chip.active { border-color:#000; color:#000; background:#f0f0f0; }
+.filter-chip { border-color:rgba(0,0,0,0.1); color:#555; font-family:var(--font); font-weight:500; }
+.filter-chip:hover,.filter-chip.active { border-color:var(--brand-blue); color:var(--brand-blue); background:rgba(27,78,234,0.07); }
 
 /* TEAM */
-.team-grid { background:rgba(0,0,0,0.08); border-color:rgba(0,0,0,0.09); }
+.team-grid { background:rgba(0,0,0,0.07); border-color:rgba(0,0,0,0.07); }
 .team-card { background:#fff; }
-.team-card:hover { background:#f8f8f8; }
-.team-name { color:#000; }
-.team-role { color:#888; }
+.team-card:hover { background:#F9F7F3; }
+.team-name { color:#0A0808; font-family:var(--font); font-weight:600; }
+.team-role { color:#7A7876; font-family:var(--font); }
 .team-role-jp { color:#bbb; }
-.team-handle { color:#aaa; }
-.team-avatar { background:#f0f0f0; border-color:rgba(0,0,0,0.1); }
-.team-grid .team-card:first-child .team-avatar { border-color:rgba(0,0,0,0.25); }
+.team-handle { color:#C0BAB2; font-family:var(--font-mono); }
+.team-avatar { background:#EDEBE5; border-color:rgba(0,0,0,0.08); }
+.team-grid .team-card:first-child .team-avatar { border-color:rgba(27,78,234,0.35); }
 
 /* BLOG */
-.blog-card { background:#fff; border-color:rgba(0,0,0,0.09); }
-.blog-card:hover { border-color:rgba(0,0,0,0.22) !important; background:#f8f8f8 !important; }
-.blog-tag { background:#f0f0f0; color:#888; }
-.blog-card-title { color:#000; }
-.blog-card-sub { color:#555; }
-.blog-card-meta { color:#aaa; }
-.blog-card::after { color:#aaa; }
-.blog-card:hover::after { color:#000; }
+.blog-card { background:#fff; border-color:rgba(0,0,0,0.08); }
+.blog-card:hover { border-color:var(--brand-blue) !important; background:#F9F7F3 !important; }
+.blog-tag { background:#EDEBE5; color:#7A7876; font-family:var(--font-mono); }
+.blog-card-title { color:#0A0808; font-family:var(--font); font-weight:700; }
+.blog-card-sub { color:#4A4644; font-family:var(--font); }
+.blog-card-meta { color:#C0BAB2; font-family:var(--font-mono); }
+.blog-card::after { color:#C0BAB2; }
+.blog-card:hover::after { color:var(--brand-blue); }
 
 /* CAREERS */
-.careers-card { background:#fff; border-color:rgba(0,0,0,0.09); }
-.careers-card:hover { border-color:rgba(0,0,0,0.22); }
-.careers-role { color:#000; }
-.careers-meta { color:#888; }
+.careers-card { background:#fff; border-color:rgba(0,0,0,0.08); }
+.careers-card:hover { border-color:var(--brand-blue); }
+.careers-role { color:#0A0808; font-family:var(--font); font-weight:700; }
+.careers-meta { color:#7A7876; font-family:var(--font-mono); }
 
 /* CONTACT */
-.contact-card { background:#fff; border-color:rgba(0,0,0,0.09); }
-.contact-card-sub { color:#555; }
-.contact-card-link { color:#000; border-bottom-color:rgba(0,0,0,0.18); }
-.contact-card-link:hover { border-bottom-color:#000; }
+.contact-card { background:#fff; border-color:rgba(0,0,0,0.08); }
+.contact-card-sub { color:#4A4644; font-family:var(--font); }
+.contact-card-link { color:var(--brand-blue); border-bottom-color:rgba(27,78,234,0.3); font-family:var(--font-mono); }
+.contact-card-link:hover { border-bottom-color:var(--brand-blue); }
 
 /* LEGAL */
-.legal-content h2 { color:#000; }
-.legal-content p { color:#555; }
-.legal-content ul li { color:#555; }
-.legal-content ul li::before { color:#bbb; }
+.legal-content h2 { color:#0A0808; font-family:var(--font); }
+.legal-content p { color:#4A4644; font-family:var(--font); }
+.legal-content ul li { color:#4A4644; font-family:var(--font); }
+.legal-content ul li::before { color:#C0BAB2; }
 
 /* SIMPLE PAGE HERO */
-.simple-page-hero { border-bottom-color:rgba(0,0,0,0.09); }
+.simple-page-hero { border-bottom-color:rgba(0,0,0,0.08); }
 
 /* MODAL */
 .modal-overlay { background:rgba(0,0,0,0.45); }
@@ -2058,17 +2071,17 @@ h1.display, h2.section-h { color:#000; }
 .swap-close:hover { background:#e0e0e0 !important; color:#000 !important; }
 
 /* FOOTER */
-footer { border-top-color:rgba(0,0,0,0.09); }
-.footer-logo-mark { background:#000; }
-.footer-logo-name { color:#000; }
-.footer-desc { color:#666; }
-.footer-desc-jp { color:#aaa; }
-.footer-col-title { color:#aaa; }
-.footer-link { color:#666; }
-.footer-link:hover { color:#000; }
-.footer-copy { color:#aaa; }
-.footer-status { color:#aaa; }
-.footer-bottom { border-top-color:rgba(0,0,0,0.09); }
+footer { border-top-color:rgba(0,0,0,0.07); background:#EDEBE5; }
+.footer-logo-mark { background:#0A0808; }
+.footer-logo-name { color:#0A0808; font-family:var(--font); font-weight:700; }
+.footer-desc { color:#555; font-family:var(--font); }
+.footer-desc-jp { color:#888; }
+.footer-col-title { color:#888; font-family:var(--font-mono); letter-spacing:1.2px; }
+.footer-link { color:#555; font-family:var(--font); font-weight:500; }
+.footer-link:hover { color:#0A0808; }
+.footer-copy { color:#888; font-family:var(--font-mono); }
+.footer-status { color:#888; }
+.footer-bottom { border-top-color:rgba(0,0,0,0.07); }
 
 /* DIVIDER */
 .divider { background:rgba(0,0,0,0.09); }
@@ -2092,13 +2105,10 @@ footer { border-top-color:rgba(0,0,0,0.09); }
   <!-- ══ NAV ══ -->
 <nav>
   <div class="nav-logo" onclick="goHome()">
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="1" y="5.5" width="9" height="9" rx="4.5" stroke="#000" stroke-width="1.8"/>
-      <rect x="13" y="5.5" width="9" height="9" rx="4.5" stroke="#000" stroke-width="1.8"/>
-      <path d="M10 10h3" stroke="#000" stroke-width="1.8" stroke-linecap="round"/>
-      <rect x="1" y="17.5" width="9" height="9" rx="4.5" stroke="rgba(0,0,0,0.25)" stroke-width="1.4"/>
-      <rect x="13" y="17.5" width="9" height="9" rx="4.5" stroke="rgba(0,0,0,0.25)" stroke-width="1.4"/>
-      <path d="M10 22h3" stroke="rgba(0,0,0,0.25)" stroke-width="1.4" stroke-linecap="round"/>
+    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="30" height="30" rx="7" fill="#0A0808"/>
+      <path d="M15 3L25 8.77V20.23L15 26L5 20.23V8.77L15 3Z" fill="#1B4EEA"/>
+      <path d="M17 8.5L11 18H15.5L13.5 23L20 13.5H15.5L17 8.5Z" fill="#FFB800"/>
     </svg>
     <span class="nav-logo-name">OnchainCreator</span>
   </div>
@@ -2208,8 +2218,8 @@ footer { border-top-color:rgba(0,0,0,0.09); }
     <div class="container">
       <div class="hero-eyebrow">
         <div class="eyebrow-dot"></div>
-        <span class="eyebrow-text en-only">Open Beta v0.1 — Web3 Creator Marketplace</span>
-        <span class="eyebrow-text jp-only">オープンベータ v0.1 — Web3クリエイターマーケット</span>
+        <span class="eyebrow-text en-only">Open Beta v0.1 · Web3 Creator Marketplace</span>
+        <span class="eyebrow-text jp-only">オープンベータ v0.1 · Web3クリエイターマーケット</span>
       </div>
 
       <h1 class="display hero-title">
@@ -2270,7 +2280,7 @@ footer { border-top-color:rgba(0,0,0,0.09); }
         </form>
         <div class="hero-waitlist-success" id="hero-waitlist-success" style="display:none;">
           <span style="font-size:15px;">✓</span>
-          <span class="en-only">You're on the list — we'll be in touch soon.</span>
+          <span class="en-only">You're on the list. We'll be in touch soon.</span>
           <span class="jp-only">登録完了！近日中にご連絡します。</span>
         </div>
         <p class="hero-waitlist-note en-only" id="waitlist-note-en">Free to join · <span id="waitlist-count-en" class="waitlist-count">1,200+</span> creators already signed up</p>
@@ -2488,7 +2498,7 @@ footer { border-top-color:rgba(0,0,0,0.09); }
           <div class="feature-name en-only">Deal Management</div>
           <div class="feature-name jp-only">ディール管理</div>
           <span class="feature-name-jp">取引管理</span>
-          <p class="feature-desc en-only">Track applications, accept offers, submit deliverables, and confirm completion — all in one dashboard.</p>
+          <p class="feature-desc en-only">Track applications, accept offers, submit deliverables, and confirm completion, all in one dashboard.</p>
           <p class="feature-desc-jp">応募の追跡、オファーの受諾、成果物の提出、完了確認がすべてダッシュボードで完結。</p>
         </div>
         <div class="feature-cell">
@@ -2612,8 +2622,8 @@ footer { border-top-color:rgba(0,0,0,0.09); }
             <div class="role-item">
               <div class="role-item-check">✓</div>
               <div>
-                <span class="en-only">10% fee — no hidden costs</span>
-                <span class="jp-only">手数料10%のみ — 追加費用なし</span>
+                <span class="en-only">10% fee, no hidden costs</span>
+                <span class="jp-only">手数料10%のみ、追加費用なし</span>
                 <span class="role-item-jp">シンプルな手数料体系</span>
               </div>
             </div>
@@ -2678,8 +2688,8 @@ footer { border-top-color:rgba(0,0,0,0.09); }
           <span class="feature-icon">⚡</span>
           <div class="feature-name en-only">Fast &amp; Low Fees</div>
           <div class="feature-name jp-only">高速・低コスト</div>
-          <p class="feature-desc en-only">Solana processes 65,000+ TPS with sub-cent fees — ideal for onchain creator rewards and micro-transactions.</p>
-          <p class="feature-desc-jp">Solanaは65,000+ TPS、サブセントの手数料 — クリエイター報酬とマイクロ取引に最適。</p>
+          <p class="feature-desc en-only">Solana processes 65,000+ TPS with sub-cent fees, ideal for onchain creator rewards and micro-transactions.</p>
+          <p class="feature-desc-jp">Solanaは65,000+ TPS、サブセントの手数料、クリエイター報酬とマイクロ取引に最適。</p>
         </div>
         <div class="feature-cell" style="border:1px solid rgba(153,69,255,0.25); background:rgba(153,69,255,0.05);">
           <span class="feature-icon">🎨</span>
@@ -2692,8 +2702,8 @@ footer { border-top-color:rgba(0,0,0,0.09); }
           <span class="feature-icon">🌊</span>
           <div class="feature-name en-only">DeFi &amp; dApps</div>
           <div class="feature-name jp-only">DeFiとdApps</div>
-          <p class="feature-desc en-only">From Jupiter to Drift Protocol — Solana DeFi is booming. Connect with creators who cover yield, perps, and liquidity on Solana.</p>
-          <p class="feature-desc-jp">JupiterからDrift Protocolまで — Solana DeFiは急成長中。イールド・パープ・流動性をカバーするクリエイターと繋がりましょう。</p>
+          <p class="feature-desc en-only">From Jupiter to Drift Protocol. Solana DeFi is booming. Connect with creators who cover yield, perps, and liquidity on Solana.</p>
+          <p class="feature-desc-jp">JupiterからDrift Protocolまで。Solana DeFiは急成長中。イールド・パープ・流動性をカバーするクリエイターと繋がりましょう。</p>
         </div>
       </div>
       <div style="margin-top:32px; display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
@@ -2778,8 +2788,8 @@ footer { border-top-color:rgba(0,0,0,0.09); }
             <h3 class="step-title en-only">Create Your Account</h3>
             <h3 class="step-title jp-only">アカウントを作成する</h3>
             <span class="step-title-jp">アカウント作成</span>
-            <p class="step-body en-only">Sign up with your email or social account via Supabase Auth. Choose your role during onboarding — you're either a Creator or a Project. These roles cannot be combined.</p>
-            <p class="step-body-jp">メールアドレスまたはソーシャルアカウントでSupabase Authを使って登録。オンボーディング時にロールを選択 — クリエイターまたはプロジェクトのどちらか。ロールは組み合わせることはできません。</p>
+            <p class="step-body en-only">Sign up with your email or social account via Supabase Auth. Choose your role during onboarding. Choose Creator or Project. Roles cannot be combined.</p>
+            <p class="step-body-jp">メールアドレスまたはソーシャルアカウントでSupabase Authを使って登録。オンボーディング時にロールを選択。クリエイターまたはプロジェクト。ロールは一つのみ。</p>
             <div class="step-detail">
               <div class="step-detail-title en-only">Requirements</div>
               <div class="step-detail-title jp-only">要件</div>
@@ -2810,8 +2820,8 @@ footer { border-top-color:rgba(0,0,0,0.09); }
             <h3 class="step-title en-only">Build Your Profile</h3>
             <h3 class="step-title jp-only">プロフィールを構築する</h3>
             <span class="step-title-jp">プロフィール作成</span>
-            <p class="step-body en-only">Creators: connect your social accounts for verification — Twitter/X (required), YouTube and Farcaster (optional). Your follower counts are displayed publicly. Add your niche tags, rate card, and portfolio links. Projects: add your project name, chain, website, and a short description.</p>
-            <p class="step-body-jp">クリエイター：SNSアカウントを認証のために連携 — Twitter/X（必須）、YouTubeとFarcaster（任意）。フォロワー数は公開表示されます。ニッチタグ、料金カード、ポートフォリオリンクを追加。プロジェクト：プロジェクト名、チェーン、ウェブサイト、短い説明を追加。</p>
+            <p class="step-body en-only">Creators: connect your social accounts for verification: Twitter/X (required), YouTube and Farcaster (optional). Your follower counts are displayed publicly. Add your niche tags, rate card, and portfolio links. Projects: add your project name, chain, website, and a short description.</p>
+            <p class="step-body-jp">クリエイター：SNSアカウントを認証のために連携: Twitter/X（必須）、YouTubeとFarcaster（任意）。フォロワー数は公開表示されます。ニッチタグ、料金カード、ポートフォリオリンクを追加。プロジェクト：プロジェクト名、チェーン、ウェブサイト、短い説明を追加。</p>
           </div>
         </div>
 
@@ -2888,7 +2898,7 @@ footer { border-top-color:rgba(0,0,0,0.09); }
           <span class="en-only">Ready to get started?</span>
           <span class="jp-only">始める準備はできましたか？</span>
         </h3>
-        <p class="sub en-only" style="margin-bottom:28px; font-size:15px;">You've seen how it works — now join the waitlist and be first when we open full access. Creators and projects both welcome.</p>
+        <p class="sub en-only" style="margin-bottom:28px; font-size:15px;">You've seen how it works. Join the waitlist and be first when we open full access. Creators and projects both welcome.</p>
         <p class="sub jp-only" style="margin-bottom:28px; font-size:15px; font-family:var(--font-jp);">仕組みを理解したら、今すぐウェイトリストに登録しましょう。クリエイターもプロジェクトも歓迎。</p>
         <div style="display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-bottom:16px;">
           <button class="btn btn-white" onclick="openModal('creator')">
@@ -2963,8 +2973,8 @@ footer { border-top-color:rgba(0,0,0,0.09); }
               </div>
               <div class="campaign-badge open" style="margin-left:auto;">Open</div>
             </div>
-            <div class="campaign-title en-only">YouTube review — 10-minute gameplay walkthrough</div>
-            <div class="campaign-title jp-only">YouTube レビュー — 10分間のゲームプレイ解説動画</div>
+            <div class="campaign-title en-only">YouTube review: 10-minute gameplay walkthrough</div>
+            <div class="campaign-title jp-only">YouTube レビュー: 10分間のゲームプレイ解説動画</div>
             <p class="campaign-desc en-only">Looking for a Web3 gaming YouTuber to record a first-impression review of GridQuest. Natural, authentic tone preferred over scripted ads.</p>
             <p class="campaign-desc jp-only">GridQuestのファーストインプレッションレビューを録画できるWeb3ゲームYouTuberを募集。台本なしの自然で本物のトーンを歓迎。</p>
           </div>
@@ -2987,8 +2997,8 @@ footer { border-top-color:rgba(0,0,0,0.09); }
               </div>
               <div class="campaign-badge open" style="margin-left:auto;">Open</div>
             </div>
-            <div class="campaign-title en-only">Newsletter feature — Cross-chain bridges explained</div>
-            <div class="campaign-title jp-only">ニュースレター記事 — クロスチェーンブリッジの解説</div>
+            <div class="campaign-title en-only">Newsletter feature: Cross-chain bridges explained</div>
+            <div class="campaign-title jp-only">ニュースレター記事: クロスチェーンブリッジの解説</div>
             <p class="campaign-desc en-only">Seeking a Web3 newsletter author with 5K+ subscribers to feature ArcBridge in an educational piece about cross-chain infrastructure.</p>
             <p class="campaign-desc jp-only">クロスチェーンインフラに関する教育的な記事でArcBridgeを取り上げてくれるWeb3ニュースレター作成者（5K+購読者）を募集。</p>
           </div>
@@ -3035,8 +3045,8 @@ footer { border-top-color:rgba(0,0,0,0.09); }
               </div>
               <div class="campaign-badge open" style="margin-left:auto;">Open</div>
             </div>
-            <div class="campaign-title en-only">Podcast episode — Why onchain governance matters</div>
-            <div class="campaign-title jp-only">ポッドキャストエピソード — オンチェーンガバナンスの重要性</div>
+            <div class="campaign-title en-only">Podcast episode: Why onchain governance matters</div>
+            <div class="campaign-title jp-only">ポッドキャストエピソード: オンチェーンガバナンスの重要性</div>
             <p class="campaign-desc en-only">Looking for a Web3 podcast host to dedicate a 30-min episode to DAO governance, featuring GovernDAO's team as guests.</p>
             <p class="campaign-desc jp-only">GovernDAOチームをゲストに迎え、DAOガバナンスに特化した30分エピソードを制作できるWeb3ポッドキャストホストを募集。</p>
           </div>
@@ -3059,8 +3069,8 @@ footer { border-top-color:rgba(0,0,0,0.09); }
               </div>
               <div class="campaign-badge open" style="margin-left:auto;">Open</div>
             </div>
-            <div class="campaign-title en-only">Farcaster thread — How to maximize yields with YieldLayer</div>
-            <div class="campaign-title jp-only">Farcasterスレッド — YieldLayerでイールドを最大化する方法</div>
+            <div class="campaign-title en-only">Farcaster thread: How to maximize yields with YieldLayer</div>
+            <div class="campaign-title jp-only">Farcasterスレッド: YieldLayerでイールドを最大化する方法</div>
             <p class="campaign-desc en-only">Need a Farcaster-native creator (2K+ followers) to create an educational thread about our yield optimization strategies.</p>
             <p class="campaign-desc jp-only">イールド最適化戦略に関する教育的なスレッドを作成できるFarcasterネイティブクリエイター（2K+フォロワー）を募集。</p>
           </div>
@@ -3268,12 +3278,12 @@ footer { border-top-color:rgba(0,0,0,0.09); }
         <span class="p-jp">クッキーとは、ウェブサイトを訪問した際にブラウザによってデバイスに保存される小さなテキストファイルです。ウェブサイトを効率的に機能させ、サイト所有者に情報を提供するために広く使用されています。</span>
 
         <h2><span class="en-only">Cookies We Use</span><span class="jp-only">使用するクッキー</span></h2>
-        <p class="en-only"><strong>Essential cookies</strong> — Required for the platform to function. These include session cookies managed by Supabase Auth that keep you logged in. These cannot be disabled.</p>
-        <span class="p-jp"><strong>必須クッキー</strong> — プラットフォームの機能に必要です。Supabase Authが管理するセッションクッキーが含まれ、ログイン状態を維持します。これらは無効にできません。</span>
-        <p class="en-only"><strong>Analytics cookies</strong> — We use privacy-respecting analytics to understand how users navigate the platform. These help us improve the user experience. You can opt out.</p>
-        <span class="p-jp"><strong>分析クッキー</strong> — ユーザーがどのようにプラットフォームをナビゲートするかを理解するために、プライバシーを尊重した分析を使用します。ユーザーエクスペリエンスの改善に役立てています。オプトアウトできます。</span>
-        <p class="en-only"><strong>Preference cookies</strong> — Store your preferences such as language selection (EN / JP). These are stored locally in your browser.</p>
-        <span class="p-jp"><strong>設定クッキー</strong> — 言語選択（EN / JP）などの設定を保存します。ブラウザにローカルで保存されます。</span>
+        <p class="en-only"><strong>Essential cookies</strong>: Required for the platform to function. These include session cookies managed by Supabase Auth that keep you logged in. These cannot be disabled.</p>
+        <span class="p-jp"><strong>必須クッキー</strong>: プラットフォームの機能に必要です。Supabase Authが管理するセッションクッキーが含まれ、ログイン状態を維持します。これらは無効にできません。</span>
+        <p class="en-only"><strong>Analytics cookies</strong>: We use privacy-respecting analytics to understand how users navigate the platform. These help us improve the user experience. You can opt out.</p>
+        <span class="p-jp"><strong>分析クッキー</strong>: ユーザーがどのようにプラットフォームをナビゲートするかを理解するために、プライバシーを尊重した分析を使用します。ユーザーエクスペリエンスの改善に役立てています。オプトアウトできます。</span>
+        <p class="en-only"><strong>Preference cookies</strong>: Store your preferences such as language selection (EN / JP). These are stored locally in your browser.</p>
+        <span class="p-jp"><strong>設定クッキー</strong>: 言語選択（EN / JP）などの設定を保存します。ブラウザにローカルで保存されます。</span>
 
         <h2><span class="en-only">Managing Cookies</span><span class="jp-only">クッキーの管理</span></h2>
         <p class="en-only">You can control cookies through your browser settings. Disabling essential cookies may prevent you from logging in or using core platform features. For non-essential cookies, you can opt out using the banner shown on your first visit.</p>
@@ -3313,7 +3323,7 @@ footer { border-top-color:rgba(0,0,0,0.09); }
           <div class="blog-card" onclick="openArticle(0)">
             <div class="blog-tag" data-tag="Guide">Guide</div>
             <div class="blog-card-title">How to Land Your First Web3 Creator Deal</div>
-            <div class="blog-card-sub">A step-by-step playbook for new creators joining the platform — from profile setup to getting your first paid campaign.</div>
+            <div class="blog-card-sub">A step-by-step playbook for new creators joining the platform: from profile setup to getting your first paid campaign.</div>
             <div class="blog-card-meta">Jan 15, 2025 · 8 min read</div>
           </div>
           <div class="blog-card" onclick="openArticle(1)">
@@ -3325,7 +3335,7 @@ footer { border-top-color:rgba(0,0,0,0.09); }
           <div class="blog-card" onclick="openArticle(2)">
             <div class="blog-tag" data-tag="Platform">Platform</div>
             <div class="blog-card-title">Introducing Verified Creator Profiles</div>
-            <div class="blog-card-sub">We're rolling out verified follower counts and social proof scores — here's how it works and why it matters for trust.</div>
+            <div class="blog-card-sub">We're rolling out verified follower counts and social proof scores. Here's how it works and why it matters for trust.</div>
             <div class="blog-card-meta">Dec 20, 2024 · 4 min read</div>
           </div>
           <div class="blog-card" onclick="openArticle(3)">
@@ -3337,13 +3347,13 @@ footer { border-top-color:rgba(0,0,0,0.09); }
           <div class="blog-card" onclick="openArticle(4)">
             <div class="blog-tag" data-tag="Ecosystem">Ecosystem</div>
             <div class="blog-card-title">The State of Web3 Content in 2024</div>
-            <div class="blog-card-sub">How content creation evolved across DeFi, NFTs, and L2s last year — and what trends will shape 2025.</div>
+            <div class="blog-card-sub">How content creation evolved across DeFi, NFTs, and L2s last year, and what trends will shape 2025.</div>
             <div class="blog-card-meta">Dec 1, 2024 · 10 min read</div>
           </div>
           <div class="blog-card" onclick="openArticle(5)">
             <div class="blog-tag" data-tag="Platform">Platform</div>
             <div class="blog-card-title">OnchainCreator Open Beta: What's Live Now</div>
-            <div class="blog-card-sub">A full walkthrough of everything available in the beta — campaign board, deals, messaging, and reviews.</div>
+            <div class="blog-card-sub">A full walkthrough of everything available in the beta: campaign board, deals, messaging, and reviews.</div>
             <div class="blog-card-meta">Nov 20, 2024 · 5 min read</div>
           </div>
         </div>
@@ -3641,13 +3651,13 @@ footer { border-top-color:rgba(0,0,0,0.09); }
             <div>
               <div class="camp-project-name">Magic Eden</div>
               <div class="camp-title">
-                <span class="en-only">YouTube review — Solana NFT marketplace tour & tips</span>
-                <span class="jp-only">YouTubeレビュー — SolanaのNFTマーケットプレイスツアー＆ヒント</span>
+                <span class="en-only">YouTube review: Solana NFT marketplace tour & tips</span>
+                <span class="jp-only">YouTubeレビュー: SolanaのNFTマーケットプレイスツアー＆ヒント</span>
               </div>
             </div>
             <div class="camp-budget">$1,500</div>
           </div>
-          <div class="camp-desc en-only">Create a 12–18 min YouTube walkthrough of Magic Eden on Solana — covering listings, bids, launchpad, and tips for new collectors. 10K+ subscribers required.</div>
+          <div class="camp-desc en-only">Create a 12–18 min YouTube walkthrough of Magic Eden on Solana: covering listings, bids, launchpad, and tips for new collectors. 10K+ subscribers required.</div>
           <div class="camp-desc jp-only" style="font-family:var(--font-jp);font-size:13px;">Solana上のMagic EdenのYouTubeウォークスルー（12〜18分）を作成。リスティング、入札、ローンチパッド、新コレクター向けヒントをカバー。購読者10K+必須。</div>
           <div class="camp-tags">
             <span class="camp-tag" style="border-color:rgba(153,69,255,0.3);color:rgba(153,69,255,0.9);">Solana</span>
@@ -3665,8 +3675,8 @@ footer { border-top-color:rgba(0,0,0,0.09); }
             <div>
               <div class="camp-project-name">Drift Protocol</div>
               <div class="camp-title">
-                <span class="en-only">Newsletter feature — Drift vaults & yield strategies</span>
-                <span class="jp-only">ニュースレター記事 — Driftボールトとイールド戦略</span>
+                <span class="en-only">Newsletter feature: Drift vaults & yield strategies</span>
+                <span class="jp-only">ニュースレター記事: Driftボールトとイールド戦略</span>
               </div>
             </div>
             <div class="camp-budget">$750</div>
@@ -3689,8 +3699,8 @@ footer { border-top-color:rgba(0,0,0,0.09); }
             <div>
               <div class="camp-project-name">Star Atlas</div>
               <div class="camp-title">
-                <span class="en-only">Twitch stream + recap thread — Star Atlas gameplay</span>
-                <span class="jp-only">Twitch配信＋まとめスレッド — Star Atlasゲームプレイ</span>
+                <span class="en-only">Twitch stream + recap thread: Star Atlas gameplay</span>
+                <span class="jp-only">Twitch配信＋まとめスレッド: Star Atlasゲームプレイ</span>
               </div>
             </div>
             <div class="camp-budget">$900</div>
@@ -3713,8 +3723,8 @@ footer { border-top-color:rgba(0,0,0,0.09); }
             <div>
               <div class="camp-project-name">Tensor Trade</div>
               <div class="camp-title">
-                <span class="en-only">Twitter thread — Tensor vs Magic Eden: trader's guide</span>
-                <span class="jp-only">Twitterスレッド — Tensor vs Magic Eden：トレーダーズガイド</span>
+                <span class="en-only">Twitter thread: Tensor vs Magic Eden: trader's guide</span>
+                <span class="jp-only">Twitterスレッド: Tensor vs Magic Eden：トレーダーズガイド</span>
               </div>
             </div>
             <div class="camp-budget">$600</div>
@@ -3737,8 +3747,8 @@ footer { border-top-color:rgba(0,0,0,0.09); }
             <div>
               <div class="camp-project-name">Pump.fun</div>
               <div class="camp-title">
-                <span class="en-only">YouTube short series — How to launch a memecoin on Solana</span>
-                <span class="jp-only">YouTubeショートシリーズ — SolanaでミームコインをローンチするTips</span>
+                <span class="en-only">YouTube short series: How to launch a memecoin on Solana</span>
+                <span class="jp-only">YouTubeショートシリーズ: SolanaでミームコインをローンチするTips</span>
               </div>
             </div>
             <div class="camp-budget">$2,000</div>
@@ -3761,13 +3771,13 @@ footer { border-top-color:rgba(0,0,0,0.09); }
             <div>
               <div class="camp-project-name">Jito Labs</div>
               <div class="camp-title">
-                <span class="en-only">Blog post — MEV on Solana: what creators should know</span>
-                <span class="jp-only">ブログ記事 — Solana上のMEV：クリエイターが知るべきこと</span>
+                <span class="en-only">Blog post: MEV on Solana: what creators should know</span>
+                <span class="jp-only">ブログ記事: Solana上のMEV：クリエイターが知るべきこと</span>
               </div>
             </div>
             <div class="camp-budget">$1,200</div>
           </div>
-          <div class="camp-desc en-only">Write a 1,500+ word blog post explaining Jito's MEV infrastructure on Solana — aimed at developers and power users. Publishable on Mirror or your own blog. Technical accuracy required.</div>
+          <div class="camp-desc en-only">Write a 1,500+ word blog post explaining Jito's MEV infrastructure on Solana: aimed at developers and power users. Publishable on Mirror or your own blog. Technical accuracy required.</div>
           <div class="camp-desc jp-only" style="font-family:var(--font-jp);font-size:13px;">JitoのSolana MEVインフラを説明する1,500文字以上のブログ記事を執筆。開発者とパワーユーザー向け。MirrorまたはブログへのPublish必須。技術的な正確さが必要。</div>
           <div class="camp-tags">
             <span class="camp-tag" style="border-color:rgba(153,69,255,0.3);color:rgba(153,69,255,0.9);">Solana</span>
@@ -3785,8 +3795,8 @@ footer { border-top-color:rgba(0,0,0,0.09); }
             <div>
               <div class="camp-project-name">Kamino Finance</div>
               <div class="camp-title">
-                <span class="en-only">Twitter thread — Kamino liquidity vaults explained</span>
-                <span class="jp-only">Twitterスレッド — Kamino流動性ボールトの解説</span>
+                <span class="en-only">Twitter thread: Kamino liquidity vaults explained</span>
+                <span class="jp-only">Twitterスレッド: Kamino流動性ボールトの解説</span>
               </div>
             </div>
             <div class="camp-budget">$500</div>
@@ -3809,8 +3819,8 @@ footer { border-top-color:rgba(0,0,0,0.09); }
             <div>
               <div class="camp-project-name">Aurory Project</div>
               <div class="camp-title">
-                <span class="en-only">Podcast episode — Web3 gaming on Solana deep dive</span>
-                <span class="jp-only">ポッドキャストエピソード — SolanaのWeb3ゲーミング深掘り</span>
+                <span class="en-only">Podcast episode: Web3 gaming on Solana deep dive</span>
+                <span class="jp-only">ポッドキャストエピソード: SolanaのWeb3ゲーミング深掘り</span>
               </div>
             </div>
             <div class="camp-budget">$800</div>
@@ -3883,7 +3893,7 @@ footer { border-top-color:rgba(0,0,0,0.09); }
           <div class="camp-card-header">
             <div>
               <div class="camp-project-name">Vertex Protocol</div>
-              <div class="camp-title">Deep-dive thread on our perpetuals DEX — Twitter/X</div>
+              <div class="camp-title">Deep-dive thread on our perpetuals DEX: Twitter/X</div>
             </div>
             <div class="camp-budget">$800</div>
           </div>
@@ -3923,11 +3933,11 @@ footer { border-top-color:rgba(0,0,0,0.09); }
           <div class="camp-card-header">
             <div>
               <div class="camp-project-name">Base Ecosystem</div>
-              <div class="camp-title">Newsletter spotlight — Base chain ecosystem overview</div>
+              <div class="camp-title">Newsletter spotlight: Base chain ecosystem overview</div>
             </div>
             <div class="camp-budget">$500</div>
           </div>
-          <div class="camp-desc">Write a sponsored newsletter issue covering the Base ecosystem — top dApps, builders, and opportunities. Min. 3K subscribers. We provide talking points and assets.</div>
+          <div class="camp-desc">Write a sponsored newsletter issue covering the Base ecosystem: top dApps, builders, and opportunities. Min. 3K subscribers. We provide talking points and assets.</div>
           <div class="camp-tags">
             <span class="camp-tag">Layer 2</span>
             <span class="camp-tag">Newsletter</span>
@@ -3963,11 +3973,11 @@ footer { border-top-color:rgba(0,0,0,0.09); }
           <div class="camp-card-header">
             <div>
               <div class="camp-project-name">Pendle Finance</div>
-              <div class="camp-title">Yield tokenization explainer — YouTube short + thread</div>
+              <div class="camp-title">Yield tokenization explainer: YouTube short + thread</div>
             </div>
             <div class="camp-budget">$950</div>
           </div>
-          <div class="camp-desc">Explain Pendle's yield tokenization in a YouTube Short (60 sec) plus an accompanying Twitter thread. Technical accuracy is important — we'll review before publishing.</div>
+          <div class="camp-desc">Explain Pendle's yield tokenization in a YouTube Short (60 sec) plus an accompanying Twitter thread. Technical accuracy is important: we'll review before publishing.</div>
           <div class="camp-tags">
             <span class="camp-tag">DeFi</span>
             <span class="camp-tag">YouTube</span>
@@ -3983,7 +3993,7 @@ footer { border-top-color:rgba(0,0,0,0.09); }
           <div class="camp-card-header">
             <div>
               <div class="camp-project-name">Nouns DAO</div>
-              <div class="camp-title">Twitter/X thread series — Nouns governance explained</div>
+              <div class="camp-title">Twitter/X thread series: Nouns governance explained</div>
             </div>
             <div class="camp-budget">$700</div>
           </div>
@@ -4007,7 +4017,7 @@ footer { border-top-color:rgba(0,0,0,0.09); }
             </div>
             <div class="camp-budget">$1,100</div>
           </div>
-          <div class="camp-desc">Write a 1,500+ word technical blog post on Chainlink CCIP — targeted at Solidity developers. Must include code examples and be publishable on Mirror or your own blog.</div>
+          <div class="camp-desc">Write a 1,500+ word technical blog post on Chainlink CCIP: targeted at Solidity developers. Must include code examples and be publishable on Mirror or your own blog.</div>
           <div class="camp-tags">
             <span class="camp-tag">Infrastructure</span>
             <span class="camp-tag">Blog</span>
@@ -4023,7 +4033,7 @@ footer { border-top-color:rgba(0,0,0,0.09); }
           <div class="camp-card-header">
             <div>
               <div class="camp-project-name">Optimism Collective</div>
-              <div class="camp-title">Retro funding round recap — Twitter thread</div>
+              <div class="camp-title">Retro funding round recap: Twitter thread</div>
             </div>
             <div class="camp-budget">$450</div>
           </div>
@@ -4043,7 +4053,7 @@ footer { border-top-color:rgba(0,0,0,0.09); }
           <div class="camp-card-header">
             <div>
               <div class="camp-project-name">Zora Network</div>
-              <div class="camp-title">Mint & review — onchain art spotlight series</div>
+              <div class="camp-title">Mint & review: onchain art spotlight series</div>
             </div>
             <div class="camp-budget">$380</div>
           </div>
@@ -4150,7 +4160,7 @@ footer { border-top-color:rgba(0,0,0,0.09); }
           <div class="dash-deal">
             <div class="dash-deal-dot" style="background:#22c55e;"></div>
             <div class="dash-deal-info">
-              <div class="dash-deal-title">Vertex Protocol — Perps thread</div>
+              <div class="dash-deal-title">Vertex Protocol: Perps thread</div>
               <div class="dash-deal-sub">Due in 5 days · Twitter/X</div>
             </div>
             <div style="display:flex;align-items:center;gap:10px;">
@@ -4161,7 +4171,7 @@ footer { border-top-color:rgba(0,0,0,0.09); }
           <div class="dash-deal">
             <div class="dash-deal-dot" style="background:#eab308;"></div>
             <div class="dash-deal-info">
-              <div class="dash-deal-title">Pendle Finance — YouTube Short</div>
+              <div class="dash-deal-title">Pendle Finance: YouTube Short</div>
               <div class="dash-deal-sub">Awaiting content review · YouTube</div>
             </div>
             <div style="display:flex;align-items:center;gap:10px;">
@@ -4172,7 +4182,7 @@ footer { border-top-color:rgba(0,0,0,0.09); }
           <div class="dash-deal">
             <div class="dash-deal-dot" style="background:#3b82f6;"></div>
             <div class="dash-deal-info">
-              <div class="dash-deal-title">Nouns DAO — Governance thread series</div>
+              <div class="dash-deal-title">Nouns DAO: Governance thread series</div>
               <div class="dash-deal-sub">Brief accepted · Starts next week</div>
             </div>
             <div style="display:flex;align-items:center;gap:10px;">
@@ -4187,7 +4197,7 @@ footer { border-top-color:rgba(0,0,0,0.09); }
           <div class="dash-deal">
             <div class="dash-deal-dot" style="background:var(--gray-500);"></div>
             <div class="dash-deal-info">
-              <div class="dash-deal-title">Base Ecosystem — Newsletter spotlight</div>
+              <div class="dash-deal-title">Base Ecosystem: Newsletter spotlight</div>
               <div class="dash-deal-sub">Closes in 5 days · Newsletter</div>
             </div>
             <div style="display:flex;align-items:center;gap:10px;">
@@ -4198,7 +4208,7 @@ footer { border-top-color:rgba(0,0,0,0.09); }
           <div class="dash-deal">
             <div class="dash-deal-dot" style="background:var(--gray-500);"></div>
             <div class="dash-deal-info">
-              <div class="dash-deal-title">Chainlink Labs — Developer blog post</div>
+              <div class="dash-deal-title">Chainlink Labs: Developer blog post</div>
               <div class="dash-deal-sub">Closes in 18 days · Blog</div>
             </div>
             <div style="display:flex;align-items:center;gap:10px;">
@@ -4228,9 +4238,10 @@ footer { border-top-color:rgba(0,0,0,0.09); }
       <div class="footer-brand">
         <div class="footer-logo" onclick="goHome()">
           <div class="footer-logo-mark">
-            <svg viewBox="0 0 16 16" fill="none">
-              <path d="M8 1L14 5V11L8 15L2 11V5L8 1Z" fill="#fff" stroke="#fff"/>
-              <path d="M8 4L11.5 6.5V11L8 13L4.5 11V6.5L8 4Z" fill="#000"/>
+            <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="30" height="30" rx="7" fill="#0A0808"/>
+              <path d="M15 3L25 8.77V20.23L15 26L5 20.23V8.77L15 3Z" fill="#1B4EEA"/>
+              <path d="M17 8.5L11 18H15.5L13.5 23L20 13.5H15.5L17 8.5Z" fill="#FFB800"/>
             </svg>
           </div>
           <span class="footer-logo-name">OnchainCreator</span>
@@ -4321,7 +4332,7 @@ footer { border-top-color:rgba(0,0,0,0.09); }
 
   // ── PAGES ──
   function showPage(id) {
-    // Solana section anchor — go home then scroll
+    // Solana section anchor: go home then scroll
     if (id === 'solana') {
       showPage('home');
       setTimeout(() => {
@@ -4591,7 +4602,7 @@ footer { border-top-color:rgba(0,0,0,0.09); }
 
   async function signInWithX() {
     if (!supabase) {
-      showToast(currentLang === 'jp' ? 'Xログインは準備中です。ウェイトリストからどうぞ！' : 'X login coming soon — join the waitlist below!', 'error');
+      showToast(currentLang === 'jp' ? 'Xログインは準備中です。ウェイトリストからどうぞ！' : 'X login coming soon: join the waitlist below!', 'error');
       return;
     }
     const { error } = await supabase.auth.signInWithOAuth({
@@ -4603,7 +4614,7 @@ footer { border-top-color:rgba(0,0,0,0.09); }
 
   async function signInWithGoogle() {
     if (!supabase) {
-      showToast(currentLang === 'jp' ? 'Googleログインは準備中です。ウェイトリストからどうぞ！' : 'Google login coming soon — join the waitlist below!', 'error');
+      showToast(currentLang === 'jp' ? 'Googleログインは準備中です。ウェイトリストからどうぞ！' : 'Google login coming soon: join the waitlist below!', 'error');
       return;
     }
     const { error } = await supabase.auth.signInWithOAuth({
@@ -4664,14 +4675,14 @@ footer { border-top-color:rgba(0,0,0,0.09); }
   }
 
 
-    // OCR/Swap removed — stubs to prevent JS errors
+    // OCR/Swap removed: stubs to prevent JS errors
     function copyCa() {}
     function openSwapModal() { openModal('join'); }
     function closeSwapModal() {}
     function closeSwapOnBg() {}
     function setSwapTab() {}
   
-  // Init Supabase — defer until CDN script is ready (it loads async)
+  // Init Supabase: defer until CDN script is ready (it loads async)
   if (window.supabase) {
     initSupabase();
   } else {
@@ -4679,7 +4690,7 @@ footer { border-top-color:rgba(0,0,0,0.09); }
     if (_sbScript) {
       _sbScript.addEventListener('load', initSupabase);
       _sbScript.addEventListener('error', function() {
-        console.warn('Supabase CDN failed to load — auth features disabled.');
+        console.warn('Supabase CDN failed to load: auth features disabled.');
       });
     } else {
       window.addEventListener('load', function() { if (window.supabase) initSupabase(); });
@@ -4699,23 +4710,23 @@ footer { border-top-color:rgba(0,0,0,0.09); }
     var ARTICLES = [
       { tag:'Guide', tc:'#60a5fa', bg:'rgba(59,130,246,0.12)', bc:'rgba(59,130,246,0.3)',
         title:'How to Land Your First Web3 Creator Deal', date:'Jan 15, 2025', read:'8 min read',
-        body:'<h3>Build a Profile That Projects Trust</h3><p>Your OnchainCreator profile is your pitch deck. Connect your Twitter/X and YouTube accounts so your follower counts are verified — projects filter for creators who have already proven their reach. Add a short bio that communicates your niche clearly: DeFi, NFTs, gaming, infrastructure, or Solana ecosystem.</p><h3>Browse Campaigns by Fit, Not Just Budget</h3><p>The Campaign Board lets you filter by chain, budget range, and content type. Resist the temptation to apply to every listing. A DeFi protocol looking for a yield-farming explainer is a bad fit for a gaming creator. Apply to three well-matched campaigns rather than thirty random ones.</p><h3>Write a Pitch That References the Project</h3><p>The biggest mistake new creators make is sending a generic application. Mention the project’s most recent announcement. Explain specifically what angle you would take — will you compare their AMM to Uniswap? A specific pitch converts 4–6× better than a template.</p><h3>Setting Your First Rate</h3><p>For creators with 1K–10K engaged followers, a starting range of $30–$80 per deliverable is realistic. Payment is settled in USDC or SOL directly to your wallet — no invoices, no 45-day payment terms.</p>'
+        body:'<h3>Build a Profile That Projects Trust</h3><p>Your OnchainCreator profile is your pitch deck. Connect your Twitter/X and YouTube accounts so your follower counts are verified: projects filter for creators who have already proven their reach. Add a short bio that communicates your niche clearly: DeFi, NFTs, gaming, infrastructure, or Solana ecosystem.</p><h3>Browse Campaigns by Fit, Not Just Budget</h3><p>The Campaign Board lets you filter by chain, budget range, and content type. Resist the temptation to apply to every listing. A DeFi protocol looking for a yield-farming explainer is a bad fit for a gaming creator. Apply to three well-matched campaigns rather than thirty random ones.</p><h3>Write a Pitch That References the Project</h3><p>The biggest mistake new creators make is sending a generic application. Mention the project’s most recent announcement. Explain specifically what angle you would take: will you compare their AMM to Uniswap? A specific pitch converts 4–6× better than a template.</p><h3>Setting Your First Rate</h3><p>For creators with 1K–10K engaged followers, a starting range of $30–$80 per deliverable is realistic. Payment is settled in USDC or SOL directly to your wallet: no invoices, no 45-day payment terms.</p>'
       },
       { tag:'Ecosystem', tc:'#4ade80', bg:'rgba(34,197,94,0.1)', bc:'rgba(34,197,94,0.25)',
         title:'Why Onchain Projects Need Creator Marketing in 2025', date:'Jan 8, 2025', read:'6 min read',
-        body:'<h3>The Trust Gap in Web3 Advertising</h3><p>Banner ads and Twitter promoted posts achieve click-through rates below 0.1% in the crypto space. Web3 users are trained to be skeptical — they’ve seen too many rugpulls and overpromised products. What they trust is community members who actually hold the token and talk about it with genuine conviction.</p><h3>Community-First Content Outperforms Every Alternative</h3><p>A 2024 analysis of 340 DeFi protocol campaigns found that creator-driven content generated 3.8× higher wallet connection rates compared to banner advertising, and 6× higher retention of users onboarded through creator referrals versus paid search. The reason is simple: a creator who explains a protocol from their own account is vouching for it with their reputation.</p><h3>Verified Metrics Change the Calculus</h3><p>The challenge has always been fake followers and inflated engagement. OnchainCreator addresses this directly by verifying follower counts via OAuth, tracking on-chain creator wallet activity, and building a review system where projects rate creators after every campaign. A creator with 8,000 verified followers and a 4.9-star rating is more valuable than an unverified account claiming 50,000.</p>'
+        body:'<h3>The Trust Gap in Web3 Advertising</h3><p>Banner ads and Twitter promoted posts achieve click-through rates below 0.1% in the crypto space. Web3 users are trained to be skeptical: they’ve seen too many rugpulls and overpromised products. What they trust is community members who actually hold the token and talk about it with genuine conviction.</p><h3>Community-First Content Outperforms Every Alternative</h3><p>A 2024 analysis of 340 DeFi protocol campaigns found that creator-driven content generated 3.8× higher wallet connection rates compared to banner advertising, and 6× higher retention of users onboarded through creator referrals versus paid search. The reason is simple: a creator who explains a protocol from their own account is vouching for it with their reputation.</p><h3>Verified Metrics Change the Calculus</h3><p>The challenge has always been fake followers and inflated engagement. OnchainCreator addresses this directly by verifying follower counts via OAuth, tracking on-chain creator wallet activity, and building a review system where projects rate creators after every campaign. A creator with 8,000 verified followers and a 4.9-star rating is more valuable than an unverified account claiming 50,000.</p>'
       },
       { tag:'Platform', tc:'rgba(153,69,255,1)', bg:'rgba(153,69,255,0.12)', bc:'rgba(153,69,255,0.3)',
         title:'Introducing Verified Creator Profiles', date:'Dec 20, 2024', read:'4 min read',
-        body:'<h3>What Gets Verified — and How</h3><p>Verified Creator Profiles are built around three pillars: social reach, onchain activity, and campaign history. Social reach is verified by connecting your Twitter/X and YouTube accounts via official OAuth. We pull your real follower counts directly from the API — no self-reporting, no estimates.</p><h3>The Social Proof Score</h3><p>Beyond raw follower counts, every creator earns a Social Proof Score calculated from engagement rate (averaged over 30 days), the number of completed campaigns on the platform, and the star rating from project reviews. A creator with 5,000 followers, a 6% engagement rate, and four 5-star reviews will appear higher in project search results than an unverified creator with 50,000 followers.</p><h3>Why This Matters for Trust in Web3</h3><p>Fake influence is endemic in crypto. Projects have lost six-figure budgets to creators who rented bot followers. Our verification layer makes it significantly harder to game the system. Each verification is timestamped and linked to a public wallet address — auditable by any project before signing a deal.</p>'
+        body:'<h3>What Gets Verified: and How</h3><p>Verified Creator Profiles are built around three pillars: social reach, onchain activity, and campaign history. Social reach is verified by connecting your Twitter/X and YouTube accounts via official OAuth. We pull your real follower counts directly from the API: no self-reporting, no estimates.</p><h3>The Social Proof Score</h3><p>Beyond raw follower counts, every creator earns a Social Proof Score calculated from engagement rate (averaged over 30 days), the number of completed campaigns on the platform, and the star rating from project reviews. A creator with 5,000 followers, a 6% engagement rate, and four 5-star reviews will appear higher in project search results than an unverified creator with 50,000 followers.</p><h3>Why This Matters for Trust in Web3</h3><p>Fake influence is endemic in crypto. Projects have lost six-figure budgets to creators who rented bot followers. Our verification layer makes it significantly harder to game the system. Each verification is timestamped and linked to a public wallet address: auditable by any project before signing a deal.</p>'
       },
       { tag:'Creators', tc:'#fb923c', bg:'rgba(251,146,60,0.1)', bc:'rgba(251,146,60,0.25)',
         title:'Setting Your Rate as a Web3 Creator', date:'Dec 10, 2024', read:'7 min read',
-        body:'<h3>Rate Tiers by Audience Size</h3><p>As a rough guide: nano creators (1K–10K followers) typically earn $30–$120 per deliverable; micro creators (10K–50K) earn $120–$500; mid-tier (50K–200K) earn $500–$2,500; and top-tier above 200K can command $2,500–$15,000 for a single deliverable. These numbers vary significantly based on niche and engagement rate.</p><h3>Niche Premium and Engagement Rate</h3><p>DeFi and infrastructure content commands a premium over general "crypto" content because the audience is more decision-ready. A 5,000-follower account that exclusively covers Solana DeFi, with a 9% engagement rate, is more valuable to a Solana protocol than a 30,000-follower general crypto account with 1.2% engagement.</p><h3>Negotiate the Structure, Not Just the Number</h3><p>Consider asking for a combination of USDC base pay plus a token allocation with a 3–6 month vesting cliff. This aligns you with the project’s success and often increases total compensation. All payment terms on OnchainCreator are enforced via on-chain escrow, so you receive funds when you deliver — not 45 days later.</p>'
+        body:'<h3>Rate Tiers by Audience Size</h3><p>As a rough guide: nano creators (1K–10K followers) typically earn $30–$120 per deliverable; micro creators (10K–50K) earn $120–$500; mid-tier (50K–200K) earn $500–$2,500; and top-tier above 200K can command $2,500–$15,000 for a single deliverable. These numbers vary significantly based on niche and engagement rate.</p><h3>Niche Premium and Engagement Rate</h3><p>DeFi and infrastructure content commands a premium over general "crypto" content because the audience is more decision-ready. A 5,000-follower account that exclusively covers Solana DeFi, with a 9% engagement rate, is more valuable to a Solana protocol than a 30,000-follower general crypto account with 1.2% engagement.</p><h3>Negotiate the Structure, Not Just the Number</h3><p>Consider asking for a combination of USDC base pay plus a token allocation with a 3–6 month vesting cliff. This aligns you with the project’s success and often increases total compensation. All payment terms on OnchainCreator are enforced via on-chain escrow, so you receive funds when you deliver: not 45 days later.</p>'
       },
       { tag:'Ecosystem', tc:'#4ade80', bg:'rgba(34,197,94,0.1)', bc:'rgba(34,197,94,0.25)',
         title:'The State of Web3 Content in 2024', date:'Dec 1, 2024', read:'10 min read',
-        body:'<h3>DeFi Content: From Ape to Analyze</h3><p>2024 saw a marked shift in DeFi content from "how do I maximize yield right now" toward "how do these protocols actually work." The collapse of several high-yield farming schemes in 2023 created an audience that now actively rewards creators who explain mechanisms, audit summaries, and risk frameworks. Creators who built educational DeFi content in 2024 saw 40% higher engagement than those running yield-maximizing playbooks from 2022.</p><h3>NFTs: Smaller Audience, Higher Quality</h3><p>Overall NFT content volume declined by roughly 60% compared to the 2021 peak, but the remaining audience is significantly more sophisticated. Creators who pivoted to art curation and collector education outperformed those still chasing PFP speculation narratives.</p><h3>L2 Ecosystem Explosion — and Solana’s Return</h3><p>Base, Arbitrum, and Optimism collectively drove the most creator campaign volume in 2024. Meanwhile, Solana’s resurgence — driven by meme coin activity, DePIN projects, and consumer apps — brought a new wave of creator demand specifically for Solana-native content. We expect this trend to accelerate through 2025.</p>'
+        body:'<h3>DeFi Content: From Ape to Analyze</h3><p>2024 saw a marked shift in DeFi content from "how do I maximize yield right now" toward "how do these protocols actually work." The collapse of several high-yield farming schemes in 2023 created an audience that now actively rewards creators who explain mechanisms, audit summaries, and risk frameworks. Creators who built educational DeFi content in 2024 saw 40% higher engagement than those running yield-maximizing playbooks from 2022.</p><h3>NFTs: Smaller Audience, Higher Quality</h3><p>Overall NFT content volume declined by roughly 60% compared to the 2021 peak, but the remaining audience is significantly more sophisticated. Creators who pivoted to art curation and collector education outperformed those still chasing PFP speculation narratives.</p><h3>L2 Ecosystem Explosion: and Solana’s Return</h3><p>Base, Arbitrum, and Optimism collectively drove the most creator campaign volume in 2024. Meanwhile, Solana’s resurgence: driven by meme coin activity, DePIN projects, and consumer apps: brought a new wave of creator demand specifically for Solana-native content. We expect this trend to accelerate through 2025.</p>'
       },
       { tag:'Platform', tc:'rgba(153,69,255,1)', bg:'rgba(153,69,255,0.12)', bc:'rgba(153,69,255,0.3)',
         title:'OnchainCreator Open Beta: What’s Live Now', date:'Nov 20, 2024', read:'5 min read',
@@ -4731,12 +4742,12 @@ footer { border-top-color:rgba(0,0,0,0.09); }
         req:['4+ years of full-stack experience (Node.js, TypeScript, React)','Experience with on-chain development (Solana or EVM)','Solid understanding of authentication flows (OAuth, JWT, Supabase Auth)','Comfort shipping fast in an early-stage environment','Genuine interest in the Web3 creator economy']
       },
       { title:'Head of Creator Partnerships', dept:'Growth', dc:'#22c55e', db:'rgba(34,197,94,0.1)', type:'Full-time', loc:'Remote',
-        desc:"You’ll build and own the creator supply side of the marketplace — recruiting top Web3 creators, managing relationships, and developing the programs that keep creators active and earning on the platform.",
+        desc:"You’ll build and own the creator supply side of the marketplace: recruiting top Web3 creators, managing relationships, and developing the programs that keep creators active and earning on the platform.",
         resp:['Identify and recruit mid-tier and top-tier Web3 creators across Twitter/X, YouTube, and TikTok','Develop creator onboarding programs, rate guides, and educational materials','Build long-term relationships with creators and serve as their primary platform contact','Work with projects to structure campaigns that maximize creator fit and ROI'],
-        req:['3+ years in creator partnerships, influencer marketing, or talent management','Deep familiarity with Crypto Twitter — you know who the key voices are','Strong relationship-building skills; creators trust you','Existing network of Web3 creators is a major plus']
+        req:['3+ years in creator partnerships, influencer marketing, or talent management','Deep familiarity with Crypto Twitter: you know who the key voices are','Strong relationship-building skills; creators trust you','Existing network of Web3 creators is a major plus']
       },
       { title:'Product Designer', dept:'Design', dc:'#a855f7', db:'rgba(168,85,247,0.1)', type:'Full-time', loc:'Remote',
-        desc:"You’ll design the end-to-end product experience for both creators and projects — from onboarding flows to campaign dashboards to deal management UIs. You’ll own the design system and work directly with engineering to ship.",
+        desc:"You’ll design the end-to-end product experience for both creators and projects: from onboarding flows to campaign dashboards to deal management UIs. You’ll own the design system and work directly with engineering to ship.",
         resp:['Design creator and project user flows from discovery through deal completion','Build and maintain a consistent design system in Figma','Run user research sessions with creators and project teams','Design mobile-responsive interfaces that work across devices'],
         req:['3+ years of product design experience, preferably in B2B or marketplace products','Expert Figma skills and a strong portfolio of shipped products','Understanding of Web3 UX patterns (wallets, transactions, signing)','Ability to design fast in ambiguous, early-stage environments']
       },
@@ -4746,7 +4757,7 @@ footer { border-top-color:rgba(0,0,0,0.09); }
         req:['Strong writer who can make complex DeFi concepts accessible','Crypto-native: you follow the ecosystem and know key protocols and culture','Experience with content marketing or journalism in crypto/fintech','Portfolio of published Web3 content required']
       },
       { title:'Community Manager', dept:'Community', dc:'#06b6d4', db:'rgba(6,182,212,0.1)', type:'Full-time', loc:'Remote',
-        desc:"You’ll be the voice and energy of OnchainCreator across Discord, Twitter/X, and Telegram — building a community of creators and projects who are genuinely excited about the platform.",
+        desc:"You’ll be the voice and energy of OnchainCreator across Discord, Twitter/X, and Telegram: building a community of creators and projects who are genuinely excited about the platform.",
         resp:['Manage and grow the OnchainCreator Discord server','Run community events: AMAs, creator spotlights, campaign launch announcements','Monitor and respond to community questions, feedback, and issues','Surface community insights and feature requests to the product team'],
         req:['2+ years of community management experience in a crypto or Web3 project','Active presence in Crypto Twitter and Discord communities','Excellent written communication in English (Japanese a strong plus)','Passion for creator economies and building communities from the ground up']
       }
