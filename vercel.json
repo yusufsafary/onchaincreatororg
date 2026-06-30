@@ -2,5 +2,6 @@
   "framework": null,
   "buildCommand": "",
   "installCommand": "",
-  "outputDirectory": "artifacts/onchaincreator"
+  "outputDirectory": "artifacts/onchaincreator",
+  "rewrites": [{"source": "/(.*)", "destination": "/index.html"}]
 }
