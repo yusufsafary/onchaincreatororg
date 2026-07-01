@@ -2774,6 +2774,9 @@ footer { border-top-color:rgba(0,0,0,0.07); background:#EDEBE5; }
   <button class="mobile-menu-link" onclick="showPage('cookies');toggleMenu()">
     <span class="en-only">Cookie Policy</span><span class="jp-only">クッキーポリシー</span>
   </button>
+  <button class="mobile-menu-link" onclick="showPage('about');toggleMenu()">
+    <span class="en-only">About</span><span class="jp-only">私たちについて</span>
+  </button>
   <button class="mobile-menu-link" onclick="showPage('blog');toggleMenu()">
     <span class="en-only">Blog</span><span class="jp-only">ブログ</span>
   </button>
@@ -3925,6 +3928,71 @@ footer { border-top-color:rgba(0,0,0,0.07); background:#EDEBE5; }
 <!-- ══════════════════════════════════════════
      PAGE: CONTACT
 ════════════════════════════════════════════ -->
+
+<!-- ══════════════════════════════════════════
+     PAGE: ABOUT
+════════════════════════════════════════════ -->
+<div class="page" id="page-about">
+  <section style="padding-top:60px; padding-bottom:80px;">
+    <div class="container" style="max-width:760px;">
+
+      <div class="label en-only">Our Story</div>
+      <div class="label jp-only">私たちのストーリー</div>
+      <h2 class="section-h" style="margin-bottom:24px;">
+        <span class="en-only">Why We Built OnchainCreator</span>
+        <span class="jp-only">なぜOnchainCreatorを作ったのか</span>
+      </h2>
+
+      <!-- EN content -->
+      <div class="en-only" style="font-size:16px; line-height:1.85; color:var(--gray-200); display:flex; flex-direction:column; gap:20px;">
+        <p>The creator economy in Web3 was broken before we started this. Projects were writing big checks to creators with inflated follower counts and no track record. Creators were doing the work, delivering the content, and getting ghosted when it was time to get paid. There was no neutral ground, no verified data, and nothing to protect either side when a deal went sideways.</p>
+        <p>We built OnchainCreator to fix that from both ends.</p>
+        <p>Creators get a verified profile connected to their real social accounts. Follower counts are pulled directly from the platform APIs, so there is nothing to fake. Every completed campaign builds a public track record that projects can see before they ever reach out. Your reputation compounds over time instead of starting from zero every single deal.</p>
+        <p>Projects get a campaign board where they can post exactly what they need, with a real budget, a clear timeline, and specific deliverables. They can filter creators by niche, chain, audience size, and rating. When they find the right person, they make an offer. When the creator accepts, the payment goes into an onchain escrow contract. The creator gets paid when they deliver. The project gets their content or their funds back. No invoices. No 45-day payment cycles. No disputes handled over DM.</p>
+        <p>We are in closed beta right now. The waitlist is intentionally limited because we want to build the right experience before opening it up. Every creator and project we bring in during beta shapes what the platform becomes. We take that seriously.</p>
+        <p>If you are a Web3 creator who is tired of chasing payments or a project that has been burned by unverified influencers, this is built for you.</p>
+      </div>
+
+      <!-- JP content -->
+      <div class="jp-only" style="font-family:var(--font-jp); font-size:15px; line-height:1.9; color:var(--gray-200); display:flex; flex-direction:column; gap:20px;">
+        <p>私たちがこのプラットフォームを作り始める前、Web3のクリエイターエコノミーは機能不全に陥っていました。プロジェクトは実績のない水増しフォロワーのクリエイターに大金を払い、クリエイターはコンテンツを納品しても報酬を受け取れないことが多々ありました。中立的な仕組みも、検証済みデータも、取引を守るものも何もありませんでした。</p>
+        <p>私たちはその問題を両側から解決するためにOnchainCreatorを作りました。</p>
+        <p>クリエイターは実際のSNSアカウントと連携した検証済みプロフィールを持てます。フォロワー数はプラットフォームのAPIから直接取得されるため、偽りようがありません。完了したキャンペーンごとに公開の実績が積み上がり、プロジェクトはオファーを出す前にその実績を確認できます。</p>
+        <p>プロジェクトは必要なコンテンツを明確な予算、期間、納品物とともに掲載できます。ニッチ、チェーン、フォロワー数、評価でクリエイターを絞り込み、最適な人材を見つけたらオファーを送ります。クリエイターが承諾すると、支払いはオンチェーンエスクローコントラクトに入ります。納品されれば報酬が届き、そうでなければ資金は返還されます。請求書も45日待ちもありません。</p>
+        <p>現在はクローズドベータ中です。適切な体験を作り上げてから一般公開するため、ウェイトリストの枠は意図的に限定しています。ベータ期間中に参加するすべてのクリエイターとプロジェクトが、このプラットフォームの形を決めます。</p>
+      </div>
+
+      <div style="margin-top:48px; padding-top:40px; border-top:1px solid var(--border); display:flex; flex-wrap:wrap; gap:32px;">
+        <div>
+          <div style="font-size:28px; font-weight:800; color:var(--brand-blue); font-family:var(--font-mono);">1,200+</div>
+          <div style="font-size:12px; color:var(--gray-500); font-family:var(--font-mono); margin-top:4px;" class="en-only">CREATORS ON WAITLIST</div>
+          <div style="font-size:12px; color:var(--gray-500); font-family:var(--font-mono); margin-top:4px;" class="jp-only">ウェイトリスト登録クリエイター</div>
+        </div>
+        <div>
+          <div style="font-size:28px; font-weight:800; color:var(--brand-blue); font-family:var(--font-mono);">40+</div>
+          <div style="font-size:12px; color:var(--gray-500); font-family:var(--font-mono); margin-top:4px;" class="en-only">PROJECTS LISTING CAMPAIGNS</div>
+          <div style="font-size:12px; color:var(--gray-500); font-family:var(--font-mono); margin-top:4px;" class="jp-only">キャンペーン掲載プロジェクト</div>
+        </div>
+        <div>
+          <div style="font-size:28px; font-weight:800; color:var(--brand-blue); font-family:var(--font-mono);">6</div>
+          <div style="font-size:12px; color:var(--gray-500); font-family:var(--font-mono); margin-top:4px;" class="en-only">CHAINS SUPPORTED</div>
+          <div style="font-size:12px; color:var(--gray-500); font-family:var(--font-mono); margin-top:4px;" class="jp-only">対応チェーン数</div>
+        </div>
+      </div>
+
+      <div style="margin-top:40px;">
+        <button class="btn btn-white" onclick="openModal('join')" style="margin-right:12px;">
+          <span class="en-only">Join the Waitlist</span><span class="jp-only">ウェイトリストに登録</span>
+        </button>
+        <button class="btn btn-outline" onclick="showPage('contact')">
+          <span class="en-only">Get in Touch</span><span class="jp-only">お問い合わせ</span>
+        </button>
+      </div>
+
+    </div>
+  </section>
+</div><!-- /page-about -->
+
 <div class="page" id="page-contact">
   <section style="padding-top:60px;">
     <div class="container">
@@ -4757,6 +4825,9 @@ footer { border-top-color:rgba(0,0,0,0.07); background:#EDEBE5; }
         <div class="footer-col-title en-only">Company</div>
         <div class="footer-col-title jp-only">会社情報</div>
         <div class="footer-links">
+          <button class="footer-link" onclick="showPage('about')">
+            <span class="en-only">About</span><span class="jp-only">私たちについて</span>
+          </button>
           <button class="footer-link" onclick="showPage('blog')">
             <span class="en-only">Blog</span><span class="jp-only">ブログ</span>
           </button>
