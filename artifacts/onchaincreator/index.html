@@ -5291,25 +5291,27 @@ footer { border-top-color:rgba(0,0,0,0.07); background:#EDEBE5; }
   }
 
   // ── MAGIC LINK AUTH HELPERS ──
+  async function _postMagicLink(email) {
+    const res = await fetch('/api/auth/magic-link', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email }),
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Failed to send magic link');
+    return data;
+  }
+
   async function sendMagicLink(e) {
     e.preventDefault();
-    if (!supabase) {
-      showToast(currentLang === 'jp' ? 'Supabaseが設定されていません' : 'Auth not configured yet', 'error');
-      return;
-    }
     const email = document.getElementById('magic-link-email').value.trim();
     if (!email) return;
     const btn = document.getElementById('magic-link-btn');
     const origHTML = btn.innerHTML;
     btn.disabled = true;
     btn.innerHTML = '<span class="en-only">Sending…</span><span class="jp-only">送信中…</span>';
-    const redirectTo = window.location.href.split('#')[0] + '#dashboard';
-    const { error } = await supabase.auth.signInWithOtp({ email, options: { emailRedirectTo: redirectTo } });
-    btn.disabled = false;
-    btn.innerHTML = origHTML;
-    if (error) {
-      showToast(error.message, 'error');
-    } else {
+    try {
+      await _postMagicLink(email);
       document.getElementById('magic-link-form').style.display = 'none';
       const sentEl = document.getElementById('magic-link-sent');
       sentEl.style.display = '';
@@ -5317,29 +5319,29 @@ footer { border-top-color:rgba(0,0,0,0.07); background:#EDEBE5; }
       const emailElJp = document.getElementById('magic-link-sent-email-jp');
       if (emailEl) emailEl.textContent = email;
       if (emailElJp) emailElJp.textContent = email;
+    } catch (err) {
+      showToast(err.message, 'error');
+      btn.disabled = false;
+      btn.innerHTML = origHTML;
     }
   }
 
   async function sendMagicLinkDash(e) {
     e.preventDefault();
-    if (!supabase) {
-      showToast(currentLang === 'jp' ? 'Supabaseが設定されていません' : 'Auth not configured yet', 'error');
-      return;
-    }
     const email = document.getElementById('dash-magic-email').value.trim();
     if (!email) return;
     const btn = document.getElementById('dash-magic-btn');
+    const origLabel = btn.innerHTML;
     btn.disabled = true;
     btn.innerHTML = '<span class="en-only">Sending…</span><span class="jp-only">送信中…</span>';
-    const redirectTo = window.location.href.split('#')[0] + '#dashboard';
-    const { error } = await supabase.auth.signInWithOtp({ email, options: { emailRedirectTo: redirectTo } });
-    btn.disabled = false;
-    if (error) {
-      showToast(error.message, 'error');
-      btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg><span class=\'en-only\'>Sign in with Magic Link →</span><span class=\'jp-only\'>マジックリンクでサインイン →</span>';
-    } else {
+    try {
+      await _postMagicLink(email);
       document.getElementById('dash-magic-form').style.display = 'none';
       document.getElementById('dash-magic-sent').style.display = '';
+    } catch (err) {
+      showToast(err.message, 'error');
+      btn.disabled = false;
+      btn.innerHTML = origLabel;
     }
   }
 
