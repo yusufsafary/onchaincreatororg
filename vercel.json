@@ -1,6 +1,6 @@
 {
   "framework": null,
-  "installCommand": "npm install -g pnpm@10 && pnpm install --frozen-lockfile",
+  "installCommand": "npm install -g pnpm@10 && pnpm install",
   "buildCommand": "pnpm --filter @workspace/onchaincreator run build",
   "outputDirectory": "artifacts/onchaincreator/dist/public",
   "env": {
