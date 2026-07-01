@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
   <meta name="description" content="OnchainCreator: The marketplace connecting Web3 content creators with onchain projects." />
 
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A0808'/%3E%3Cpath d='M16 4L25 9.5V20.5L16 26L7 20.5V9.5Z' fill='%231B4EEA'/%3E%3Cpath d='M17.5 9L12.5 18H16L14.5 23L20 14H16.5L17.5 9Z' fill='%23FFB800'/%3E%3C/svg%3E" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230D0D0D'/%3E%3Cpath d='M6 16 A10 10 0 0 1 26 16' stroke='%23E8F000' stroke-width='1.8' stroke-linecap='round' fill='none' opacity='0.4'/%3E%3Cpath d='M9 16 A7 7 0 0 1 23 16' stroke='%23E8F000' stroke-width='2' stroke-linecap='round' fill='none' opacity='0.75'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%23E8F000'/%3E%3Ccircle cx='16' cy='16' r='1.8' fill='%230D0D0D'/%3E%3Ccircle cx='8' cy='21' r='2' fill='%23FF6B2B'/%3E%3Ccircle cx='24' cy='21' r='2' fill='%23FF6B2B'/%3E%3C/svg%3E" />
   <meta property="og:title" content="OnchainCreator: Web3 Creator Marketplace" />
   <meta property="og:description" content="The marketplace connecting Web3 content creators with onchain projects. Find campaigns, get verified, get paid." />
   <meta property="og:type" content="website" />
@@ -20,14 +20,14 @@
   <script src="https://terminal.jup.ag/main-v3.js" data-preload defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,800&family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,800&family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <style>
     :root {
       /* Brand palette */
-      --brand-blue:   #1B4EEA;
-      --brand-yellow: #FFB800;
-      --brand-green:  #00C853;
+      --brand-blue:   #E8F000;
+      --brand-yellow: #FF6B2B;
+      --brand-green:  #00D68F;
       --brand-red:    #E52D0A;
       --brand-purple: #7929F5;
       --black: #090909;
@@ -55,7 +55,7 @@
       --font-display: 'Barlow Condensed', sans-serif;
       --font: 'Space Grotesk', 'Noto Sans JP', sans-serif;
       --font-jp: 'Noto Sans JP', sans-serif;
-      --font-mono: 'Geist Mono', monospace;
+      --font-mono: 'IBM Plex Mono', monospace;
       --ca-bar-h: 38px;
       --nav-h: 60px;
       --max-w: 1080px;
@@ -1801,7 +1801,7 @@ h1.display, h2.section-h { color:#0A0808; font-family:var(--font-display); }
   font-family:var(--font);
 }
 .hero-waitlist-input::placeholder { color:#999; }
-.hero-waitlist-input:focus { border-color:var(--brand-blue); box-shadow:0 0 0 3px rgba(27,78,234,0.12); }
+.hero-waitlist-input:focus { border-color:var(--brand-blue); box-shadow:0 0 0 3px rgba(232,240,0,0.12); }
 .hero-stat-num { color:#0A0808; font-family:var(--font-display); font-size:clamp(28px,5vw,42px); font-weight:900; }
 .hero-stats { border-color:rgba(0,0,0,0.08); background:#fff; border-radius:12px; }
 .hero-stat { border-right-color:rgba(0,0,0,0.08); }
@@ -1835,20 +1835,20 @@ h1.display, h2.section-h { color:#0A0808; font-family:var(--font-display); }
 .role-desc { color:#4A4644; font-family:var(--font); }
 .role-desc-jp { color:#777; }
 .role-item { color:#333; font-family:var(--font); }
-.role-item-check { border-color:rgba(27,78,234,0.3); color:var(--brand-blue); }
+.role-item-check { border-color:rgba(232,240,0,0.3); color:var(--brand-blue); }
 .role-item-jp { color:#aaa; }
 
 /* NICHE TAGS */
 .niche-tag { color:#4A4644; border-color:rgba(0,0,0,0.1); font-family:var(--font); font-weight:500; }
-.niche-tag:hover { color:#0A0808; border-color:var(--brand-blue); background:rgba(27,78,234,0.05); }
+.niche-tag:hover { color:#0A0808; border-color:var(--brand-blue); background:rgba(232,240,0,0.05); }
 
 /* CTA */
-.cta-box { background:#fff; border-color:rgba(27,78,234,0.18); box-shadow:0 0 0 1px rgba(27,78,234,0.06); }
+.cta-box { background:#fff; border-color:rgba(232,240,0,0.18); box-shadow:0 0 0 1px rgba(232,240,0,0.06); }
 .cta-box::before { background:linear-gradient(90deg,transparent,var(--brand-blue),transparent); opacity:0.25; }
 
 /* HOWTO STEPS */
 .howto-step { border-bottom-color:rgba(0,0,0,0.08); }
-.step-num-badge { border-color:rgba(27,78,234,0.3); color:var(--brand-blue); font-family:var(--font-mono); font-weight:600; }
+.step-num-badge { border-color:rgba(232,240,0,0.3); color:var(--brand-blue); font-family:var(--font-mono); font-weight:600; }
 .step-connector { background:rgba(0,0,0,0.08); }
 .step-title { color:#0A0808; font-family:var(--font); font-weight:700; }
 .step-title-jp { color:#aaa; }
@@ -1861,33 +1861,33 @@ h1.display, h2.section-h { color:#0A0808; font-family:var(--font-display); }
 
 /* CAMPAIGN CARDS (sample page) */
 .campaign-card { background:#fff; border-color:rgba(0,0,0,0.08); }
-.campaign-card:hover { border-color:var(--brand-blue); transform:translateY(-3px); box-shadow:0 8px 24px rgba(27,78,234,0.1); }
+.campaign-card:hover { border-color:var(--brand-blue); transform:translateY(-3px); box-shadow:0 8px 24px rgba(232,240,0,0.1); }
 .campaign-title { color:#0A0808; font-family:var(--font); font-weight:700; }
 .campaign-avatar { background:#EDEBE5; }
 .campaign-proj-chain { color:#7A7876; font-family:var(--font-mono); }
 .campaign-desc { color:#4A4644; font-family:var(--font); }
 .campaign-pill { border-color:rgba(0,0,0,0.1); color:#7A7876; font-family:var(--font-mono); }
 .campaign-badge { border-color:rgba(0,0,0,0.12); color:#7A7876; }
-.campaign-badge.open { border-color:rgba(27,78,234,0.4); color:var(--brand-blue); background:rgba(27,78,234,0.05); }
+.campaign-badge.open { border-color:rgba(232,240,0,0.4); color:var(--brand-blue); background:rgba(232,240,0,0.05); }
 .campaign-budget { color:#0A0808; font-family:var(--font-mono); font-weight:700; }
 .campaign-card-bottom { border-top-color:rgba(0,0,0,0.07); }
 
 /* CAMP CARDS (campaigns page) */
 .camp-card { background:#fff; border-color:rgba(0,0,0,0.08); }
-.camp-card:hover { border-color:var(--brand-blue); box-shadow:0 6px 20px rgba(27,78,234,0.1); }
+.camp-card:hover { border-color:var(--brand-blue); box-shadow:0 6px 20px rgba(232,240,0,0.1); }
 .camp-title { color:#0A0808; font-family:var(--font); font-weight:700; }
 .camp-budget { color:var(--brand-blue); font-family:var(--font-mono); font-weight:700; }
 .camp-desc { color:#4A4644; font-family:var(--font); }
 .camp-pill { border-color:rgba(0,0,0,0.1); color:#7A7876; font-family:var(--font-mono); }
 .camp-badge { border-color:rgba(0,0,0,0.12); color:#7A7876; }
-.camp-badge.open { border-color:rgba(27,78,234,0.4); color:var(--brand-blue); }
+.camp-badge.open { border-color:rgba(232,240,0,0.4); color:var(--brand-blue); }
 .camp-apply { background:var(--brand-blue); color:#fff; border:none; font-family:var(--font); font-weight:600; }
 .camp-apply:hover { background:#1540CC; opacity:1; }
 .camp-footer { border-top-color:rgba(0,0,0,0.07); }
 
 /* FILTER CHIPS */
 .filter-chip { border-color:rgba(0,0,0,0.1); color:#555; font-family:var(--font); font-weight:500; }
-.filter-chip:hover,.filter-chip.active { border-color:var(--brand-blue); color:var(--brand-blue); background:rgba(27,78,234,0.07); }
+.filter-chip:hover,.filter-chip.active { border-color:var(--brand-blue); color:var(--brand-blue); background:rgba(232,240,0,0.07); }
 
 /* TEAM */
 .team-grid { background:rgba(0,0,0,0.07); border-color:rgba(0,0,0,0.07); }
@@ -1898,7 +1898,7 @@ h1.display, h2.section-h { color:#0A0808; font-family:var(--font-display); }
 .team-role-jp { color:#bbb; }
 .team-handle { color:#C0BAB2; font-family:var(--font-mono); }
 .team-avatar { background:#EDEBE5; border-color:rgba(0,0,0,0.08); }
-.team-grid .team-card:first-child .team-avatar { border-color:rgba(27,78,234,0.35); }
+.team-grid .team-card:first-child .team-avatar { border-color:rgba(232,240,0,0.35); }
 
 /* BLOG */
 .blog-card { background:#fff; border-color:rgba(0,0,0,0.08); }
@@ -1919,7 +1919,7 @@ h1.display, h2.section-h { color:#0A0808; font-family:var(--font-display); }
 /* CONTACT */
 .contact-card { background:#fff; border-color:rgba(0,0,0,0.08); }
 .contact-card-sub { color:#4A4644; font-family:var(--font); }
-.contact-card-link { color:var(--brand-blue); border-bottom-color:rgba(27,78,234,0.3); font-family:var(--font-mono); }
+.contact-card-link { color:var(--brand-blue); border-bottom-color:rgba(232,240,0,0.3); font-family:var(--font-mono); }
 .contact-card-link:hover { border-bottom-color:var(--brand-blue); }
 
 /* LEGAL */
@@ -2223,7 +2223,7 @@ footer { border-top-color:rgba(0,0,0,0.07); background:#EDEBE5; }
 .feature-cell:hover {
   transform: translateY(-4px) !important;
   box-shadow: 0 10px 36px rgba(0,0,0,0.09) !important;
-  border-color: rgba(27,78,234,0.22) !important;
+  border-color: rgba(232,240,0,0.22) !important;
 }
 
 /* ── CREATOR CARD HOVER ── */
@@ -2254,7 +2254,7 @@ footer { border-top-color:rgba(0,0,0,0.07); background:#EDEBE5; }
 
 /* HERO TITLE GRADIENT */
 #hero-title-main, #hero-jp-main {
-  background: linear-gradient(130deg, #0A0808 10%, #1B4EEA 100%);
+  background: linear-gradient(130deg, #0A0808 10%, #E8F000 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -2278,8 +2278,8 @@ footer { border-top-color:rgba(0,0,0,0.07); background:#EDEBE5; }
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 18% 50%, rgba(27,78,234,0.18) 0%, transparent 55%),
-    radial-gradient(ellipse at 82% 50%, rgba(255,184,0,0.12) 0%, transparent 55%);
+    radial-gradient(ellipse at 18% 60%, rgba(232,240,0,0.06) 0%, transparent 48%),
+    radial-gradient(ellipse at 82% 40%, rgba(255,107,43,0.08) 0%, transparent 48%);
   pointer-events: none;
 }
 .dark-proof-inner {
@@ -2296,7 +2296,7 @@ footer { border-top-color:rgba(0,0,0,0.07); background:#EDEBE5; }
   border-right: 1px solid rgba(255,255,255,0.07);
 }
 .dark-proof-stat:last-child { border-right: none; }
-.dark-proof-stat-accent .dark-proof-num { color: #FFB800; }
+.dark-proof-stat-accent .dark-proof-num { color: #FF6B2B; }
 .dark-proof-num {
   display: block;
   font-family: var(--font-display);
@@ -2345,7 +2345,7 @@ footer { border-top-color:rgba(0,0,0,0.07); background:#EDEBE5; }
   font-family: var(--font-display);
   font-size: 24px;
   font-weight: 800;
-  color: #FFB800;
+  color: #FF6B2B;
   letter-spacing: -0.5px;
 }
 .dppi-type {
@@ -2378,8 +2378,8 @@ footer { border-top-color:rgba(0,0,0,0.07); background:#EDEBE5; }
 /* FEATURE NUM GLOW */
 .feature-num { transition: color 0.2s ease, text-shadow 0.2s ease; }
 .feature-cell:hover .feature-num {
-  color: #1B4EEA !important;
-  text-shadow: 0 0 28px rgba(27,78,234,0.55);
+  color: #E8F000 !important;
+  text-shadow: 0 0 28px rgba(232,240,0,0.55);
 }
 
 /* NICHE TAG HOVER */
@@ -2422,11 +2422,11 @@ footer { border-top-color:rgba(0,0,0,0.07); background:#EDEBE5; }
   position: absolute;
   bottom: 0; left: 50%; transform: translateX(-50%);
   width: 0; height: 2px;
-  background: #1B4EEA;
+  background: #E8F000;
   transition: width 0.3s ease;
 }
 .hero-stat:hover::after { width: 60%; }
-.hero-stat:hover .hero-stat-num { color: #1B4EEA; }
+.hero-stat:hover .hero-stat-num { color: #E8F000; }
 .hero-stat-num { transition: color 0.2s ease; }
 
 /* ══════════════════════════════════
@@ -2471,8 +2471,8 @@ footer { border-top-color:rgba(0,0,0,0.07); background:#EDEBE5; }
   min-height: 50px;
 }
 .elig-field:focus-within {
-  border-color: #1B4EEA;
-  box-shadow: 0 0 0 3px rgba(27,78,234,0.08);
+  border-color: #E8F000;
+  box-shadow: 0 0 0 3px rgba(232,240,0,0.08);
 }
 .elig-field-icon {
   font-size: 14px;
@@ -2660,9 +2660,9 @@ footer { border-top-color:rgba(0,0,0,0.07); background:#EDEBE5; }
 
 /* STEP LIT ANIMATION (for how-it-works) */
 .step-lit .step-num-badge {
-  background: #1B4EEA !important;
+  background: #E8F000 !important;
   color: #fff !important;
-  box-shadow: 0 0 0 6px rgba(27,78,234,0.12);
+  box-shadow: 0 0 0 6px rgba(232,240,0,0.12);
   transform: scale(1.08);
   transition: all 0.3s ease;
 }
@@ -2687,9 +2687,15 @@ footer { border-top-color:rgba(0,0,0,0.07); background:#EDEBE5; }
 <nav>
   <div class="nav-logo" onclick="goHome()">
     <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect width="30" height="30" rx="7" fill="#0A0808"/>
-      <path d="M15 3L25 8.77V20.23L15 26L5 20.23V8.77L15 3Z" fill="#1B4EEA"/>
-      <path d="M17 8.5L11 18H15.5L13.5 23L20 13.5H15.5L17 8.5Z" fill="#FFB800"/>
+      <rect width="30" height="30" rx="8" fill="#0D0D0D"/>
+      <path d="M7 15 A8 8 0 0 1 23 15" stroke="#E8F000" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.35"/>
+      <path d="M9.5 15 A5.5 5.5 0 0 1 20.5 15" stroke="#E8F000" stroke-width="1.6" stroke-linecap="round" fill="none" opacity="0.65"/>
+      <circle cx="15" cy="15" r="3.2" fill="#E8F000"/>
+      <circle cx="15" cy="15" r="1.4" fill="#0D0D0D"/>
+      <circle cx="7.5" cy="19.5" r="1.5" fill="#FF6B2B" opacity="0.9"/>
+      <circle cx="22.5" cy="19.5" r="1.5" fill="#FF6B2B" opacity="0.9"/>
+      <line x1="9" y1="18.8" x2="14" y2="16.5" stroke="#FF6B2B" stroke-width="0.8" opacity="0.55"/>
+      <line x1="21" y1="18.8" x2="16" y2="16.5" stroke="#FF6B2B" stroke-width="0.8" opacity="0.55"/>
     </svg>
     <span class="nav-logo-name">OnchainCreator</span>
   </div>
@@ -4670,9 +4676,15 @@ footer { border-top-color:rgba(0,0,0,0.07); background:#EDEBE5; }
         <div class="footer-logo" onclick="goHome()">
           <div class="footer-logo-mark">
             <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="30" height="30" rx="7" fill="#0A0808"/>
-              <path d="M15 3L25 8.77V20.23L15 26L5 20.23V8.77L15 3Z" fill="#1B4EEA"/>
-              <path d="M17 8.5L11 18H15.5L13.5 23L20 13.5H15.5L17 8.5Z" fill="#FFB800"/>
+              <rect width="30" height="30" rx="8" fill="#0D0D0D"/>
+              <path d="M7 15 A8 8 0 0 1 23 15" stroke="#E8F000" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.35"/>
+              <path d="M9.5 15 A5.5 5.5 0 0 1 20.5 15" stroke="#E8F000" stroke-width="1.6" stroke-linecap="round" fill="none" opacity="0.65"/>
+              <circle cx="15" cy="15" r="3.2" fill="#E8F000"/>
+              <circle cx="15" cy="15" r="1.4" fill="#0D0D0D"/>
+              <circle cx="7.5" cy="19.5" r="1.5" fill="#FF6B2B" opacity="0.9"/>
+              <circle cx="22.5" cy="19.5" r="1.5" fill="#FF6B2B" opacity="0.9"/>
+              <line x1="9" y1="18.8" x2="14" y2="16.5" stroke="#FF6B2B" stroke-width="0.8" opacity="0.55"/>
+              <line x1="21" y1="18.8" x2="16" y2="16.5" stroke="#FF6B2B" stroke-width="0.8" opacity="0.55"/>
             </svg>
           </div>
           <span class="footer-logo-name">OnchainCreator</span>
@@ -5467,7 +5479,7 @@ function typeInto(el, txt, speed, done) {
   if (_typingTimer) clearTimeout(_typingTimer);
   el.textContent = '';
   var cur = document.createElement('span');
-  cur.style.cssText = 'display:inline-block;width:2px;height:0.8em;background:#1B4EEA;margin-left:2px;vertical-align:middle;animation:blink 0.65s step-end infinite;';
+  cur.style.cssText = 'display:inline-block;width:2px;height:0.8em;background:#E8F000;margin-left:2px;vertical-align:middle;animation:blink 0.65s step-end infinite;';
   el.appendChild(cur);
   var i = 0;
   var fn = function() {
@@ -5636,7 +5648,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (anyOk) {
         res.style.background = 'rgba(34,197,94,0.06)';
         res.style.borderColor = 'rgba(34,197,94,0.3)';
-        res.innerHTML = '<strong style="color:#16a34a;">✓ You qualify.</strong> <span class="en-only">Join the creator waitlist — your verified profile goes live when we launch.</span><span class="jp-only">ウェイトリストに参加して、ローンチ時に認証済みプロフィールを取得しましょう。</span> <button onclick="openModal(\'creator\')" style="background:#1B4EEA;color:#fff;border:none;border-radius:6px;padding:5px 12px;font-size:12px;font-family:var(--font-sans);font-weight:700;cursor:pointer;margin-left:4px;">Join now →</button>';
+        res.innerHTML = '<strong style="color:#16a34a;">✓ You qualify.</strong> <span class="en-only">Join the creator waitlist — your verified profile goes live when we launch.</span><span class="jp-only">ウェイトリストに参加して、ローンチ時に認証済みプロフィールを取得しましょう。</span> <button onclick="openModal(\'creator\')" style="background:#E8F000;color:#0D0D0D;border:none;border-radius:6px;padding:5px 12px;font-size:12px;font-family:var(--font-sans);font-weight:700;cursor:pointer;margin-left:4px;">Join now →</button>';
       } else {
         res.style.background = 'rgba(239,68,68,0.05)';
         res.style.borderColor = 'rgba(239,68,68,0.2)';
