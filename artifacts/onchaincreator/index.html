@@ -2235,6 +2235,200 @@ footer { border-top-color:rgba(0,0,0,0.07); background:#EDEBE5; }
   box-shadow: 0 8px 28px rgba(0,0,0,0.1) !important;
 }
 
+/* ══════════════════════════════════
+   SPECTACULAR HOMEPAGE
+══════════════════════════════════ */
+
+/* HERO DOT GRID */
+.hero { position: relative; overflow: hidden; }
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(10,8,8,0.075) 1px, transparent 1px);
+  background-size: 22px 22px;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero .container { position: relative; z-index: 1; }
+
+/* HERO TITLE GRADIENT */
+#hero-title-main, #hero-jp-main {
+  background: linear-gradient(130deg, #0A0808 10%, #1B4EEA 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* TYPING CURSOR BLINK */
+@keyframes blink {
+  0%,100% { opacity:1; }
+  50%      { opacity:0; }
+}
+
+/* DARK PROOF SECTION */
+.dark-proof {
+  background: #0A0808;
+  padding: 72px 0 56px;
+  overflow: hidden;
+  position: relative;
+}
+.dark-proof::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 18% 50%, rgba(27,78,234,0.18) 0%, transparent 55%),
+    radial-gradient(ellipse at 82% 50%, rgba(255,184,0,0.12) 0%, transparent 55%);
+  pointer-events: none;
+}
+.dark-proof-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  position: relative;
+}
+.dark-proof-stat {
+  padding: 20px 40px 32px;
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.07);
+}
+.dark-proof-stat:last-child { border-right: none; }
+.dark-proof-stat-accent .dark-proof-num { color: #FFB800; }
+.dark-proof-num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(44px, 8vw, 74px);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -2px;
+  line-height: 1.05;
+  margin-bottom: 10px;
+}
+.dark-proof-label {
+  font-size: 11px;
+  color: rgba(255,255,255,0.38);
+  font-family: var(--font-mono);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.dark-proof-payouts {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 36px 40px 0;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  position: relative;
+}
+.dark-proof-payout-label {
+  display: block;
+  text-align: center;
+  font-size: 10px;
+  color: rgba(255,255,255,0.28);
+  font-family: var(--font-mono);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.dark-proof-payout-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.dark-proof-payout-sep { color: rgba(255,255,255,0.12); font-size: 22px; }
+.dark-proof-payout-item { text-align: center; }
+.dppi-amt {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 800;
+  color: #FFB800;
+  letter-spacing: -0.5px;
+}
+.dppi-type {
+  display: block;
+  font-size: 9px;
+  color: rgba(255,255,255,0.28);
+  font-family: var(--font-mono);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+@media (max-width: 640px) {
+  .dark-proof-inner { grid-template-columns: 1fr; }
+  .dark-proof-stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); padding: 20px; }
+  .dark-proof-stat:last-child { border-bottom: none; }
+  .dark-proof-inner, .dark-proof-payouts { padding: 0 20px; }
+  .dark-proof-payout-sep { display: none; }
+  .dark-proof-payout-row { gap: 14px; }
+  .dark-proof-payouts { padding: 32px 20px 0; }
+}
+
+/* FEATURE STAGGER REVEAL */
+.feature-stagger {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.52s ease, transform 0.52s ease;
+}
+.feature-stagger.visible { opacity: 1; transform: none; }
+
+/* FEATURE NUM GLOW */
+.feature-num { transition: color 0.2s ease, text-shadow 0.2s ease; }
+.feature-cell:hover .feature-num {
+  color: #1B4EEA !important;
+  text-shadow: 0 0 28px rgba(27,78,234,0.55);
+}
+
+/* NICHE TAG HOVER */
+.niche-tag {
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease, transform 0.15s ease !important;
+  cursor: pointer;
+}
+.niche-tag:hover {
+  background: #0A0808 !important;
+  color: #fff !important;
+  border-color: #0A0808 !important;
+  transform: scale(1.06) !important;
+}
+
+/* ROLE CARD HOVER */
+.role-card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.role-card:hover { transform: translateY(-5px); box-shadow: 0 16px 48px rgba(0,0,0,0.1); }
+
+/* CTA SHIMMER */
+.hero-waitlist-form .btn {
+  position: relative;
+  overflow: hidden;
+}
+.hero-waitlist-form .btn::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%; width: 55%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.22), transparent);
+  animation: shimmer 3s ease-in-out infinite;
+}
+@keyframes shimmer {
+  0%       { left: -100%; }
+  40%,100% { left: 150%; }
+}
+
+/* HERO STAT UNDERLINE ACCENT */
+.hero-stat { position: relative; cursor: default; }
+.hero-stat::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 0; height: 2px;
+  background: #1B4EEA;
+  transition: width 0.3s ease;
+}
+.hero-stat:hover::after { width: 60%; }
+.hero-stat:hover .hero-stat-num { color: #1B4EEA; }
+.hero-stat-num { transition: color 0.2s ease; }
+
 </style>
 </head>
 <body>
@@ -2548,6 +2742,42 @@ footer { border-top-color:rgba(0,0,0,0.07); background:#EDEBE5; }
     </div>
   </section>
 
+  <!-- ── DARK PROOF ── -->
+  <div class="dark-proof">
+    <div class="dark-proof-inner">
+      <div class="dark-proof-stat">
+        <span class="dark-proof-num" id="dp-n1">1,200+</span>
+        <span class="dark-proof-label en-only">Creators on waitlist</span>
+        <span class="dark-proof-label jp-only">登録クリエイター</span>
+      </div>
+      <div class="dark-proof-stat dark-proof-stat-accent">
+        <span class="dark-proof-num" id="dp-n2">$1.2M</span>
+        <span class="dark-proof-label en-only">Paid out to creators</span>
+        <span class="dark-proof-label jp-only">累計支払い額</span>
+      </div>
+      <div class="dark-proof-stat">
+        <span class="dark-proof-num" id="dp-n3">140+</span>
+        <span class="dark-proof-label en-only">Web3 projects listed</span>
+        <span class="dark-proof-label jp-only">掲載プロジェクト</span>
+      </div>
+    </div>
+    <div class="dark-proof-payouts">
+      <span class="dark-proof-payout-label en-only">avg. campaign payout by content type</span>
+      <span class="dark-proof-payout-label jp-only">コンテンツタイプ別 平均キャンペーン報酬</span>
+      <div class="dark-proof-payout-row">
+        <div class="dark-proof-payout-item"><span class="dppi-amt">$450</span><span class="dppi-type">Thread</span></div>
+        <div class="dark-proof-payout-sep">·</div>
+        <div class="dark-proof-payout-item"><span class="dppi-amt">$800</span><span class="dppi-type">YouTube</span></div>
+        <div class="dark-proof-payout-sep">·</div>
+        <div class="dark-proof-payout-item"><span class="dppi-amt">$300</span><span class="dppi-type">Newsletter</span></div>
+        <div class="dark-proof-payout-sep">·</div>
+        <div class="dark-proof-payout-item"><span class="dppi-amt">$650</span><span class="dppi-type">Podcast</span></div>
+        <div class="dark-proof-payout-sep">·</div>
+        <div class="dark-proof-payout-item"><span class="dppi-amt">$1,200</span><span class="dppi-type">Bundle</span></div>
+      </div>
+    </div>
+  </div>
+
   <!-- TICKER -->
   <div class="ticker-wrap">
     <div class="ticker-track">
@@ -2632,12 +2862,12 @@ footer { border-top-color:rgba(0,0,0,0.07); background:#EDEBE5; }
         </div>
         <div class="feature-cell">
           <div class="feature-num">06</div>
-          <span class="feature-icon">🔐</span>
-          <div class="feature-name en-only">Secure Auth</div>
-          <div class="feature-name jp-only">セキュア認証</div>
-          <span class="feature-name-jp">安全なログイン</span>
-          <p class="feature-desc en-only">Email or social login via Supabase. Optional wallet connect for onchain identity verification.</p>
-          <p class="feature-desc-jp">Supabaseによるメール・ソーシャルログイン。オプションでウォレット連携も可能。</p>
+          <span class="feature-icon">🔒</span>
+          <div class="feature-name en-only">Onchain Escrow</div>
+          <div class="feature-name jp-only">オンチェーン決済</div>
+          <span class="feature-name-jp">エスクロー機能</span>
+          <p class="feature-desc en-only">Funds held in smart contract escrow and released only when both sides confirm. No invoices, no disputes, no delays.</p>
+          <p class="feature-desc-jp">スマートコントラクトで資金を保管し、双方が確認後に自動解放。請求書不要、紛争なし。</p>
         </div>
       </div>
     </div>
@@ -5117,5 +5347,173 @@ footer { border-top-color:rgba(0,0,0,0.07); background:#EDEBE5; }
 <!-- ══ TOAST ══ -->
 <div class="toast" id="toast"></div>
 
+
+<script>
+/* ══ SPECTACULAR HOMEPAGE JS ══ */
+
+// ── TYPING CURSOR EFFECT (overrides basic switchHeroRole) ──
+var _typingTimer = null;
+function typeInto(el, txt, speed, done) {
+  if (_typingTimer) clearTimeout(_typingTimer);
+  el.textContent = '';
+  var cur = document.createElement('span');
+  cur.style.cssText = 'display:inline-block;width:2px;height:0.8em;background:#1B4EEA;margin-left:2px;vertical-align:middle;animation:blink 0.65s step-end infinite;';
+  el.appendChild(cur);
+  var i = 0;
+  var fn = function() {
+    if (i < txt.length) {
+      el.insertBefore(document.createTextNode(txt[i]), cur);
+      i++;
+      _typingTimer = setTimeout(fn, speed + Math.random() * 18);
+    } else {
+      setTimeout(function() { if (cur.parentNode) cur.parentNode.removeChild(cur); if (done) done(); }, 380);
+    }
+  };
+  _typingTimer = setTimeout(fn, 0);
+}
+
+function switchHeroRole(role) {
+  var c = ROLE_CONTENT[role];
+  document.getElementById('role-tab-creator').classList.toggle('active', role === 'creator');
+  document.getElementById('role-tab-project').classList.toggle('active', role === 'project');
+  var block = document.getElementById('hero-title-block');
+  block.style.transition = 'opacity 0.14s ease, transform 0.14s ease';
+  block.style.opacity = '0';
+  block.style.transform = 'translateY(7px)';
+  setTimeout(function() {
+    block.style.opacity = '1';
+    block.style.transform = '';
+    document.getElementById('hero-jp-main').textContent = c.jp_main;
+    document.getElementById('hero-jp-dim').textContent  = c.jp_dim;
+    var mainEl = document.getElementById('hero-title-main');
+    var dimEl  = document.getElementById('hero-title-dim');
+    dimEl.textContent = '';
+    typeInto(mainEl, c.en_main, 30, function() {
+      typeInto(dimEl, c.en_dim, 35);
+    });
+    var subEl = document.getElementById('hero-sub-en');
+    if (subEl) {
+      subEl.style.transition = 'opacity 0.28s ease';
+      subEl.style.opacity = '0';
+      setTimeout(function() { subEl.textContent = c.sub_en; subEl.style.opacity = '1'; }, 280);
+    }
+    var btn = document.getElementById('hero-waitlist-btn');
+    if (btn) {
+      var en = btn.querySelector('.en-only'), jp = btn.querySelector('.jp-only');
+      if (en) en.textContent = c.btn_en;
+      if (jp) jp.textContent = c.btn_jp;
+    }
+  }, 145);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+
+  // ── 3D CARD TILT ──
+  document.querySelectorAll('.feature-cell, .creator-card, .role-card').forEach(function(el) {
+    el.addEventListener('mousemove', function(e) {
+      var r = this.getBoundingClientRect();
+      var nx = (e.clientX - r.left) / r.width  - 0.5;
+      var ny = (e.clientY - r.top)  / r.height - 0.5;
+      this.style.transition = 'none';
+      this.style.transform = 'perspective(700px) rotateY('+(nx*9)+'deg) rotateX('+(-ny*9)+'deg) scale(1.025)';
+    });
+    el.addEventListener('mouseleave', function() {
+      this.style.transition = 'transform 0.55s cubic-bezier(0.34,1.56,0.64,1)';
+      this.style.transform = '';
+    });
+  });
+
+  // ── STAGGERED FEATURE REVEAL ──
+  var featObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (!e.isIntersecting) return;
+      var idx = parseInt(e.target.dataset.si || 0);
+      setTimeout(function() { e.target.classList.add('visible'); }, idx * 85);
+      featObs.unobserve(e.target);
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('#page-home .features-grid .feature-cell').forEach(function(el, i) {
+    el.classList.add('feature-stagger');
+    el.dataset.si = i;
+    featObs.observe(el);
+  });
+
+  // ── DARK PROOF COUNTUP ──
+  var dpObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (!e.isIntersecting) return;
+      dpObs.disconnect();
+      var dur = 1700;
+      var STATS = [
+        { id:'dp-n1', fmt: function(v) { return Math.floor(v).toLocaleString()+'+'; }, from:0, to:1200 },
+        { id:'dp-n2', fmt: function(v) { return '$'+(v).toFixed(1)+'M'; }, from:0, to:1.2 },
+        { id:'dp-n3', fmt: function(v) { return Math.floor(v)+'+'; }, from:0, to:140 }
+      ];
+      STATS.forEach(function(s) {
+        var el = document.getElementById(s.id);
+        if (!el) return;
+        var start = null;
+        requestAnimationFrame(function tick(ts) {
+          if (!start) start = ts;
+          var p = Math.min((ts - start) / dur, 1);
+          var ease = 1 - Math.pow(1 - p, 3);
+          el.textContent = s.fmt(s.from + (s.to - s.from) * ease);
+          if (p < 1) requestAnimationFrame(tick);
+        });
+      });
+    });
+  }, { threshold: 0.25 });
+  var dpEl = document.querySelector('.dark-proof');
+  if (dpEl) dpObs.observe(dpEl);
+
+  // ── MAGNETIC CTA ──
+  var ctaBtn = document.getElementById('hero-waitlist-btn');
+  if (ctaBtn) {
+    var form = ctaBtn.closest('form');
+    if (form) {
+      form.addEventListener('mousemove', function(e) {
+        var r = ctaBtn.getBoundingClientRect();
+        var mx = e.clientX - (r.left + r.width / 2);
+        var my = e.clientY - (r.top  + r.height / 2);
+        if (Math.sqrt(mx*mx + my*my) < 130) {
+          ctaBtn.style.transition = 'transform 0.12s ease';
+          ctaBtn.style.transform = 'translate('+(mx*0.22)+'px,'+(my*0.22)+'px)';
+        } else {
+          ctaBtn.style.transform = '';
+        }
+      });
+      form.addEventListener('mouseleave', function() {
+        ctaBtn.style.transition = 'transform 0.45s cubic-bezier(0.34,1.56,0.64,1)';
+        ctaBtn.style.transform = '';
+      });
+    }
+  }
+
+  // ── SCROLL REVEAL — general sections ──
+  var revealObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        revealObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('#page-home section').forEach(function(s) {
+    if (!s.classList.contains('hero')) revealObs.observe(s);
+  });
+
+  // ── HOW-IT-WORKS STEP SCROLL (for page-how) ──
+  var stepObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('step-lit');
+        stepObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.35 });
+  document.querySelectorAll('.step').forEach(function(s) { stepObs.observe(s); });
+
+});
+</script>
 </body>
 </html>
