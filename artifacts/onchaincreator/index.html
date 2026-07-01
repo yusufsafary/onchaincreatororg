@@ -2429,6 +2429,256 @@ footer { border-top-color:rgba(0,0,0,0.07); background:#EDEBE5; }
 .hero-stat:hover .hero-stat-num { color: #1B4EEA; }
 .hero-stat-num { transition: color 0.2s ease; }
 
+/* ══════════════════════════════════
+   ELIGIBILITY CHECKER
+══════════════════════════════════ */
+.elig-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+.elig-card {
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 28px;
+  background: var(--gray-900);
+}
+.elig-card-header { margin-bottom: 20px; }
+.elig-card-title {
+  display: block;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+.elig-card-sub {
+  display: block;
+  font-size: 12px;
+  color: var(--gray-500);
+  font-family: var(--font-mono);
+}
+.elig-fields { display: flex; flex-direction: column; gap: 10px; }
+.elig-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: 0 14px;
+  background: #fff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  min-height: 50px;
+}
+.elig-field:focus-within {
+  border-color: #1B4EEA;
+  box-shadow: 0 0 0 3px rgba(27,78,234,0.08);
+}
+.elig-field-icon {
+  font-size: 14px;
+  color: var(--gray-500);
+  width: 18px;
+  text-align: center;
+  flex-shrink: 0;
+  font-style: normal;
+}
+.elig-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 13px 0;
+  font-size: 15px;
+  font-family: var(--font-sans);
+  background: transparent;
+  color: var(--gray-900);
+  -moz-appearance: textfield;
+  min-width: 0;
+}
+.elig-input::placeholder { color: var(--gray-500); }
+.elig-input::-webkit-outer-spin-button,
+.elig-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.elig-tick { font-size: 15px; font-weight: 800; flex-shrink: 0; width: 20px; text-align: right; transition: all 0.2s ease; }
+.elig-result {
+  margin-top: 14px;
+  padding: 13px 16px;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.65;
+  border: 1.5px solid var(--border);
+  display: none;
+  transition: all 0.2s ease;
+}
+.elig-rules {
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 28px;
+}
+.elig-rules-title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+  color: var(--gray-500);
+  margin-bottom: 18px;
+}
+.elig-rule {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--gray-700);
+  line-height: 1.55;
+  margin-bottom: 12px;
+}
+.elig-rule-check { color: #22c55e; font-weight: 800; flex-shrink: 0; }
+.elig-rule-fee { margin-top: 6px; padding-top: 14px; border-top: 1px solid var(--border); margin-bottom: 0; }
+
+/* DEMO NOTICE */
+.demo-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 16px;
+  background: rgba(234,179,8,0.07);
+  border: 1px solid rgba(234,179,8,0.25);
+  border-radius: 10px;
+  font-size: 12.5px;
+  color: var(--gray-600);
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+.demo-notice-badge {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  background: rgba(234,179,8,0.15);
+  color: #b45309;
+  border: 1px solid rgba(234,179,8,0.3);
+  border-radius: 4px;
+  padding: 3px 7px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ══════════════════════════════════
+   MOBILE-FIRST GLOBAL AUDIT
+══════════════════════════════════ */
+@media (max-width: 768px) {
+  /* section spacing */
+  section { padding: 48px 0; }
+
+  /* container */
+  .container { padding: 0 18px; }
+
+  /* section headings */
+  .section-h { font-size: clamp(24px, 7vw, 36px); }
+
+  /* eligibility checker — stack on mobile */
+  .elig-wrap { grid-template-columns: 1fr; gap: 16px; }
+  .elig-card, .elig-rules { padding: 20px 18px; }
+  .elig-input { font-size: 16px; } /* prevents zoom on iOS */
+
+  /* features grid — 1 col on mobile */
+  .features-grid { grid-template-columns: 1fr !important; gap: 12px !important; }
+  .feature-cell { padding: 20px 18px !important; }
+
+  /* roles grid */
+  .roles-grid { grid-template-columns: 1fr !important; gap: 16px; }
+  .role-card { padding: 24px 20px !important; }
+
+  /* niche wrap */
+  .niche-wrap { gap: 8px; }
+  .niche-tag { font-size: 12px; padding: 6px 12px; }
+
+  /* dark proof section */
+  .dark-proof { padding: 48px 0 40px; }
+  .dark-proof-inner { padding: 0 18px; }
+  .dark-proof-payouts { padding: 28px 18px 0; }
+  .dark-proof-num { letter-spacing: -1px; }
+
+  /* campaigns grid */
+  .campaigns-grid { grid-template-columns: 1fr !important; gap: 14px; }
+  .campaign-card { padding: 0 !important; }
+
+  /* howto steps */
+  .howto-step { gap: 14px; }
+  .step-num-col { min-width: 36px; }
+  .step-num-badge { width: 36px; height: 36px; font-size: 13px; }
+  .step-connector { left: 17px; }
+  .step-title { font-size: 17px; }
+  .step-body { font-size: 14px; }
+  .step-detail { padding: 14px 16px; }
+  .step-detail li { font-size: 13px; }
+
+  /* creators section */
+  .creators-section .container { padding: 0 18px; }
+
+  /* ticker */
+  .ticker-item { font-size: 12px; }
+
+  /* team/blog/etc buttons */
+  .btn { min-height: 44px; }
+
+  /* footer */
+  .footer-cols { gap: 32px !important; }
+  .footer-col-title { margin-bottom: 10px; }
+  .footer-links { gap: 8px; }
+
+  /* demo notice */
+  .demo-notice { flex-direction: column; gap: 8px; }
+}
+
+@media (max-width: 480px) {
+  /* hero specific */
+  .hero-stats { gap: 16px; }
+  .hero-stat-num { font-size: 22px; }
+
+  /* role tabs */
+  .role-tabs { gap: 6px; }
+  .role-tab { font-size: 13px; padding: 7px 14px; }
+
+  /* dark proof payout row */
+  .dark-proof-payout-row { gap: 10px; }
+  .dppi-amt { font-size: 20px; }
+  .dppi-type { font-size: 8px; }
+
+  /* niche tags wrap — allow horizontal scroll on very small */
+  .niche-wrap { 
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  /* feature stagger */
+  .feature-stagger { opacity: 1 !important; transform: none !important; }
+
+  /* how-it-works CTA card */
+  #page-how .reveal[style*="padding:48px"] { padding: 28px 20px !important; }
+}
+
+/* STEP LIT ANIMATION (for how-it-works) */
+.step-lit .step-num-badge {
+  background: #1B4EEA !important;
+  color: #fff !important;
+  box-shadow: 0 0 0 6px rgba(27,78,234,0.12);
+  transform: scale(1.08);
+  transition: all 0.3s ease;
+}
+.step-lit .step-title { color: #0A0808; }
+.step-num-badge { transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; }
+
+/* CAMPAIGN CARD BOTTOM — make budget always visible */
+.campaign-card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.campaign-meta { flex-wrap: wrap; gap: 6px; display: flex; }
+
 </style>
 </head>
 <body>
@@ -2453,9 +2703,6 @@ footer { border-top-color:rgba(0,0,0,0.07); background:#EDEBE5; }
     </button>
     <button class="nav-link" data-page="sample" onclick="showPage('sample')">
       <span class="en-only">Demo</span><span class="jp-only">デモ</span>
-    </button>
-    <button class="nav-link" data-page="team" onclick="showPage('team')">
-      <span class="en-only">Team</span><span class="jp-only">チーム</span>
     </button>
     <button class="nav-link" data-page="blog" onclick="showPage('blog')">
       <span class="en-only">Blog</span><span class="jp-only">ブログ</span>
@@ -2501,9 +2748,6 @@ footer { border-top-color:rgba(0,0,0,0.07); background:#EDEBE5; }
   </button>
   <button class="mobile-menu-link" onclick="showPage('sample');toggleMenu()">
     <span class="en-only">Demo Campaigns</span><span class="jp-only">デモキャンペーン</span>
-  </button>
-  <button class="mobile-menu-link" onclick="showPage('team');toggleMenu()">
-    <span class="en-only">Team</span><span class="jp-only">チーム</span>
   </button>
   <button class="mobile-menu-link" onclick="showPage('privacy');toggleMenu()">
     <span class="en-only">Privacy Policy</span><span class="jp-only">プライバシーポリシー</span>
@@ -2615,128 +2859,66 @@ footer { border-top-color:rgba(0,0,0,0.07); background:#EDEBE5; }
     </div>
   </section>
 
-  <!-- MOCK CREATORS SHOWCASE -->
+  <!-- CREATOR MARKETPLACE — honest, interactive -->
   <section class="creators-section">
     <div class="container">
-      <div class="label en-only">Featured Creators</div>
-      <div class="label jp-only">注目クリエイター</div>
-      <h2 class="section-h" style="margin-bottom:12px;">
-        <span class="en-only">Top creators on the platform.</span>
-        <span class="jp-only">プラットフォームのトップクリエイター</span>
+      <div class="label en-only">Creator Marketplace</div>
+      <div class="label jp-only">クリエイターマーケットプレイス</div>
+      <h2 class="section-h" style="margin-bottom:16px;">
+        <span class="en-only">Apply. Get matched. Get paid.</span>
+        <span class="jp-only">応募。マッチング。報酬を受け取る。</span>
       </h2>
-      <p class="sub en-only">Verified Web3 content creators ready for your next campaign. Browse profiles, check stats, and hire directly.</p>
-      <p class="sub jp-only">次のキャンペーンに向けて認証済みWeb3クリエイターを検索できます。</p>
-      <div class="creators-grid reveal">
+      <p class="sub en-only" style="margin-bottom:36px;">Direct deals between Web3 projects and content creators — no agencies, no middlemen. We verify your reach; you set your rate.</p>
+      <p class="sub jp-only" style="margin-bottom:36px; font-family:var(--font-jp);">Web3プロジェクトとコンテンツクリエイターの直接取引。エージェンシーなし、仲介者なし。</p>
 
-        <div class="creator-card">
-          <div class="creator-card-top">
-            <div class="creator-avatar">🎙️</div>
-            <div class="creator-info">
-              <div class="creator-name">Maya Chen</div>
-              <div class="creator-handle">@mayaonchain</div>
+      <div class="elig-wrap">
+        <div class="elig-card">
+          <div class="elig-card-header">
+            <span class="elig-card-title en-only">Do you qualify?</span>
+            <span class="elig-card-title jp-only">参加資格を確認する</span>
+            <span class="elig-card-sub en-only">Enter your numbers — see instantly</span>
+            <span class="elig-card-sub jp-only">数字を入力して即時確認</span>
+          </div>
+          <div class="elig-fields">
+            <div class="elig-field">
+              <span class="elig-field-icon">𝕏</span>
+              <input type="number" class="elig-input" id="elig-twitter" placeholder="Twitter / X followers" min="0" inputmode="numeric" oninput="checkEligibility()">
+              <span class="elig-tick" id="elig-t-tick"></span>
+            </div>
+            <div class="elig-field">
+              <span class="elig-field-icon">▶</span>
+              <input type="number" class="elig-input" id="elig-youtube" placeholder="YouTube subscribers" min="0" inputmode="numeric" oninput="checkEligibility()">
+              <span class="elig-tick" id="elig-y-tick"></span>
+            </div>
+            <div class="elig-field">
+              <span class="elig-field-icon">✉</span>
+              <input type="number" class="elig-input" id="elig-news" placeholder="Newsletter / Farcaster followers" min="0" inputmode="numeric" oninput="checkEligibility()">
+              <span class="elig-tick" id="elig-n-tick"></span>
             </div>
           </div>
-          <span class="creator-verified">✓ Verified</span>
-          <p class="creator-niche" style="margin-top:10px;">DeFi educator · YouTube + X · 4 completed campaigns</p>
-          <div class="creator-stats">
-            <div class="creator-stat">
-              <span class="creator-stat-num">82K</span>
-              <span class="creator-stat-label">Followers</span>
-            </div>
-            <div class="creator-stat">
-              <span class="creator-stat-num">5.2%</span>
-              <span class="creator-stat-label">Engagement</span>
-            </div>
-            <div class="creator-stat">
-              <span class="creator-stat-num">★ 4.9</span>
-              <span class="creator-stat-label">Rating</span>
-            </div>
-          </div>
+          <div class="elig-result" id="elig-result"></div>
         </div>
 
-        <div class="creator-card">
-          <div class="creator-card-top">
-            <div class="creator-avatar">🎬</div>
-            <div class="creator-info">
-              <div class="creator-name">Alex Vega</div>
-              <div class="creator-handle">@alexvegaweb3</div>
-            </div>
-          </div>
-          <span class="creator-verified">✓ Verified</span>
-          <p class="creator-niche" style="margin-top:10px;">NFT &amp; gaming content · Twitch + YouTube · 7 completed campaigns</p>
-          <div class="creator-stats">
-            <div class="creator-stat">
-              <span class="creator-stat-num">156K</span>
-              <span class="creator-stat-label">Followers</span>
-            </div>
-            <div class="creator-stat">
-              <span class="creator-stat-num">4.8%</span>
-              <span class="creator-stat-label">Engagement</span>
-            </div>
-            <div class="creator-stat">
-              <span class="creator-stat-num">★ 4.8</span>
-              <span class="creator-stat-label">Rating</span>
-            </div>
+        <div class="elig-rules">
+          <div class="elig-rules-title en-only">Minimum requirements</div>
+          <div class="elig-rules-title jp-only">最低参加条件</div>
+          <div class="elig-rule"><span class="elig-rule-check">✓</span><div><span class="en-only">1,000+ Twitter / X followers</span><span class="jp-only">Twitter/X 1,000人以上</span></div></div>
+          <div class="elig-rule"><span class="elig-rule-check">✓</span><div><span class="en-only">1,000+ YouTube subscribers</span><span class="jp-only">YouTube 1,000人以上</span></div></div>
+          <div class="elig-rule"><span class="elig-rule-check">✓</span><div><span class="en-only">500+ newsletter or Farcaster followers</span><span class="jp-only">ニュースレター・Farcaster 500人以上</span></div></div>
+          <div class="elig-rule"><span class="elig-rule-check">✓</span><div><span class="en-only">Web3 / crypto content focus</span><span class="jp-only">Web3・暗号資産コンテンツ</span></div></div>
+          <div class="elig-rule elig-rule-fee">
+            <span style="font-size:11px; color:var(--gray-500); font-family:var(--font-mono); line-height:1.5;">
+              <span class="en-only">10% platform fee on completed deals only · Free to join</span>
+              <span class="jp-only">完了ディールのみ10%手数料 · 参加無料</span>
+            </span>
           </div>
         </div>
-
-        <div class="creator-card">
-          <div class="creator-card-top">
-            <div class="creator-avatar">📰</div>
-            <div class="creator-info">
-              <div class="creator-name">Priya Das</div>
-              <div class="creator-handle">@priya_l2</div>
-            </div>
-          </div>
-          <span class="creator-verified">✓ Verified</span>
-          <p class="creator-niche" style="margin-top:10px;">Layer 2 &amp; infrastructure · Newsletter + X · 3 completed campaigns</p>
-          <div class="creator-stats">
-            <div class="creator-stat">
-              <span class="creator-stat-num">41K</span>
-              <span class="creator-stat-label">Followers</span>
-            </div>
-            <div class="creator-stat">
-              <span class="creator-stat-num">6.1%</span>
-              <span class="creator-stat-label">Engagement</span>
-            </div>
-            <div class="creator-stat">
-              <span class="creator-stat-num">★ 5.0</span>
-              <span class="creator-stat-label">Rating</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="creator-card">
-          <div class="creator-card-top">
-            <div class="creator-avatar">🖊️</div>
-            <div class="creator-info">
-              <div class="creator-name">Jordan Park</div>
-              <div class="creator-handle">@jordanbuilds</div>
-            </div>
-          </div>
-          <span class="creator-verified">✓ Verified</span>
-          <p class="creator-niche" style="margin-top:10px;">DAO &amp; governance · X + Substack · 5 completed campaigns</p>
-          <div class="creator-stats">
-            <div class="creator-stat">
-              <span class="creator-stat-num">29K</span>
-              <span class="creator-stat-label">Followers</span>
-            </div>
-            <div class="creator-stat">
-              <span class="creator-stat-num">7.4%</span>
-              <span class="creator-stat-label">Engagement</span>
-            </div>
-            <div class="creator-stat">
-              <span class="creator-stat-num">★ 4.7</span>
-              <span class="creator-stat-label">Rating</span>
-            </div>
-          </div>
-        </div>
-
       </div>
+
       <div style="margin-top:32px;">
         <button class="btn btn-outline" onclick="openModal('creator')" style="font-size:13px;">
-          <span class="en-only">Join as a Creator →</span>
-          <span class="jp-only">クリエイターとして参加 →</span>
+          <span class="en-only">Join Creator Waitlist →</span>
+          <span class="jp-only">クリエイターウェイトリストに参加 →</span>
         </button>
       </div>
     </div>
@@ -2751,9 +2933,9 @@ footer { border-top-color:rgba(0,0,0,0.07); background:#EDEBE5; }
         <span class="dark-proof-label jp-only">登録クリエイター</span>
       </div>
       <div class="dark-proof-stat dark-proof-stat-accent">
-        <span class="dark-proof-num" id="dp-n2">$1.2M</span>
-        <span class="dark-proof-label en-only">Paid out to creators</span>
-        <span class="dark-proof-label jp-only">累計支払い額</span>
+        <span class="dark-proof-num" id="dp-n2">Avg.$800</span>
+        <span class="dark-proof-label en-only">Per campaign (market rate)</span>
+        <span class="dark-proof-label jp-only">1キャンペーンあたり（市場相場）</span>
       </div>
       <div class="dark-proof-stat">
         <span class="dark-proof-num" id="dp-n3">140+</span>
@@ -3275,8 +3457,13 @@ footer { border-top-color:rgba(0,0,0,0.07); background:#EDEBE5; }
         <span class="en-only">Open Campaigns</span>
         <span class="jp-only">公開中のキャンペーン</span>
       </h2>
-      <p class="sub en-only" style="margin-bottom:40px;">Example campaigns from onchain projects actively seeking creators. Sign up to apply.</p>
-      <p class="sub jp-only" style="margin-bottom:40px; font-family:var(--font-jp);">クリエイターを積極的に募集しているオンチェーンプロジェクトのサンプルキャンペーン。応募するには登録してください。</p>
+      <p class="sub en-only" style="margin-bottom:24px;">Example campaigns showing what the board will look like. Not real listings — join the waitlist to apply when we launch.</p>
+      <p class="sub jp-only" style="margin-bottom:24px; font-family:var(--font-jp);">実際のキャンペーンではありません。プラットフォームのサンプル表示です。実際の応募はウェイトリスト登録後にご案内します。</p>
+      <div class="demo-notice">
+        <span class="demo-notice-badge">DEMO DATA</span>
+        <span class="en-only">These are fictional examples to illustrate campaign structure. No real projects or budgets are shown.</span>
+        <span class="jp-only">キャンペーン構成を説明するための架空の例示です。実際のプロジェクトや予算ではありません。</span>
+      </div>
 
       <div class="campaigns-grid">
 
@@ -3444,80 +3631,6 @@ footer { border-top-color:rgba(0,0,0,0.07); background:#EDEBE5; }
 <!-- ══════════════════════════════════════════
      PAGE: TEAM
 ════════════════════════════════════════════ -->
-<div class="page" id="page-team">
-  <section style="padding-top:60px;">
-    <div class="container">
-      <div class="label en-only">Our Team</div>
-      <div class="label jp-only">チーム</div>
-      <h2 class="section-h" style="margin-bottom:8px;">
-        <span class="en-only">The people building OnchainCreator</span>
-        <span class="jp-only">OnchainCreatorを作るチーム</span>
-      </h2>
-      <p class="sub en-only" style="margin-bottom:48px;">A small, focused team of builders, designers, and Web3 natives working to connect the creator economy with onchain projects.</p>
-      <p class="sub jp-only" style="margin-bottom:48px; font-family:var(--font-jp);">クリエイターエコノミーとオンチェーンプロジェクトをつなぐために取り組む、小さく集中したビルダー、デザイナー、Web3ネイティブのチーム。</p>
-
-      <div style="margin-bottom:32px; padding:16px 20px; background:rgba(0,0,0,0.04); border:1px solid rgba(0,0,0,0.08); border-radius:10px; font-size:13px; color:var(--gray-500); font-family:var(--font-mono); letter-spacing:0.3px;">
-        <span class="en-only">⚡ Building in public · Solo founder-led · Open beta v0.1</span>
-        <span class="jp-only">⚡ 公開開発中 · ソロ創業者主導 · オープンベータ v0.1</span>
-      </div>
-
-      <div class="team-grid reveal">
-        <div class="team-card" style="border:1px solid rgba(0,0,0,0.15); position:relative; grid-column: span 1;">
-          <div style="position:absolute;top:10px;right:10px;font-family:var(--font-mono);font-size:9px;letter-spacing:1px;color:var(--gray-500);text-transform:uppercase;">Founder</div>
-          <div class="team-avatar" style="background:var(--gray-200);">🛠️</div>
-          <div class="team-name">ArturoMickey</div>
-          <div class="team-role en-only">Founder & Builder</div>
-          <div class="team-role jp-only">創業者・ビルダー</div>
-          <span class="team-role-jp">創業者・ビルダー</span>
-          <a class="team-handle" href="mailto:contact@onchaincreator.org" style="text-decoration:none;">contact@onchaincreator.org</a>
-        </div>
-
-        <div class="team-card" style="border:1px dashed rgba(0,0,0,0.18); opacity:0.75; cursor:pointer;" onclick="showPage('careers')">
-          <div class="team-avatar" style="background:rgba(0,0,0,0.05); font-size:20px;">+</div>
-          <div class="team-name" style="font-size:14px;">
-            <span class="en-only">Head of Creator Partnerships</span>
-            <span class="jp-only">クリエイターパートナーシップ責任者</span>
-          </div>
-          <div class="team-role en-only" style="color:#22c55e;">Now Hiring</div>
-          <div class="team-role jp-only" style="color:#22c55e;">採用中</div>
-          <span style="font-size:11px; color:var(--gray-500); font-family:var(--font-mono); margin-top:8px; display:block;">
-            <span class="en-only">View role →</span>
-            <span class="jp-only">詳細を見る →</span>
-          </span>
-        </div>
-
-        <div class="team-card" style="border:1px dashed rgba(0,0,0,0.18); opacity:0.75; cursor:pointer;" onclick="showPage('careers')">
-          <div class="team-avatar" style="background:rgba(0,0,0,0.05); font-size:20px;">+</div>
-          <div class="team-name" style="font-size:14px;">
-            <span class="en-only">Senior Full-Stack Engineer</span>
-            <span class="jp-only">シニアフルスタックエンジニア</span>
-          </div>
-          <div class="team-role en-only" style="color:#22c55e;">Now Hiring</div>
-          <div class="team-role jp-only" style="color:#22c55e;">採用中</div>
-          <span style="font-size:11px; color:var(--gray-500); font-family:var(--font-mono); margin-top:8px; display:block;">
-            <span class="en-only">View role →</span>
-            <span class="jp-only">詳細を見る →</span>
-          </span>
-        </div>
-      </div>
-
-      <div style="margin-top:60px; padding:28px; border:1px solid var(--border); border-radius:var(--r); background:var(--gray-900);">
-        <div class="label en-only">We're Hiring</div>
-        <div class="label jp-only">採用情報</div>
-        <h3 style="font-size:20px; font-weight:700; letter-spacing:-0.4px; margin-bottom:10px;">
-          <span class="en-only">Join the team</span>
-          <span class="jp-only">チームに参加しよう</span>
-        </h3>
-        <p style="font-size:13px; color:var(--gray-400); line-height:1.7; margin-bottom:18px;" class="en-only">We're looking for builders who care about the creator economy and Web3. Remote-first, async-friendly.</p>
-        <p style="font-size:13px; color:var(--gray-400); line-height:1.7; margin-bottom:18px; font-family:var(--font-jp);" class="jp-only">クリエイターエコノミーとWeb3に情熱を持つビルダーを募集中。リモートファースト、非同期フレンドリー。</p>
-        <button class="btn btn-outline" onclick="showPage('careers')" style="font-size:13px; padding:10px 20px;">
-          <span class="en-only">View Open Roles</span>
-          <span class="jp-only">募集ポジションを見る</span>
-        </button>
-      </div>
-    </div>
-  </section>
-</div><!-- /page-team -->
 
 
 <!-- ══════════════════════════════════════════
@@ -4590,9 +4703,6 @@ footer { border-top-color:rgba(0,0,0,0.07); background:#EDEBE5; }
         <div class="footer-col-title en-only">Company</div>
         <div class="footer-col-title jp-only">会社情報</div>
         <div class="footer-links">
-          <button class="footer-link" onclick="showPage('team')">
-            <span class="en-only">Team</span><span class="jp-only">チーム</span>
-          </button>
           <button class="footer-link" onclick="showPage('blog')">
             <span class="en-only">Blog</span><span class="jp-only">ブログ</span>
           </button>
@@ -5446,7 +5556,7 @@ document.addEventListener('DOMContentLoaded', function() {
       var dur = 1700;
       var STATS = [
         { id:'dp-n1', fmt: function(v) { return Math.floor(v).toLocaleString()+'+'; }, from:0, to:1200 },
-        { id:'dp-n2', fmt: function(v) { return '$'+(v).toFixed(1)+'M'; }, from:0, to:1.2 },
+        { id:'dp-n2', fmt: function(v) { return 'Avg.$'+Math.floor(v); }, from:0, to:800 },
         { id:'dp-n3', fmt: function(v) { return Math.floor(v)+'+'; }, from:0, to:140 }
       ];
       STATS.forEach(function(s) {
@@ -5501,6 +5611,42 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('#page-home section').forEach(function(s) {
     if (!s.classList.contains('hero')) revealObs.observe(s);
   });
+
+  // ── ELIGIBILITY CHECKER ──
+  window.checkEligibility = function() {
+    var t = parseInt(document.getElementById('elig-twitter').value) || 0;
+    var y = parseInt(document.getElementById('elig-youtube').value) || 0;
+    var n = parseInt(document.getElementById('elig-news').value) || 0;
+    var tOk = t >= 1000, yOk = y >= 1000, nOk = n >= 500;
+    function setTick(id, val, ok) {
+      var el = document.getElementById(id); if (!el) return;
+      if (!val) { el.textContent = ''; return; }
+      el.textContent = ok ? '✓' : '✗';
+      el.style.color = ok ? '#22c55e' : '#ef4444';
+    }
+    setTick('elig-t-tick', t, tOk);
+    setTick('elig-y-tick', y, yOk);
+    setTick('elig-n-tick', n, nOk);
+    var anyEntered = t > 0 || y > 0 || n > 0;
+    var anyOk = tOk || yOk || nOk;
+    var res = document.getElementById('elig-result');
+    if (!res) return;
+    if (anyEntered) {
+      res.style.display = 'block';
+      if (anyOk) {
+        res.style.background = 'rgba(34,197,94,0.06)';
+        res.style.borderColor = 'rgba(34,197,94,0.3)';
+        res.innerHTML = '<strong style="color:#16a34a;">✓ You qualify.</strong> <span class="en-only">Join the creator waitlist — your verified profile goes live when we launch.</span><span class="jp-only">ウェイトリストに参加して、ローンチ時に認証済みプロフィールを取得しましょう。</span> <button onclick="openModal(\'creator\')" style="background:#1B4EEA;color:#fff;border:none;border-radius:6px;padding:5px 12px;font-size:12px;font-family:var(--font-sans);font-weight:700;cursor:pointer;margin-left:4px;">Join now →</button>';
+      } else {
+        res.style.background = 'rgba(239,68,68,0.05)';
+        res.style.borderColor = 'rgba(239,68,68,0.2)';
+        var need = !tOk && !yOk ? 'You need 1,000+ on Twitter/X or YouTube' : 'You need 500+ newsletter subscribers';
+        res.innerHTML = '<strong style="color:#dc2626;">Not yet.</strong> <span class="en-only">'+need+'. Keep building — we\'ll be here when you\'re ready.</span><span class="jp-only">まだ条件を満たしていません。引き続き成長を続けてください。</span>';
+      }
+    } else {
+      res.style.display = 'none';
+    }
+  };
 
   // ── HOW-IT-WORKS STEP SCROLL (for page-how) ──
   var stepObs = new IntersectionObserver(function(entries) {
