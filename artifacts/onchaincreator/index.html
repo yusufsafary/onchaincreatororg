@@ -2112,6 +2112,129 @@ footer { border-top-color:rgba(0,0,0,0.07); background:#EDEBE5; }
 /* SCROLL REVEAL (ensure visible on white) */
 .reveal.visible { opacity:1; transform:none; }
 
+/* ── ROLE SWITCHER ── */
+.role-switcher {
+  display: inline-flex;
+  gap: 4px;
+  background: rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 99px;
+  padding: 4px;
+  margin-bottom: 28px;
+}
+.role-tab {
+  padding: 10px 22px;
+  border-radius: 99px;
+  border: none;
+  background: transparent;
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gray-500);
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.4,0,0.2,1);
+  white-space: nowrap;
+}
+.role-tab.active {
+  background: #fff;
+  color: #0A0808;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.14);
+}
+.role-tab:hover:not(.active) {
+  color: #0A0808;
+  background: rgba(255,255,255,0.5);
+}
+
+/* ── LIVE FEED ── */
+.live-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 24px;
+  min-height: 0;
+}
+.live-feed-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: rgba(255,255,255,0.95);
+  border: 1px solid rgba(0,0,0,0.09);
+  border-radius: 99px;
+  font-size: 12px;
+  font-family: var(--font);
+  color: #444;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.07);
+  animation: feedIn 0.42s cubic-bezier(0.34,1.56,0.64,1) both;
+  align-self: flex-start;
+  max-width: 100%;
+}
+.live-feed-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  flex-shrink: 0;
+  animation: pulseGreen 1.8s ease-in-out infinite;
+}
+@keyframes feedIn {
+  from { opacity:0; transform:translateX(-14px) scale(0.95); }
+  to   { opacity:1; transform:none; }
+}
+@keyframes pulseGreen {
+  0%,100% { opacity:1; transform:scale(1); }
+  50%      { opacity:0.45; transform:scale(0.78); }
+}
+
+/* ── MOBILE STICKY CTA BAR ── */
+.mobile-cta-bar {
+  display: none;
+  position: fixed;
+  bottom:0; left:0; right:0;
+  background: rgba(255,255,255,0.97);
+  border-top: 1px solid rgba(0,0,0,0.1);
+  padding: 10px 14px;
+  z-index: 9998;
+  gap: 8px;
+  align-items: center;
+  box-shadow: 0 -4px 24px rgba(0,0,0,0.1);
+  backdrop-filter: blur(8px);
+}
+@media (max-width: 640px) {
+  .mobile-cta-bar { display: flex; }
+  body { padding-bottom: 70px; }
+}
+
+/* ── MOBILE-FIRST HERO IMPROVEMENTS ── */
+@media (max-width: 640px) {
+  .role-switcher { width: 100%; }
+  .role-tab { flex: 1; text-align: center; padding: 11px 10px; }
+  .hero-waitlist-form { flex-direction: column; gap: 10px; }
+  .hero-waitlist-input { width: 100%; font-size: 16px !important; padding: 14px 16px !important; box-sizing: border-box; }
+  .hero-waitlist-form .btn { width: 100%; padding: 14px 24px !important; font-size: 15px !important; justify-content: center; }
+  .hero { padding-top: 28px !important; }
+  .hero .container { padding-left: 16px; padding-right: 16px; }
+}
+
+/* ── FEATURE CARD HOVER LIFT ── */
+.feature-cell {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease !important;
+  will-change: transform;
+}
+.feature-cell:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 10px 36px rgba(0,0,0,0.09) !important;
+  border-color: rgba(27,78,234,0.22) !important;
+}
+
+/* ── CREATOR CARD HOVER ── */
+.creator-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+.creator-card:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.1) !important;
+}
+
 </style>
 </head>
 <body>
@@ -2150,44 +2273,37 @@ footer { border-top-color:rgba(0,0,0,0.07); background:#EDEBE5; }
       <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
       <button class="lang-btn" id="btn-jp" onclick="setLang('jp')">JP</button>
     </div>
-    <!-- Logged-out state -->
-    <div id="nav-auth-out" style="display:flex;gap:8px;align-items:center;">
-      <button class="btn-nav-ghost" onclick="openModal('login')">
-        <span class="en-only">Log In</span><span class="jp-only">ログイン</span>
-      </button>
-      <button class="btn-nav" onclick="openModal('join')" id="btn-getstarted-desktop">
-        <span class="en-only">Get Started</span><span class="jp-only">始める</span>
-      </button>
-    </div>
-    <!-- Logged-in state -->
-    <div id="nav-auth-in" class="nav-user">
-      <button class="btn-nav-ghost" onclick="showPage('dashboard')" style="font-size:12px;padding:6px 12px;">Dashboard</button>
-      <div class="nav-avatar" id="nav-avatar-btn" onclick="signOut()" title="Sign out">
-        <span id="nav-avatar-initials">?</span>
-      </div>
-    </div>
+    <button class="btn-nav" onclick="openModal('join')" id="btn-getstarted-desktop">
+      <span class="en-only">Join Waitlist</span><span class="jp-only">登録する</span>
+    </button>
     <button class="hamburger" id="hamburger" onclick="toggleMenu()">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
 
+<!-- MOBILE STICKY CTA BAR -->
+<div class="mobile-cta-bar" id="mobile-cta-bar">
+  <button class="btn btn-white" onclick="openModal('join')" style="flex:1;padding:13px;font-size:14px;justify-content:center;">
+    <span class="en-only">Join Waitlist</span>
+    <span class="jp-only">登録する</span>
+  </button>
+  <button class="btn btn-outline" onclick="showPage('campaigns')" style="flex:1;padding:13px;font-size:14px;justify-content:center;">
+    <span class="en-only">Campaigns</span>
+    <span class="jp-only">キャンペーン</span>
+  </button>
+</div>
+
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobile-menu">
-  <button class="mobile-menu-link" onclick="openModal('join');toggleMenu()" style="color:var(--white);font-weight:700;border-bottom:1px solid var(--border);">
-    <span class="en-only">Get Started →</span><span class="jp-only">始める →</span>
-  </button>
-  <button class="mobile-menu-link" onclick="openModal('login');toggleMenu()">
-    <span class="en-only">Log In</span><span class="jp-only">ログイン</span>
+  <button class="mobile-menu-link" onclick="openModal('join');toggleMenu()" style="font-weight:700;border-bottom:1px solid var(--border);">
+    <span class="en-only">Join Waitlist →</span><span class="jp-only">登録する →</span>
   </button>
   <button class="mobile-menu-link" onclick="showPage('how');toggleMenu()">
     <span class="en-only">How it Works</span><span class="jp-only">使い方</span>
   </button>
   <button class="mobile-menu-link" onclick="showPage('campaigns');toggleMenu()">
     <span class="en-only">Campaigns</span><span class="jp-only">キャンペーン</span>
-  </button>
-  <button class="mobile-menu-link" id="mobile-dashboard-link" onclick="showPage('dashboard');toggleMenu()" style="display:none;">
-    <span class="en-only">Dashboard</span><span class="jp-only">ダッシュボード</span>
   </button>
   <button class="mobile-menu-link" onclick="showPage('sample');toggleMenu()">
     <span class="en-only">Demo Campaigns</span><span class="jp-only">デモキャンペーン</span>
@@ -2227,7 +2343,7 @@ footer { border-top-color:rgba(0,0,0,0.07); background:#EDEBE5; }
 ════════════════════════════════════════════ -->
 <div class="page active" id="page-home">
 
-  <!-- HERO -->
+  <!-- HERO (mobile-first redesign) -->
   <section class="hero">
     <div class="container">
       <div class="hero-eyebrow">
@@ -2236,60 +2352,38 @@ footer { border-top-color:rgba(0,0,0,0.07); background:#EDEBE5; }
         <span class="eyebrow-text jp-only">オープンベータ v0.1 · Web3クリエイターマーケット</span>
       </div>
 
-      <h1 class="display hero-title">
-        <span class="hero-title-line en-only">Where Creators</span>
-        <span class="hero-title-line en-only dim">Meet Projects.</span>
-        <span class="hero-title-line jp-only">クリエイターと</span>
-        <span class="hero-title-line jp-only dim">プロジェクトをつなぐ</span>
+      <!-- ── ROLE SWITCHER ── -->
+      <div class="role-switcher">
+        <button class="role-tab active" id="role-tab-creator" onclick="switchHeroRole('creator')">
+          <span class="en-only">I'm a Creator</span>
+          <span class="jp-only">クリエイター</span>
+        </button>
+        <button class="role-tab" id="role-tab-project" onclick="switchHeroRole('project')">
+          <span class="en-only">I'm a Project</span>
+          <span class="jp-only">プロジェクト</span>
+        </button>
+      </div>
+
+      <h1 class="display hero-title" id="hero-title-block" style="transition:opacity 0.25s ease,transform 0.25s ease;">
+        <span id="hero-title-main" class="hero-title-line en-only">Get Paid to Create</span>
+        <span id="hero-title-dim"  class="hero-title-line en-only dim">Web3 Content.</span>
+        <span id="hero-jp-main"    class="hero-title-line jp-only">報酬をもらって</span>
+        <span id="hero-jp-dim"     class="hero-title-line jp-only dim">Web3コンテンツを作ろう</span>
       </h1>
 
       <div class="hero-body">
-        <p class="sub en-only">The marketplace connecting Web3 content creators with onchain projects. Find campaigns, get verified, get paid.</p>
-        <p class="sub jp-only">Web3コンテンツクリエイターとオンチェーンプロジェクトをつなぐマーケットプレイス。キャンペーンを見つけ、認証を受け、報酬を得る。</p>
+        <p class="sub en-only" id="hero-sub-en">Browse open Web3 campaigns, apply in seconds, get paid in USDC. Build your verified creator profile onchain.</p>
+        <p class="sub jp-only">Web3キャンペーンを探して応募し、USDCで報酬を受け取る。オンチェーンでクリエイタープロフィールを構築。</p>
       </div>
 
-      <!-- Prominent X follow link -->
-      <a href="https://x.com/creatoronchain" target="_blank" rel="noopener" class="hero-x-promo">
-        <span class="hero-x-promo-icon">𝕏</span>
-        <span class="en-only">Follow <strong>@creatoronchain</strong> on X</span>
-        <span class="jp-only"><strong>@creatoronchain</strong> をフォロー</span>
-        <svg width="10" height="10" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-
-      <div class="hero-actions">
-        <button class="btn btn-white" onclick="openModal('join')">
-          <span class="en-only">Get Started Free</span>
-          <span class="jp-only">無料で始める</span>
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <button class="btn btn-outline" onclick="showPage('sample')">
-          <span class="en-only">Browse Campaigns</span>
-          <span class="jp-only">キャンペーンを見る</span>
-        </button>
-      </div>
-
-      <!-- Login with email + X inline CTA -->
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:28px;flex-wrap:wrap;">
-        <button onclick="openModal('login')" style="display:inline-flex;align-items:center;gap:7px;padding:9px 18px;border:1px solid rgba(0,0,0,0.18);border-radius:8px;background:#fff;color:#000;font-size:13px;font-weight:500;cursor:pointer;font-family:var(--font);transition:all 0.15s;" onmouseover="this.style.background='#f4f4f4'" onmouseout="this.style.background='#fff'">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-          <span class="en-only">Sign in with Email</span>
-          <span class="jp-only">メールでサインイン</span>
-        </button>
-        <a href="https://x.com/creatoronchain" target="_blank" rel="noopener" onclick="openModal('login');return false;" style="display:inline-flex;align-items:center;gap:7px;padding:9px 18px;border:1px solid rgba(0,0,0,0.18);border-radius:8px;background:#000;color:#fff;font-size:13px;font-weight:500;cursor:pointer;font-family:var(--font);text-decoration:none;transition:all 0.15s;" onmouseover="this.style.background='#222'" onmouseout="this.style.background='#000'">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          <span class="en-only">Sign in with X</span>
-          <span class="jp-only">Xでサインイン</span>
-        </a>
-      </div>
-
-      <!-- HERO WAITLIST -->
+      <!-- ── HERO WAITLIST (mobile-first, prominent) ── -->
       <div class="hero-waitlist">
         <form class="hero-waitlist-form" id="hero-waitlist-form" onsubmit="submitHeroWaitlist(event)">
           <input type="email" class="hero-waitlist-input" id="hero-waitlist-email"
             placeholder="your@email.com" autocomplete="email" required />
           <button type="submit" class="btn btn-white" id="hero-waitlist-btn">
-            <span class="en-only">Join Waitlist</span>
-            <span class="jp-only">ウェイトリストへ</span>
+            <span class="en-only">Join as Creator</span>
+            <span class="jp-only">登録する</span>
           </button>
         </form>
         <div class="hero-waitlist-success" id="hero-waitlist-success" style="display:none;">
@@ -2300,6 +2394,9 @@ footer { border-top-color:rgba(0,0,0,0.07); background:#EDEBE5; }
         <p class="hero-waitlist-note en-only" id="waitlist-note-en">Free to join · <span id="waitlist-count-en" class="waitlist-count">1,200+</span> creators already signed up</p>
         <p class="hero-waitlist-note jp-only">無料 · 1,200人以上が登録済み</p>
       </div>
+
+      <!-- ── LIVE ACTIVITY FEED ── -->
+      <div class="live-feed" id="live-feed" aria-live="polite"></div>
 
       <div class="hero-stats">
         <div class="hero-stat">
@@ -3142,7 +3239,7 @@ footer { border-top-color:rgba(0,0,0,0.07); background:#EDEBE5; }
           <div class="team-role en-only">Founder & Builder</div>
           <div class="team-role jp-only">創業者・ビルダー</div>
           <span class="team-role-jp">創業者・ビルダー</span>
-          <a class="team-handle" href="https://x.com/creatoronchain" target="_blank" rel="noopener" style="text-decoration:none;">@creatoronchain</a>
+          <a class="team-handle" href="mailto:contact@onchaincreator.org" style="text-decoration:none;">contact@onchaincreator.org</a>
         </div>
 
         <div class="team-card" style="border:1px dashed rgba(0,0,0,0.18); opacity:0.75; cursor:pointer;" onclick="showPage('careers')">
@@ -3354,9 +3451,9 @@ footer { border-top-color:rgba(0,0,0,0.07); background:#EDEBE5; }
           <span class="en-only">More articles coming soon.</span>
           <span class="jp-only">記事は順次追加予定。</span>
         </p>
-        <a href="https://x.com/creatoronchain" target="_blank" rel="noopener" class="btn btn-outline" style="font-size:12px; padding:9px 18px; text-decoration:none; display:inline-flex; gap:6px;">
-          <span class="en-only">Follow @creatoronchain for updates</span>
-          <span class="jp-only">@creatoronchain をフォロー</span>
+        <a href="mailto:contact@onchaincreator.org" class="btn btn-outline" style="font-size:12px; padding:9px 18px; text-decoration:none; display:inline-flex; gap:6px;">
+          <span class="en-only">contact@onchaincreator.org</span>
+          <span class="jp-only">お問い合わせ</span>
         </a>
       </div>
     </div>
@@ -3429,7 +3526,7 @@ footer { border-top-color:rgba(0,0,0,0.07); background:#EDEBE5; }
           <span class="jp-only">自己紹介メールを送る</span>
         </a>
         <br>
-        <a href="https://x.com/creatoronchain" target="_blank" rel="noopener" style="font-size:12px; color:var(--gray-500); font-family:var(--font-mono); text-decoration:none;">or DM @creatoronchain on X</a>
+        <a href="mailto:contact@onchaincreator.org" style="font-size:12px; color:var(--gray-500); font-family:var(--font-mono); text-decoration:none;">or email contact@onchaincreator.org</a>
       </div>
     </div>
   </section>
@@ -3487,9 +3584,9 @@ footer { border-top-color:rgba(0,0,0,0.07); background:#EDEBE5; }
       </div>
 
       <div style="text-align:center; padding: 40px 0;">
-        <p style="font-size:13px; color:var(--gray-500); font-family:var(--font-mono); margin-bottom:16px;">FOLLOW THE BUILDER ON X</p>
-        <a href="https://x.com/creatoronchain" target="_blank" rel="noopener" class="btn btn-outline" style="font-size:13px; padding:10px 20px; text-decoration:none; display:inline-flex;">
-          @creatoronchain
+        <p style="font-size:13px; color:var(--gray-500); font-family:var(--font-mono); margin-bottom:16px;">GET IN TOUCH</p>
+        <a href="mailto:contact@onchaincreator.org" class="btn btn-outline" style="font-size:13px; padding:10px 20px; text-decoration:none; display:inline-flex;">
+          contact@onchaincreator.org
         </a>
       </div>
     </div>
@@ -4295,7 +4392,7 @@ footer { border-top-color:rgba(0,0,0,0.07); background:#EDEBE5; }
     </div>
 
     <div class="footer-bottom">
-      <span class="footer-copy">© 2025 OnchainCreator.org · <a href="https://x.com/creatoronchain" target="_blank" rel="noopener" style="color:#aaa;text-decoration:none;border-bottom:1px solid rgba(0,0,0,0.12);">@creatoronchain</a> on X</span>
+      <span class="footer-copy">© 2025 OnchainCreator.org · contact@onchaincreator.org</span>
       <div class="footer-status">
         <div class="status-dot"></div>
         <span class="en-only">All systems operational</span>
@@ -4425,6 +4522,104 @@ footer { border-top-color:rgba(0,0,0,0.07); background:#EDEBE5; }
     // Run once on load (home is the first page)
     setTimeout(runCountup, 400);
   })();
+
+  // ── HERO ROLE SWITCHER ──
+  var ROLE_CONTENT = {
+    creator: {
+      en_main: 'Get Paid to Create',
+      en_dim:  'Web3 Content.',
+      jp_main: '報酬をもらって',
+      jp_dim:  'Web3コンテンツを作ろう',
+      sub_en:  'Browse open Web3 campaigns, apply in seconds, get paid in USDC. Build your verified creator profile onchain.',
+      btn_en:  'Join as Creator',
+      btn_jp:  'クリエイター登録'
+    },
+    project: {
+      en_main: 'Find Verified Creators',
+      en_dim:  'for Your Project.',
+      jp_main: '認証済みクリエイターを',
+      jp_dim:  'プロジェクトに繋げよう',
+      sub_en:  'List a campaign, pick the perfect creator, pay on delivery. Onchain escrow handles everything.',
+      btn_en:  'List My Project',
+      btn_jp:  'プロジェクト登録'
+    }
+  };
+
+  function switchHeroRole(role) {
+    var c = ROLE_CONTENT[role];
+    document.getElementById('role-tab-creator').classList.toggle('active', role === 'creator');
+    document.getElementById('role-tab-project').classList.toggle('active', role === 'project');
+    var block = document.getElementById('hero-title-block');
+    block.style.opacity = '0';
+    block.style.transform = 'translateY(8px)';
+    setTimeout(function() {
+      document.getElementById('hero-title-main').textContent = c.en_main;
+      document.getElementById('hero-title-dim').textContent  = c.en_dim;
+      document.getElementById('hero-jp-main').textContent    = c.jp_main;
+      document.getElementById('hero-jp-dim').textContent     = c.jp_dim;
+      var subEl = document.getElementById('hero-sub-en');
+      if (subEl) subEl.textContent = c.sub_en;
+      var btn = document.getElementById('hero-waitlist-btn');
+      if (btn) {
+        var enSpan = btn.querySelector('.en-only');
+        var jpSpan = btn.querySelector('.jp-only');
+        if (enSpan) enSpan.textContent = c.btn_en;
+        if (jpSpan) jpSpan.textContent = c.btn_jp;
+      }
+      block.style.opacity = '1';
+      block.style.transform = '';
+    }, 160);
+  }
+
+  // ── LIVE ACTIVITY FEED ──
+  (function() {
+    var FEED_EN = [
+      { icon:'🎙️', text:'Maya Chen joined as a Creator · 82K followers' },
+      { icon:'📋', text:'New campaign: Vertex Protocol · $800 USDC' },
+      { icon:'✅', text:'Deal completed: Pendle Finance × Alex Vega · ★ 4.9' },
+      { icon:'💰', text:'Payment released: $950 in USDC' },
+      { icon:'📊', text:'New campaign: Nouns DAO · $700 USDC' },
+      { icon:'👾', text:'Priya Das joined · 41K followers · Layer 2 niche' },
+      { icon:'🚀', text:'Base Ecosystem listed a campaign · $500 USDC' },
+      { icon:'🤝', text:'Jordan Park accepted an offer from DeFi Protocol' }
+    ];
+    var FEED_JP = [
+      { icon:'🎙️', text:'Maya Chenがクリエイターとして参加 · 82Kフォロワー' },
+      { icon:'📋', text:'新キャンペーン: Vertex Protocol · $800 USDC' },
+      { icon:'✅', text:'ディール完了: Pendle Finance × Alex Vega · ★ 4.9' },
+      { icon:'💰', text:'支払い完了: $950 USDC' },
+      { icon:'📊', text:'新キャンペーン: Nouns DAO · $700 USDC' },
+      { icon:'👾', text:'Priya Dasが参加 · 41Kフォロワー' },
+      { icon:'🚀', text:'Base Ecosystemがキャンペーン公開 · $500 USDC' },
+      { icon:'🤝', text:'Jordan ParkがDeFiプロトコルのオファーを受諾' }
+    ];
+    var feedEl = document.getElementById('live-feed');
+    if (!feedEl) return;
+    var idx = 0;
+    function showFeedItem() {
+      var items = typeof currentLang !== 'undefined' && currentLang === 'jp' ? FEED_JP : FEED_EN;
+      var item = items[idx % items.length]; idx++;
+      var div = document.createElement('div');
+      div.className = 'live-feed-item';
+      div.innerHTML = '<div class="live-feed-dot"></div><span style="font-size:14px;line-height:1;">' + item.icon + '</span><span>' + item.text + '</span>';
+      feedEl.insertBefore(div, feedEl.firstChild);
+      var all = feedEl.querySelectorAll('.live-feed-item');
+      if (all.length > 2) {
+        var old = all[all.length - 1];
+        old.style.transition = 'opacity 0.3s ease';
+        old.style.opacity = '0';
+        setTimeout(function() { if (old.parentNode) old.parentNode.removeChild(old); }, 320);
+      }
+    }
+    setTimeout(function() { showFeedItem(); setInterval(showFeedItem, 4200); }, 1800);
+  })();
+
+  // ── AUTH STUBS (auth removed) ──
+  async function initSupabase() {}
+  function updateAuthUI() {}
+  async function signInWithX() { openModal('join'); }
+  async function signInWithGoogle() { openModal('join'); }
+  async function signOut() {}
 
   // ── MODAL ──
   let currentRole = 'creator';
@@ -4808,7 +5003,7 @@ footer { border-top-color:rgba(0,0,0,0.07); background:#EDEBE5; }
       var respHtml = c.resp.map(function(r){return '<li>'+r+'</li>';}).join('');
       var reqHtml = c.req.map(function(r){return '<li>'+r+'</li>';}).join('');
       var el = document.getElementById('career-inner');
-      el.innerHTML = '<div class="career-dept-badge" style="background:'+c.db+';color:'+c.dc+'">'+c.dept+'</div><h2 class="career-h">'+c.title+'</h2><div class="career-detail-meta"><span>🌍 '+c.loc+'</span><span>💼 '+c.type+'</span></div><div class="career-body"><p>'+c.desc+'</p><div class="career-sec-title">Responsibilities</div><ul>'+respHtml+'</ul><div class="career-sec-title">Requirements</div><ul>'+reqHtml+'</ul></div><div class="career-apply-row"><a href="mailto:careers@onchaincreator.org?subject=Application%3A%20'+encodeURIComponent(c.title)+'" class="btn btn-white" style="font-size:13px;padding:10px 22px;text-decoration:none;">Apply via Email</a><a href="https://x.com/creatoronchain" target="_blank" rel="noopener" class="btn btn-outline" style="font-size:13px;padding:10px 22px;text-decoration:none;">DM on X</a></div>';
+      el.innerHTML = '<div class="career-dept-badge" style="background:'+c.db+';color:'+c.dc+'">'+c.dept+'</div><h2 class="career-h">'+c.title+'</h2><div class="career-detail-meta"><span>🌍 '+c.loc+'</span><span>💼 '+c.type+'</span></div><div class="career-body"><p>'+c.desc+'</p><div class="career-sec-title">Responsibilities</div><ul>'+respHtml+'</ul><div class="career-sec-title">Requirements</div><ul>'+reqHtml+'</ul></div><div class="career-apply-row"><a href="mailto:careers@onchaincreator.org?subject=Application%3A%20'+encodeURIComponent(c.title)+'" class="btn btn-white" style="font-size:13px;padding:10px 22px;text-decoration:none;">Apply via Email</a></div>';
       document.getElementById('career-overlay').classList.add('open');
       document.body.style.overflow = 'hidden';
     }
