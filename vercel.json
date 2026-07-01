@@ -1,8 +1,11 @@
 {
   "framework": null,
-  "buildCommand": "",
-  "installCommand": "",
-  "outputDirectory": "artifacts/onchaincreator",
+  "installCommand": "npm install -g pnpm@10 && pnpm install --frozen-lockfile",
+  "buildCommand": "pnpm --filter @workspace/onchaincreator run build",
+  "outputDirectory": "artifacts/onchaincreator/dist/public",
+  "env": {
+    "BASE_PATH": "/"
+  },
   "rewrites": [
     {
       "source": "/((?!api(?:/|$)|\\.well-known(?:/|$)).*)",
