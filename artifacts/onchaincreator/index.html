@@ -181,6 +181,10 @@
       padding: 4px;
       background: none;
       border: none;
+      position: relative;
+      z-index: 201;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
     }
     .hamburger span {
       display: block;
@@ -198,7 +202,7 @@
       left: 0; right: 0;
       background: var(--gray-900);
       border-bottom: 1px solid var(--border);
-      z-index: 190;
+      z-index: 201;
       padding: 16px 24px 24px;
       display: none;
       flex-direction: column;
@@ -208,6 +212,9 @@
     .mobile-menu-link {
       padding: 10px 0;
       font-size: 15px;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+      cursor: pointer;
       font-weight: 500;
       color: var(--gray-300);
       cursor: pointer;
@@ -1018,11 +1025,11 @@
     }
     .modal-select option { background: var(--gray-900); }
     .modal-btn {
-      width: 100%; padding: 13px; background: var(--brand-blue); color: #fff;
+      width: 100%; padding: 13px; background: var(--brand-blue); color: #0D0D0D;
       border: none; border-radius: var(--r-sm); font-family: var(--font);
       font-weight: 700; font-size: 14px; cursor: pointer; transition: background 0.15s;
     }
-    .modal-btn:hover { background: #1540CC; opacity: 1; }
+    .modal-btn:hover { background: #c8d000; opacity: 1; }
     .modal-note { font-size: 11px; color: var(--gray-600); text-align: center; font-family: var(--font-mono); margin-top: 4px; }
     .modal-tabs { display: flex; gap: 8px; margin-bottom: 20px; }
     .modal-tab {
@@ -1769,8 +1776,8 @@ nav {
 .mobile-menu-lang { border-top-color:rgba(0,0,0,0.07); }
 
 /* NAV BUTTONS */
-.btn-nav { background:var(--brand-blue); color:#fff; font-family:var(--font); font-weight:600; }
-.btn-nav:hover { background:#1540CC; opacity:1; }
+.btn-nav { background:var(--brand-blue); color:#0D0D0D; font-family:var(--font); font-weight:600; }
+.btn-nav:hover { background:#c8d000; opacity:1; }
 .btn-nav-ghost { color:#555; border-color:rgba(0,0,0,0.18); font-family:var(--font); }
 .btn-nav-ghost:hover { border-color:#0A0808; color:#0A0808; background:#EDEBE5; }
 .nav-avatar { background:#EDEBE5; border-color:rgba(0,0,0,0.18); color:#0A0808; }
@@ -1786,8 +1793,8 @@ h1.display, h2.section-h { color:#0A0808; font-family:var(--font-display); }
 .section-h { color:#0A0808; font-family:var(--font-display); }
 
 /* BUTTONS */
-.btn-white { background:var(--brand-blue); color:#fff; }
-.btn-white:hover { background:#1540CC; }
+.btn-white { background:var(--brand-blue); color:#0D0D0D; }
+.btn-white:hover { background:#c8d000; }
 .btn-outline { color:#0A0808; border-color:rgba(0,0,0,0.2); }
 .btn-outline:hover { background:#EDEBE5; border-color:rgba(0,0,0,0.3); }
 
@@ -1881,8 +1888,8 @@ h1.display, h2.section-h { color:#0A0808; font-family:var(--font-display); }
 .camp-pill { border-color:rgba(0,0,0,0.1); color:#7A7876; font-family:var(--font-mono); }
 .camp-badge { border-color:rgba(0,0,0,0.12); color:#7A7876; }
 .camp-badge.open { border-color:rgba(232,240,0,0.4); color:var(--brand-blue); }
-.camp-apply { background:var(--brand-blue); color:#fff; border:none; font-family:var(--font); font-weight:600; }
-.camp-apply:hover { background:#1540CC; opacity:1; }
+.camp-apply { background:var(--brand-blue); color:#0D0D0D; border:none; font-family:var(--font); font-weight:600; }
+.camp-apply:hover { background:#c8d000; opacity:1; }
 .camp-footer { border-top-color:rgba(0,0,0,0.07); }
 
 /* FILTER CHIPS */
@@ -2661,7 +2668,7 @@ footer { border-top-color:rgba(0,0,0,0.07); background:#EDEBE5; }
 /* STEP LIT ANIMATION (for how-it-works) */
 .step-lit .step-num-badge {
   background: #E8F000 !important;
-  color: #fff !important;
+  color: #0D0D0D !important;
   box-shadow: 0 0 0 6px rgba(232,240,0,0.12);
   transform: scale(1.08);
   transition: all 0.3s ease;
